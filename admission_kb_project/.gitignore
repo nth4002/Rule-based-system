@@ -1,0 +1,36 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+
+# Editors and OS noise
+.DS_Store
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Python packaging and build artifacts
+.build/
+dist/
+build/
+*.egg-info/
+
+# Data outputs
+/data/extracted/
+/data/raw_docs/
+/kb/*.json
+
+# Logs
+*.log
+
+# Cache
+.cache/
+.pytest_cache/
+
