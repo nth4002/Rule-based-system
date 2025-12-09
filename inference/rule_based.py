@@ -1,5 +1,7 @@
 import json
 import os
+import re
+from difflib import SequenceMatcher
 
 class RuleBasedInference:
     """Hệ thống suy luận dựa trên luật đơn giản để giới thiệu ngành học"""
@@ -15,6 +17,21 @@ class RuleBasedInference:
             self.kb = json.load(f)
         
         self.majors = self.kb.get('chuyen_nganh', [])
+        
+        # Load additional knowledge bases
+        kb_dir = os.path.join(os.path.dirname(kb_path), 'knowledge_base')
+        self.faqs = self._load_json(os.path.join(kb_dir, 'faq.json'))
+        self.scholarships = self._load_json(os.path.join(kb_dir, 'hoc_bong.json'))
+        self.rules = self._load_json(os.path.join(kb_dir, 'luat_dan.json'))
+        self.admission_methods = self._load_json(os.path.join(kb_dir, 'phuong_thuc_tuyen_sinh.json'))
+    
+    def _load_json(self, path):
+        """Load JSON file"""
+        try:
+            with open(path, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except:
+            return []
     
     def forward_inference(self, to_hop_mon=None, diem=None):
         """
@@ -70,4 +87,732 @@ class RuleBasedInference:
             output += "\n"
         
         return output
+    
+    # ============= PHẦN 1: TRA CỨU THEO ĐIỂM SỐ =============
+    
+    def find_majors_by_score(self, diem_thi, phuong_thuc='diem_thi_thpt'):
+        """Tìm ngành phù hợp theo điểm số"""
+        result = {
+            'danh_sach_nganh': [],
+            'thong_bao': '',
+            'goi_y': []
+        }
+        
+        matching_majors = []
+        near_majors = []
+        
+        for major in self.majors:
+            diem_chuan = major.get('diem_trung_tuyen')
+            if diem_chuan is None:
+                continue  # Bỏ qua các ngành không có điểm chuẩn
+            
+            chenh_lech = diem_thi - diem_chuan
+            
+            major_info = {
+                'ma_nganh': major.get('ma_nganh'),
+                'ten': major.get('ten'),
+                'diem_chuan': diem_chuan,
+                'chenh_lech': round(chenh_lech, 2)
+            }
+            
+            if chenh_lech >= 0:
+                major_info['trang_thai'] = 'Đạt điểm chuẩn'
+                matching_majors.append(major_info)
+            elif chenh_lech >= -1:
+                major_info['trang_thai'] = 'Gần đạt điểm chuẩn'
+                near_majors.append(major_info)
+        
+        # Sắp xếp theo điểm chuẩn giảm dần
+        matching_majors.sort(key=lambda x: x['diem_chuan'], reverse=True)
+        near_majors.sort(key=lambda x: x['diem_chuan'], reverse=True)
+        
+        if matching_majors:
+            result['danh_sach_nganh'] = matching_majors[:10] + near_majors[:3]
+            result['thong_bao'] = f"Bạn có thể xét tuyển vào {len(matching_majors)} ngành với điểm số này"
+        else:
+            result['thong_bao'] = f"Rất tiếc, điểm số của bạn chưa đủ để xét tuyển vào bất kỳ ngành nào của UIT"
+            if near_majors:
+                nearest = near_majors[0]
+                result['thong_bao'] += f" (Điểm chuẩn thấp nhất: {nearest['diem_chuan']} điểm - Ngành {nearest['ten']})"
+            
+            result['goi_y'] = [
+                "Xem xét phương thức xét tuyển ĐGNL (Đánh giá năng lực)",
+                "Tham gia kỳ thi SAT/ACT để xét tuyển theo chứng chỉ quốc tế",
+                "Cải thiện điểm số và xét tuyển bổ sung"
+            ]
+        
+        return result
+    
+    # ============= PHẦN 2: TRA CỨU THEO ĐGNL =============
+    
+    def find_majors_by_dgnl(self, diem_dgnl, chung_chi_ngoai_ngu=None):
+        """Tìm ngành theo điểm ĐGNL"""
+        result = {
+            'danh_sach_nganh': [],
+            'thong_bao': '',
+            'goi_y': []
+        }
+        
+        # Tính điểm cộng từ chứng chỉ ngoại ngữ
+        diem_cong = 0
+        if chung_chi_ngoai_ngu:
+            loai = chung_chi_ngoai_ngu.get('loai', '').upper()
+            diem_cn = chung_chi_ngoai_ngu.get('diem', 0)
+            
+            if loai == 'IELTS':
+                if diem_cn >= 7.5:
+                    diem_cong = 45
+                elif diem_cn >= 7.0:
+                    diem_cong = 40
+                elif diem_cn >= 6.5:
+                    diem_cong = 30
+                elif diem_cn >= 6.0:
+                    diem_cong = 20
+            elif loai == 'TOEFL IBT':
+                if diem_cn >= 100:
+                    diem_cong = 45
+                elif diem_cn >= 90:
+                    diem_cong = 40
+                elif diem_cn >= 80:
+                    diem_cong = 30
+        
+        diem_xet_tuyen = diem_dgnl + diem_cong
+        
+        # Kiểm tra ngưỡng đầu vào
+        if diem_dgnl < 600:
+            result['thong_bao'] = "Điểm ĐGNL của bạn chưa đạt ngưỡng đầu vào (≥600 điểm)"
+            result['goi_y'] = [
+                "Đăng ký thi lại kỳ thi ĐGNL",
+                "Xem xét phương thức xét tuyển điểm thi THPT",
+                "Nâng cao điểm ĐGNL bằng chứng chỉ ngoại ngữ (cộng tối đa 120 điểm)"
+            ]
+            return result
+        
+        matching_majors = []
+        for major in self.majors:
+            diem_chuan_dgnl = major.get('diem_trung_tuyen_dgnl')
+            if diem_chuan_dgnl is None:
+                continue  # Bỏ qua các ngành không có điểm chuẩn ĐGNL
+            
+            if diem_xet_tuyen >= diem_chuan_dgnl:
+                major_info = {
+                    'ma_nganh': major.get('ma_nganh'),
+                    'ten': major.get('ten'),
+                    'diem_chuan_dgnl': diem_chuan_dgnl,
+                    'diem_xet_tuyen': diem_xet_tuyen,
+                    'trang_thai': 'Đạt điểm chuẩn'
+                }
+                
+                if diem_cong > 0:
+                    major_info['chi_tiet_diem'] = {
+                        'diem_dgnl': diem_dgnl,
+                        'diem_cong_ngoai_ngu': diem_cong
+                    }
+                
+                matching_majors.append(major_info)
+        
+        matching_majors.sort(key=lambda x: x['diem_chuan_dgnl'], reverse=True)
+        
+        if matching_majors:
+            result['danh_sach_nganh'] = matching_majors
+            if len(matching_majors) == len(self.majors):
+                result['thong_bao'] = "Chúc mừng! Bạn đủ điều kiện xét tuyển vào tất cả các ngành của UIT"
+            else:
+                result['thong_bao'] = f"Bạn đủ điều kiện xét tuyển vào {len(matching_majors)} ngành"
+        else:
+            result['thong_bao'] = "Điểm ĐGNL của bạn chưa đủ để xét tuyển"
+        
+        return result
+    
+    # ============= PHẦN 3: FORWARD CHAINING - ÁP DỤNG LUẬT DẪN =============
+    
+    def recommend_by_interests(self, so_thich_list, diem_thi=None):
+        """Tư vấn ngành học dựa trên sở thích bằng forward chaining"""
+        result = {
+            'luat_ap_dung': [],
+            'danh_sach_nganh_phu_hop': [],
+            'do_tin_cay': 0
+        }
+        
+        if not so_thich_list:
+            return result
+        
+        # Tìm các luật phù hợp
+        applied_rules = []
+        recommended_major_ids = set()
+        
+        for rule in self.rules:
+            ve_trai = rule.get('veTrai', [])
+            # Kiểm tra xem có sở thích nào khớp với điều kiện của luật
+            if any(st in ve_trai for st in so_thich_list):
+                ve_phai = rule.get('vePhai', [])
+                applied_rules.append({
+                    'rule_id': rule.get('id'),
+                    'mo_ta': rule.get('mo_ta'),
+                    'trong_so': rule.get('trong_so', 0.5),
+                    'nganh_goi_y': ve_phai
+                })
+                recommended_major_ids.update(ve_phai)
+        
+        result['luat_ap_dung'] = applied_rules
+        
+        # Map các ID ngành sang thông tin chi tiết
+        major_map = self._build_major_mapping()
+        
+        recommended_majors = []
+        for major_id in recommended_major_ids:
+            major = major_map.get(major_id)
+            if major:
+                major_info = {
+                    'ma_nganh': major.get('ma_nganh'),
+                    'ten': major.get('ten'),
+                    'diem_chuan': major.get('diem_trung_tuyen'),
+                    'co_hoi_nghe_nghiep': major.get('co_hoi_nghe_nghiep', [])
+                }
+                
+                # Kiểm tra điểm nếu có
+                if diem_thi is not None:
+                    diem_chuan = major.get('diem_trung_tuyen', 30)
+                    if diem_thi >= diem_chuan:
+                        major_info['trang_thai'] = 'Đạt'
+                    elif diem_thi >= diem_chuan - 1:
+                        major_info['trang_thai'] = 'Gần đạt'
+                    else:
+                        major_info['trang_thai'] = 'Chưa đạt'
+                    
+                    # Lý do phù hợp
+                    major_info['ly_do'] = self._generate_reason(so_thich_list, major)
+                
+                recommended_majors.append(major_info)
+        
+        # Sắp xếp theo điểm chuẩn
+        if diem_thi is not None:
+            recommended_majors.sort(key=lambda x: abs(x.get('diem_chuan', 30) - diem_thi))
+        
+        result['danh_sach_nganh_phu_hop'] = recommended_majors
+        
+        # Tính độ tin cậy trung bình
+        if applied_rules:
+            result['do_tin_cay'] = sum(r['trong_so'] for r in applied_rules) / len(applied_rules)
+        
+        return result
+    
+    def _build_major_mapping(self):
+        """Tạo mapping từ mã ngành sang thông tin ngành"""
+        mapping = {}
+        
+        # Mapping từ ID luật sang mã ngành thực tế
+        id_to_code = {
+            'nganh_AI': '7480107',                # Trí tuệ Nhân tạo
+            'nganh_data_science': '7460108',      # Khoa học Dữ liệu (đã sửa từ 7340408)
+            'nganh_phan_mem': '7480103',          # Kỹ thuật Phần mềm (đã sửa từ 7480104)
+            'nganh_MMT': '7480102',               # Mạng máy tính
+            'nganh_mang': '7480102',              # Alias cho MMT
+            'nganh_TMDT': '7340122',              # Thương mại Điện tử
+            'nganh_HTTT': '7480104',              # Hệ thống Thông tin (đã sửa từ 7340405)
+            'nganh_CNTT': '7480201',              # Công nghệ Thông tin
+            'nganh_KHMT': '7480101',              # Khoa học Máy tính (đã sửa từ 7480103)
+            'nganh_an_toan_TT': '7480202',        # An toàn Thông tin
+            'nganh_ATTT': '7480202'               # Alias
+        }
+        
+        for major in self.majors:
+            ma_nganh = major.get('ma_nganh')
+            mapping[ma_nganh] = major
+            
+            # Thêm mapping cho các ID trong luật
+            for logic_id, code in id_to_code.items():
+                if code == ma_nganh:
+                    mapping[logic_id] = major
+        
+        return mapping
+    
+    def _generate_reason(self, so_thich_list, major):
+        """Tạo lý do phù hợp dựa trên sở thích"""
+        reasons = []
+        
+        if 'thich_AI' in so_thich_list or 'thich_ML' in so_thich_list:
+            if 'AI' in major.get('ten', '') or 'Trí tuệ' in major.get('ten', ''):
+                reasons.append('Phù hợp với sở thích AI, ML')
+        
+        if 'thich_du_lieu' in so_thich_list:
+            if 'Dữ liệu' in major.get('ten', ''):
+                reasons.append('Phù hợp với phân tích dữ liệu')
+        
+        if 'thich_lap_trinh' in so_thich_list:
+            if any(k in major.get('keywords', []) for k in ['lập trình', 'phần mềm']):
+                reasons.append('Phù hợp với lập trình')
+        
+        if 'thich_bao_mat' in so_thich_list or 'thich_an_ninh_mang' in so_thich_list:
+            if 'An toàn' in major.get('ten', '') or 'Bảo mật' in major.get('ten', ''):
+                reasons.append('Phù hợp với bảo mật, an ninh mạng')
+        
+        return ', '.join(reasons) if reasons else 'Phù hợp với ngành CNTT'
+    
+    # ============= PHẦN 4: TRA CỨU FAQ =============
+    
+    def search_faq(self, tu_khoa):
+        """Tìm kiếm FAQ theo từ khóa"""
+        if not tu_khoa:
+            return {'thong_bao': 'Vui lòng nhập từ khóa tìm kiếm'}
+        
+        tu_khoa_lower = tu_khoa.lower()
+        best_match = None
+        best_score = 0
+        
+        for faq in self.faqs:
+            # Tìm trong câu hỏi
+            score = self._similarity(tu_khoa_lower, faq.get('cau_hoi', '').lower())
+            
+            # Tìm trong keywords
+            for keyword in faq.get('keywords', []):
+                kw_score = self._similarity(tu_khoa_lower, keyword.lower())
+                score = max(score, kw_score)
+            
+            if score > best_score:
+                best_score = score
+                best_match = faq
+        
+        if best_match and best_score > 0.3:
+            result = {
+                'faq_id': best_match.get('id'),
+                'cau_hoi': best_match.get('cau_hoi'),
+                'tra_loi': best_match.get('tra_loi'),
+                'luat_lien_quan': best_match.get('related_rules', []),
+                'nganh_lien_quan': best_match.get('related_majors', [])
+            }
+            
+            if 'chi_tiet' in best_match:
+                result['chi_tiet'] = best_match['chi_tiet']
+            
+            return result
+        else:
+            return {
+                'thong_bao': 'Không tìm thấy câu hỏi phù hợp trong cơ sở dữ liệu',
+                'goi_y_tu_khoa': [
+                    'học phí UIT',
+                    'học bổng',
+                    'phương thức tuyển sinh',
+                    'điểm chuẩn'
+                ]
+            }
+    
+    def _similarity(self, str1, str2):
+        """Tính độ tương đồng giữa 2 chuỗi"""
+        if str1 in str2 or str2 in str1:
+            return 0.9
+        return SequenceMatcher(None, str1, str2).ratio()
+    
+    # ============= PHẦN 5: TRA CỨU HỌC BỔNG =============
+    
+    def search_scholarships(self, input_data):
+        """Tìm kiếm học bổng"""
+        thanh_tich = input_data.get('thanh_tich', '')
+        diem_thi = input_data.get('diem_thi')
+        loai_hoc_bong = input_data.get('loai_hoc_bong')
+        loai_truy_van = input_data.get('loai_truy_van')
+        
+        if loai_truy_van == 'tat_ca':
+            return {
+                'tong_so_hoc_bong': len(self.scholarships),
+                'danh_sach_hoc_bong': [
+                    {
+                        'id': hb.get('id'),
+                        'ten': hb.get('ten'),
+                        'gia_tri': hb.get('gia_tri')
+                    }
+                    for hb in self.scholarships
+                ]
+            }
+        
+        matching_scholarships = []
+        
+        for scholarship in self.scholarships:
+            matched = False
+            
+            # Tìm theo thành tích
+            if thanh_tich:
+                keywords = scholarship.get('keywords', [])
+                for keyword in keywords:
+                    if keyword.lower() in thanh_tich.lower():
+                        matched = True
+                        break
+            
+            # Tìm theo điểm cao
+            if loai_hoc_bong == 'diem_cao' and diem_thi:
+                if 'xuất sắc' in scholarship.get('ten', '').lower() or 'tân sinh viên' in scholarship.get('ten', '').lower():
+                    # Kiểm tra điều kiện
+                    for dk in scholarship.get('dieu_kien', []):
+                        if '28' in dk and diem_thi >= 28:
+                            matched = True
+                        elif '1100' in dk:  # ĐGNL
+                            matched = True
+            
+            if matched:
+                hb_info = {
+                    'id': scholarship.get('id'),
+                    'ten': scholarship.get('ten'),
+                    'gia_tri': scholarship.get('gia_tri'),
+                    'dieu_kien': scholarship.get('dieu_kien', [])
+                }
+                
+                if scholarship.get('ghi_chu'):
+                    hb_info['ghi_chu'] = scholarship.get('ghi_chu')
+                
+                matching_scholarships.append(hb_info)
+        
+        if matching_scholarships:
+            result = {
+                'hoc_bong': matching_scholarships,
+                'thong_bao': f"Bạn đủ điều kiện nhận {len(matching_scholarships)} học bổng"
+            }
+            
+            if matching_scholarships[0].get('id') == 'HB001':
+                result['thong_bao'] = "Chúc mừng! Bạn đủ điều kiện nhận học bổng giá trị cao nhất"
+            
+            return result
+        else:
+            return {
+                'hoc_bong': [],
+                'thong_bao': 'Không tìm thấy học bổng phù hợp với tiêu chí'
+            }
+    
+    # ============= PHẦN 6: PHƯƠNG THỨC TUYỂN SINH =============
+    
+    def get_admission_methods(self, phuong_thuc=None, loai_truy_van=None):
+        """Lấy thông tin phương thức tuyển sinh"""
+        if loai_truy_van == 'tat_ca_phuong_thuc':
+            return {
+                'tong_so_phuong_thuc': len(self.admission_methods),
+                'danh_sach': [
+                    {
+                        'id': pt.get('id'),
+                        'ten': pt.get('ten')
+                    }
+                    for pt in self.admission_methods
+                ]
+            }
+        
+        if phuong_thuc:
+            # Map tên phương thức sang ID
+            method_map = {
+                'tuyen_thang': 'PT01',
+                'dgnl': 'PT02',
+                'thpt': 'PT03',
+                'quoc_te': 'PT04'
+            }
+            
+            method_id = method_map.get(phuong_thuc)
+            
+            for method in self.admission_methods:
+                if method.get('id') == method_id:
+                    return {
+                        'id': method.get('id'),
+                        'ten': method.get('ten'),
+                        'doi_tuong': method.get('doi_tuong', []),
+                        'nguyen_tac_xet_tuyen': method.get('nguyen_tac_xet_tuyen', []),
+                        'huong_dan_thu_tuc': method.get('huong_dan_thu_tuc', [])
+                    }
+        
+        return {'thong_bao': 'Không tìm thấy phương thức tuyển sinh'}
+    
+    # ============= PHẦN 7: TÌM KIẾM TỔNG HỢP =============
+    
+    def complex_search(self, input_data):
+        """Tìm kiếm tổng hợp với nhiều điều kiện"""
+        diem_thi = input_data.get('diem_thi')
+        so_thich = input_data.get('so_thich', [])
+        to_hop_mon = input_data.get('to_hop_mon')
+        
+        # Bước 1: Lọc theo tổ hợp môn
+        candidates = self.forward_inference(to_hop_mon=to_hop_mon, diem=None)
+        
+        # Bước 2: Lọc theo điểm
+        if diem_thi:
+            candidates = [m for m in candidates if m.get('diem_trung_tuyen', 30) <= diem_thi]
+        
+        # Bước 3: Áp dụng luật dẫn cho sở thích
+        rules_applied = []
+        if so_thich:
+            recommendation = self.recommend_by_interests(so_thich, diem_thi)
+            rules_applied = [r['rule_id'] for r in recommendation.get('luat_ap_dung', [])]
+            
+            # Ưu tiên các ngành được gợi ý từ luật
+            recommended_ids = set()
+            for major in recommendation.get('danh_sach_nganh_phu_hop', []):
+                recommended_ids.add(major.get('ma_nganh'))
+        
+        # Xếp hạng các ngành
+        ranked_majors = []
+        for major in candidates:
+            ma_nganh = major.get('ma_nganh')
+            diem_chuan = major.get('diem_trung_tuyen', 30)
+            
+            major_info = {
+                'ma_nganh': ma_nganh,
+                'ten': major.get('ten'),
+                'diem_chuan': diem_chuan,
+                'ly_do_phu_hop': []
+            }
+            
+            # Tính độ phù hợp
+            do_phu_hop = 0
+            
+            if diem_thi:
+                chenh_lech = diem_thi - diem_chuan
+                major_info['trang_thai'] = 'Đạt' if chenh_lech >= 0 else 'Chưa đạt'
+                major_info['ly_do_phu_hop'].append(
+                    f"Điểm của bạn {'cao hơn' if chenh_lech >= 0 else 'thấp hơn'} điểm chuẩn {abs(chenh_lech):.1f} điểm"
+                )
+                
+                # Điểm càng vượt chuẩn thì độ phù hợp càng cao (nhưng không quá xa)
+                if chenh_lech >= 0:
+                    do_phu_hop += min(0.5, chenh_lech / 10)
+            
+            if so_thich and ma_nganh in recommended_ids:
+                major_info['ly_do_phu_hop'].append('Phù hợp với sở thích')
+                do_phu_hop += 0.4
+            
+            if to_hop_mon:
+                major_info['ly_do_phu_hop'].append(f'Chấp nhận tổ hợp môn {to_hop_mon}')
+                do_phu_hop += 0.1
+            
+            major_info['do_phu_hop'] = round(do_phu_hop, 2)
+            ranked_majors.append(major_info)
+        
+        # Sắp xếp theo độ phù hợp
+        ranked_majors.sort(key=lambda x: x['do_phu_hop'], reverse=True)
+        
+        # Tìm học bổng tiềm năng
+        hoc_bong_co_the_nhan = []
+        if diem_thi and diem_thi >= 28:
+            hoc_bong_co_the_nhan.append('HB007')
+        
+        return {
+            'ket_qua_tim_kiem': {
+                'nganh_phu_hop_nhat': ranked_majors[:5],
+                'luat_ap_dung': rules_applied,
+                'hoc_bong_co_the_nhan': hoc_bong_co_the_nhan
+            }
+        }
+    
+    # ============= PHẦN 8: TƯ VẤN TOÀN DIỆN =============
+    
+    def comprehensive_consultation(self, thong_tin):
+        """Tư vấn toàn diện dựa trên thông tin cá nhân"""
+        diem_thi = thong_tin.get('diem_thi')
+        diem_dgnl = thong_tin.get('diem_dgnl')
+        to_hop_mon = thong_tin.get('to_hop_mon')
+        chung_chi = thong_tin.get('chung_chi_ngoai_ngu')
+        thanh_tich = thong_tin.get('thanh_tich', '')
+        so_thich = thong_tin.get('so_thich', [])
+        
+        result = {
+            'phan_tich_tong_quan': {
+                'diem_manh': []
+            },
+            'nganh_de_xuat': [],
+            'hoc_bong_du_kien': [],
+            'luat_ap_dung': [],
+            'goi_y_hanh_dong': []
+        }
+        
+        # Phân tích điểm mạnh
+        if diem_thi and diem_thi >= 28:
+            result['phan_tich_tong_quan']['diem_manh'].append(f'Điểm thi THPT cao ({diem_thi})')
+        
+        if diem_dgnl and diem_dgnl >= 1000:
+            result['phan_tich_tong_quan']['diem_manh'].append(f'Điểm ĐGNL xuất sắc ({diem_dgnl})')
+        
+        if chung_chi:
+            loai = chung_chi.get('loai')
+            diem = chung_chi.get('diem')
+            result['phan_tich_tong_quan']['diem_manh'].append(f'Có chứng chỉ {loai} {diem}')
+        
+        if thanh_tich:
+            result['phan_tich_tong_quan']['diem_manh'].append(f'Có thành tích {thanh_tich}')
+        
+        # Xác định phương thức tốt nhất
+        if diem_dgnl and diem_dgnl >= 900:
+            result['phan_tich_tong_quan']['phuong_thuc_tot_nhat'] = 'dgnl'
+            
+            # Tính điểm sau cộng
+            diem_cong = 0
+            if chung_chi and chung_chi.get('loai') == 'IELTS':
+                diem_ielts = chung_chi.get('diem', 0)
+                if diem_ielts >= 7.0:
+                    diem_cong = 40
+            
+            result['phan_tich_tong_quan']['diem_xet_tuyen_sau_cong'] = diem_dgnl + diem_cong
+        elif diem_thi:
+            result['phan_tich_tong_quan']['phuong_thuc_tot_nhat'] = 'diem_thi_thpt'
+        
+        # Đề xuất ngành học
+        if diem_thi and diem_thi >= 28:
+            # Với điểm cao (>= 28): Hiển thị TẤT CẢ ngành đạt yêu cầu, ưu tiên ngành có luật phù hợp
+            all_qualified_majors = []
+            recommended_ids = set()
+            
+            # Bước 1: Lấy các ngành được đề xuất từ luật (nếu có sở thích)
+            if so_thich:
+                recommendation = self.recommend_by_interests(so_thich, diem_thi)
+                for major in recommendation.get('danh_sach_nganh_phu_hop', []):
+                    if major.get('trang_thai') != 'Chưa đạt':
+                        all_qualified_majors.append({
+                            'ma_nganh': major.get('ma_nganh'),
+                            'ten': major.get('ten'),
+                            'diem_chuan': major.get('diem_chuan'),
+                            'trang_thai': major.get('trang_thai'),
+                            'ly_do': major.get('ly_do'),
+                            'uu_tien': 1  # Ưu tiên cao vì match với sở thích
+                        })
+                        recommended_ids.add(major.get('ma_nganh'))
+                
+                result['luat_ap_dung'] = [
+                    {'rule_id': r['rule_id'], 'trong_so': r['trong_so']}
+                    for r in recommendation.get('luat_ap_dung', [])
+                ]
+            
+            # Bước 2: Thêm TẤT CẢ ngành còn lại mà người dùng đủ điểm đỗ
+            for major in self.majors:
+                ma_nganh = major.get('ma_nganh')
+                if ma_nganh not in recommended_ids:  # Chưa có trong danh sách
+                    diem_chuan = major.get('diem_trung_tuyen')
+                    if diem_chuan is None:  # Bỏ qua ngành không có điểm chuẩn
+                        continue
+                    
+                    if diem_thi >= diem_chuan:  # Đủ điểm đỗ
+                        all_qualified_majors.append({
+                            'ma_nganh': ma_nganh,
+                            'ten': major.get('ten'),
+                            'diem_chuan': diem_chuan,
+                            'trang_thai': 'Đạt',
+                            'ly_do': f'Điểm của bạn cao hơn điểm chuẩn {diem_thi - diem_chuan:.1f} điểm',
+                            'uu_tien': 2  # Ưu tiên thấp hơn
+                        })
+            
+            # Sắp xếp: Ưu tiên các ngành match sở thích trước, sau đó theo điểm chuẩn
+            all_qualified_majors.sort(key=lambda x: (x['uu_tien'], -x['diem_chuan']))
+            
+            # Thêm vào kết quả với ranking
+            for rank, major in enumerate(all_qualified_majors, 1):
+                result['nganh_de_xuat'].append({
+                    'hang': rank,
+                    'ma_nganh': major['ma_nganh'],
+                    'ten': major['ten'],
+                    'diem_chuan': major['diem_chuan'],
+                    'trang_thai': major['trang_thai'],
+                    'ly_do': major['ly_do'],
+                    'do_phu_hop': 0.9 if major['uu_tien'] == 1 else 0.7
+                })
+        
+        elif diem_thi:
+            # Với điểm thấp hơn 28: 
+            # - Nếu CÓ sở thích: CHỈ hiển thị ngành match với sở thích
+            # - Nếu KHÔNG có sở thích: Hiển thị top 10 ngành đủ điểm
+            
+            if so_thich:
+                # CÓ SỞ THÍCH: Chỉ hiển thị các ngành được đề xuất từ luật, không thêm ngành khác
+                recommendation = self.recommend_by_interests(so_thich, diem_thi)
+                
+                rank = 1
+                for major in recommendation.get('danh_sach_nganh_phu_hop', []):
+                    if major.get('trang_thai') != 'Chưa đạt':
+                        result['nganh_de_xuat'].append({
+                            'hang': rank,
+                            'ma_nganh': major.get('ma_nganh'),
+                            'ten': major.get('ten'),
+                            'diem_chuan': major.get('diem_chuan'),
+                            'trang_thai': major.get('trang_thai'),
+                            'ly_do': major.get('ly_do'),
+                            'do_phu_hop': round(recommendation.get('do_tin_cay', 0.8), 2)
+                        })
+                        rank += 1
+                
+                result['luat_ap_dung'] = [
+                    {'rule_id': r['rule_id'], 'trong_so': r['trong_so']}
+                    for r in recommendation.get('luat_ap_dung', [])
+                ]
+            
+            else:
+                # KHÔNG CÓ SỞ THÍCH: Hiển thị top 10 ngành đủ điểm
+                all_qualified_majors = []
+                
+                for major in self.majors:
+                    ma_nganh = major.get('ma_nganh')
+                    diem_chuan = major.get('diem_trung_tuyen')
+                    if diem_chuan is None:
+                        continue
+                    
+                    if diem_thi >= diem_chuan:
+                        all_qualified_majors.append({
+                            'ma_nganh': ma_nganh,
+                            'ten': major.get('ten'),
+                            'diem_chuan': diem_chuan,
+                            'trang_thai': 'Đạt',
+                            'ly_do': f'Điểm của bạn cao hơn điểm chuẩn {diem_thi - diem_chuan:.1f} điểm'
+                        })
+                
+                # Sắp xếp theo điểm chuẩn cao xuống thấp
+                all_qualified_majors.sort(key=lambda x: -x['diem_chuan'])
+                
+                for rank, major in enumerate(all_qualified_majors[:10], 1):
+                    result['nganh_de_xuat'].append({
+                        'hang': rank,
+                        'ma_nganh': major['ma_nganh'],
+                        'ten': major['ten'],
+                        'diem_chuan': major['diem_chuan'],
+                        'trang_thai': major['trang_thai'],
+                        'ly_do': major['ly_do'],
+                        'do_phu_hop': 0.7
+                    })
+        
+        # Đề xuất học bổng
+        if diem_thi and diem_thi >= 28:
+            result['hoc_bong_du_kien'].append({
+                'id': 'HB007',
+                'ten': 'Học bổng Tân sinh viên Xuất sắc',
+                'gia_tri': '60.000.000 đồng',
+                'xac_suat_nhan': 'Cao'
+            })
+        
+        if 'Olympic' in thanh_tich:
+            result['hoc_bong_du_kien'].append({
+                'id': 'HB011',
+                'ten': 'Học bổng Khuyến khích Thí sinh Olympic',
+                'gia_tri': '20.000.000 đồng',
+                'xac_suat_nhan': 'Trung bình'
+            })
+        
+        # Gợi ý hành động
+        if result['nganh_de_xuat']:
+            nganh_top = result['nganh_de_xuat'][0]
+            phuong_thuc = result['phan_tich_tong_quan'].get('phuong_thuc_tot_nhat', 'diem_thi_thpt')
+            
+            result['goi_y_hanh_dong'].append(
+                f"1. Đăng ký xét tuyển ngành {nganh_top['ten']} theo phương thức {phuong_thuc.upper()}"
+            )
+            
+            if len(result['nganh_de_xuat']) > 1:
+                result['goi_y_hanh_dong'].append(
+                    f"2. Dự phòng đăng ký ngành {result['nganh_de_xuat'][1]['ten']}"
+                )
+        
+        if result['hoc_bong_du_kien']:
+            result['goi_y_hanh_dong'].append(
+                f"{len(result['goi_y_hanh_dong']) + 1}. Dự phòng đăng ký {len(result['hoc_bong_du_kien'])} học bổng (tổng giá trị dự kiến: {sum(int(hb['gia_tri'].replace('.000.000 đồng', '')) for hb in result['hoc_bong_du_kien'])}.000.000 đồng)"
+            )
+        
+        # Nếu không có ngành nào đạt yêu cầu
+        if not result['nganh_de_xuat']:
+            if diem_thi:
+                result['goi_y_hanh_dong'].append(
+                    "⚠️ Điểm hiện tại chưa đủ để đạt các ngành phù hợp với sở thích. Hãy cố gắng nâng cao điểm số hoặc cân nhắc các ngành khác."
+                )
+            else:
+                result['goi_y_hanh_dong'].append(
+                    "ℹ️ Vui lòng cung cấp điểm thi để nhận tư vấn chi tiết hơn."
+                )
+        
+        return result
 

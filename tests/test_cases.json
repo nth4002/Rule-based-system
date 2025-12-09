@@ -1,0 +1,306 @@
+{
+  "test_metadata": {
+    "description": "Test cases cho Hệ thống Tư vấn Tuyển sinh UIT",
+    "version": "1.0",
+    "total_tests": 20
+  },
+  
+  "tests": [
+    {
+      "id": "TC001",
+      "name": "Tìm ngành phù hợp với điểm số cao",
+      "category": "tra_cuu_theo_diem",
+      "input": {
+        "diem_thi": 29.5,
+        "phuong_thuc": "diem_thi_thpt"
+      },
+      "expected": {
+        "status": "success",
+        "min_majors": 10,
+        "should_include": ["7480107", "7480104", "7340405"],
+        "thong_bao_pattern": "có thể xét tuyển"
+      }
+    },
+    {
+      "id": "TC002",
+      "name": "Tìm ngành phù hợp với điểm số trung bình",
+      "category": "tra_cuu_theo_diem",
+      "input": {
+        "diem_thi": 26.0,
+        "phuong_thuc": "diem_thi_thpt"
+      },
+      "expected": {
+        "status": "success",
+        "min_majors": 5,
+        "should_include": ["7480201", "7480103"],
+        "thong_bao_pattern": "có thể xét tuyển"
+      }
+    },
+    {
+      "id": "TC003",
+      "name": "Tìm ngành với điểm số thấp",
+      "category": "tra_cuu_theo_diem",
+      "input": {
+        "diem_thi": 23.5,
+        "phuong_thuc": "diem_thi_thpt"
+      },
+      "expected": {
+        "status": "fail",
+        "majors_count": 0,
+        "thong_bao_pattern": "chưa đủ",
+        "should_have_suggestions": true
+      }
+    },
+    {
+      "id": "TC004",
+      "name": "Xét tuyển theo điểm ĐGNL cao",
+      "category": "tra_cuu_dgnl",
+      "input": {
+        "diem_dgnl": 1000,
+        "chung_chi_ngoai_ngu": {
+          "loai": "IELTS",
+          "diem": 7.5
+        },
+        "phuong_thuc": "dgnl"
+      },
+      "expected": {
+        "status": "success",
+        "diem_cong_expected": 45,
+        "should_include": ["7480107", "7480104"],
+        "thong_bao_pattern": "Chúc mừng"
+      }
+    },
+    {
+      "id": "TC005",
+      "name": "Xét tuyển ĐGNL không đủ điều kiện",
+      "category": "tra_cuu_dgnl",
+      "input": {
+        "diem_dgnl": 550,
+        "phuong_thuc": "dgnl"
+      },
+      "expected": {
+        "status": "fail",
+        "majors_count": 0,
+        "thong_bao_pattern": "chưa đạt ngưỡng",
+        "should_have_suggestions": true
+      }
+    },
+    {
+      "id": "TC006",
+      "name": "Tư vấn ngành học dựa trên sở thích - AI/ML",
+      "category": "forward_chaining",
+      "input": {
+        "so_thich": ["thich_AI", "thich_ML", "thich_du_lieu"],
+        "diem_thi": 28.0
+      },
+      "expected": {
+        "status": "success",
+        "rules_applied": ["R004"],
+        "should_include": ["7480107", "7340408"],
+        "do_tin_cay_min": 0.85
+      }
+    },
+    {
+      "id": "TC007",
+      "name": "Tư vấn ngành học - Lập trình phần mềm",
+      "category": "forward_chaining",
+      "input": {
+        "so_thich": ["thich_lap_trinh", "thich_phat_trien_ung_dung"],
+        "diem_thi": 27.5
+      },
+      "expected": {
+        "status": "success",
+        "rules_applied": ["R003"],
+        "should_include": ["7480104", "7480201"],
+        "do_tin_cay_min": 0.8
+      }
+    },
+    {
+      "id": "TC008",
+      "name": "Tư vấn ngành học - An ninh mạng",
+      "category": "forward_chaining",
+      "input": {
+        "so_thich": ["thich_bao_mat", "thich_an_ninh_mang"],
+        "diem_thi": 26.5
+      },
+      "expected": {
+        "status": "success",
+        "rules_applied": ["R005"],
+        "should_include": ["7340405"],
+        "do_tin_cay_min": 0.85
+      }
+    },
+    {
+      "id": "TC009",
+      "name": "Kết hợp nhiều luật - Điểm cao + Sở thích AI",
+      "category": "forward_chaining",
+      "input": {
+        "so_thich": ["thich_AI", "diem_cao"],
+        "diem_thi": 29.5
+      },
+      "expected": {
+        "status": "success",
+        "rules_applied": ["R001", "R004"],
+        "primary_major": "7480107",
+        "do_tin_cay_min": 0.9
+      }
+    },
+    {
+      "id": "TC010",
+      "name": "Tìm kiếm FAQ - Ngành điểm cao nhất",
+      "category": "faq",
+      "input": {
+        "tu_khoa": "điểm cao nhất"
+      },
+      "expected": {
+        "status": "success",
+        "faq_id": "FAQ001",
+        "should_mention_major": "7480107"
+      }
+    },
+    {
+      "id": "TC011",
+      "name": "Tìm kiếm FAQ - Học phí",
+      "category": "faq",
+      "input": {
+        "tu_khoa": "học phí"
+      },
+      "expected": {
+        "status": "success",
+        "should_contain": "37.000.000"
+      }
+    },
+    {
+      "id": "TC012",
+      "name": "Tìm kiếm FAQ không có kết quả",
+      "category": "faq",
+      "input": {
+        "tu_khoa": "học phí trường đại học Bách Khoa"
+      },
+      "expected": {
+        "status": "not_found",
+        "should_have_suggestions": true
+      }
+    },
+    {
+      "id": "TC013",
+      "name": "Tìm học bổng theo thành tích Olympic Tin học",
+      "category": "hoc_bong",
+      "input": {
+        "thanh_tich": "Giải Nhất Olympic Tin học Quốc gia THPT"
+      },
+      "expected": {
+        "status": "success",
+        "hoc_bong_id": "HB001",
+        "gia_tri_min": 250000000
+      }
+    },
+    {
+      "id": "TC014",
+      "name": "Tìm học bổng theo điểm số cao",
+      "category": "hoc_bong",
+      "input": {
+        "diem_thi": 29.0,
+        "loai_hoc_bong": "diem_cao"
+      },
+      "expected": {
+        "status": "success",
+        "hoc_bong_id": "HB007",
+        "gia_tri_min": 60000000
+      }
+    },
+    {
+      "id": "TC015",
+      "name": "Tìm tất cả học bổng có sẵn",
+      "category": "hoc_bong",
+      "input": {
+        "loai_truy_van": "tat_ca"
+      },
+      "expected": {
+        "status": "success",
+        "min_scholarships": 10
+      }
+    },
+    {
+      "id": "TC016",
+      "name": "Tra cứu thông tin tuyển thẳng",
+      "category": "phuong_thuc_tuyen_sinh",
+      "input": {
+        "phuong_thuc": "tuyen_thang"
+      },
+      "expected": {
+        "status": "success",
+        "method_id": "PT01",
+        "should_contain": "tuyển thẳng"
+      }
+    },
+    {
+      "id": "TC017",
+      "name": "Tra cứu phương thức ĐGNL",
+      "category": "phuong_thuc_tuyen_sinh",
+      "input": {
+        "phuong_thuc": "dgnl"
+      },
+      "expected": {
+        "status": "success",
+        "method_id": "PT02",
+        "should_contain": "ĐGNL"
+      }
+    },
+    {
+      "id": "TC018",
+      "name": "Liệt kê tất cả phương thức tuyển sinh",
+      "category": "phuong_thuc_tuyen_sinh",
+      "input": {
+        "loai_truy_van": "tat_ca_phuong_thuc"
+      },
+      "expected": {
+        "status": "success",
+        "min_methods": 4
+      }
+    },
+    {
+      "id": "TC019",
+      "name": "Tìm kiếm tổng hợp - Điểm, sở thích, tổ hợp môn",
+      "category": "complex_query",
+      "input": {
+        "diem_thi": 27.0,
+        "so_thich": ["thich_lap_trinh"],
+        "to_hop_mon": "A01",
+        "muc_tieu": "tim_nganh_phu_hop"
+      },
+      "expected": {
+        "status": "success",
+        "should_include": ["7480201"],
+        "should_apply_multiple_filters": true
+      }
+    },
+    {
+      "id": "TC020",
+      "name": "Kịch bản hoàn chỉnh - Tư vấn toàn diện",
+      "category": "comprehensive",
+      "input": {
+        "thong_tin_ca_nhan": {
+          "diem_thi": 28.5,
+          "diem_dgnl": 1050,
+          "to_hop_mon": "A00",
+          "chung_chi_ngoai_ngu": {
+            "loai": "IELTS",
+            "diem": 7.0
+          },
+          "thanh_tich": "Giải Ba Olympic Tin học tỉnh",
+          "so_thich": ["thich_AI", "thich_du_lieu"]
+        },
+        "yeu_cau": "tu_van_toan_dien"
+      },
+      "expected": {
+        "status": "success",
+        "should_have_analysis": true,
+        "should_suggest_majors": true,
+        "should_suggest_scholarships": true,
+        "should_suggest_methods": true,
+        "primary_major": "7480107"
+      }
+    }
+  ]
+}

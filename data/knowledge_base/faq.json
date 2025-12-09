@@ -156,5 +156,21 @@
     "related_majors": [
       "7340122"
     ]
+  },
+  {
+    "id": "FAQ011",
+    "cau_hoi": "Học phí UIT là bao nhiêu?",
+    "tra_loi": "Học phí chuẩn cho sinh viên mới là 37.000.000 đồng/năm. Học phí cho học lại/cải thiện là 1.150.000 đồng/tín chỉ. Chương trình liên kết quốc tế (BCIT) là 80.000.000 đồng/năm.",
+    "chi_tiet": {
+      "hoc_phi_chuan": "37.000.000 đồng/năm",
+      "hoc_phi_hoc_lai": "1.150.000 đồng/tín chỉ",
+      "hoc_phi_lien_ket": "80.000.000 đồng/năm",
+      "hoc_phi_van_bang_2": "40.000.000 đồng/năm"
+    },
+    "keywords": [
+      "học phí",
+      "chi phí",
+      "tiền học"
+    ]
   }
 ]

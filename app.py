@@ -52,7 +52,7 @@ def find_majors(to_hop_mon, diem):
     return output
 
 # Tạo giao diện Gradio
-with gr.Blocks(title="Hệ thống Tư vấn Ngành học - UIT", theme=gr.themes.Soft()) as app:
+with gr.Blocks(title="Hệ thống Tư vấn Ngành học - UIT") as app:
     gr.Markdown(
         """
         # 🎓 Hệ thống Tư vấn Ngành học
