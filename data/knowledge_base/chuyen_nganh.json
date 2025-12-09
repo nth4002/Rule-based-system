@@ -1,0 +1,1149 @@
+[
+  {
+    "id": "7480201",
+    "ten": "Cử nhân Công nghệ Thông tin",
+    "ma_nganh": "7480201",
+    "mo_ta": "Chương trình tổng quát CNTT: lập trình, cơ sở dữ liệu, mạng, hệ điều hành, luận văn/đồ án.",
+    "co_hoi_nghe_nghiep": [
+      "Lập trình viên",
+      "Kỹ sư phần mềm",
+      "Sysadmin",
+      "DevOps"
+    ],
+    "diem_trung_tuyen": 26.6,
+    "diem_trung_tuyen_dgnl": 969,
+    "to_hop_mon": [
+      "A00",
+      "A01",
+      "D01",
+      "D07",
+      "X06",
+      "X26"
+    ],
+    "to_hop_mon_chi_tiet": [
+      {
+        "ma": "A00",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Hóa học"
+        ]
+      },
+      {
+        "ma": "A01",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "D01",
+        "mon": [
+          "Toán",
+          "Văn",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "D07",
+        "mon": [
+          "Toán",
+          "Hóa học",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "X06",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Tin học"
+        ]
+      },
+      {
+        "ma": "X26",
+        "mon": [
+          "Toán",
+          "Tiếng Anh",
+          "Tin học"
+        ]
+      }
+    ],
+    "chi_tieu": 120,
+    "keywords": [
+      "CNTT",
+      "lập trình",
+      "DB",
+      "hệ điều hành"
+    ],
+    "nguon_tham_khao": "https://student.uit.edu.vn/content/cu-nhan-nganh-cong-nghe-thong-tin-ap-dung-tu-khoa-19-2024"
+  },
+  {
+    "id": "7480104",
+    "ten": "Cử nhân Hệ thống Thông tin",
+    "ma_nganh": "7480104",
+    "mo_ta": "Ứng dụng CNTT cho quản trị doanh nghiệp, phân tích hệ thống, tích hợp và triển khai phần mềm quản lý.",
+    "co_hoi_nghe_nghiep": [
+      "Business analyst",
+      "IT consultant",
+      "Triển khai ERP"
+    ],
+    "diem_trung_tuyen": 24.7,
+    "diem_trung_tuyen_dgnl": 891,
+    "to_hop_mon": [
+      "A00",
+      "A01",
+      "D01",
+      "D07",
+      "D08",
+      "X06",
+      "X26"
+    ],
+    "to_hop_mon_chi_tiet": [
+      {
+        "ma": "A00",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Hóa học"
+        ]
+      },
+      {
+        "ma": "A01",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "D01",
+        "mon": [
+          "Toán",
+          "Văn",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "D07",
+        "mon": [
+          "Toán",
+          "Hóa học",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "D08",
+        "mon": [
+          "Toán",
+          "Sinh học",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "X06",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Tin học"
+        ]
+      },
+      {
+        "ma": "X26",
+        "mon": [
+          "Toán",
+          "Tiếng Anh",
+          "Tin học"
+        ]
+      }
+    ],
+    "chi_tieu": 180,
+    "keywords": [
+      "IS",
+      "ERP",
+      "phân tích hệ thống"
+    ],
+    "nguon_tham_khao": "https://student.uit.edu.vn/content/cu-nhan-nganh-he-thong-thong-tin-ap-dung-tu-khoa-19-2024"
+  },
+  {
+    "id": "7480104_TT",
+    "ten": "Chương trình tiên tiến ngành Hệ thống Thông tin",
+    "ma_nganh": "7480104_TT",
+    "mo_ta": "CT tiên tiến (tăng cường tiếng Anh, học thuật, dự án lớn) cho sinh viên chọn chuyên sâu hệ thống thông tin.",
+    "co_hoi_nghe_nghiep": [
+      "Tư vấn CNTT",
+      "Roles toàn cầu",
+      "Chuyển tiếp học quốc tế"
+    ],
+    "diem_trung_tuyen": 24.2,
+    "diem_trung_tuyen_dgnl": 867,
+    "to_hop_mon": [
+      "A01",
+      "D01",
+      "D07",
+      "D08",
+      "X26"
+    ],
+    "to_hop_mon_chi_tiet": [
+      {
+        "ma": "A01",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "D01",
+        "mon": [
+          "Toán",
+          "Văn",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "D07",
+        "mon": [
+          "Toán",
+          "Hóa học",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "D08",
+        "mon": [
+          "Toán",
+          "Sinh học",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "X26",
+        "mon": [
+          "Toán",
+          "Tiếng Anh",
+          "Tin học"
+        ]
+      }
+    ],
+    "chi_tieu": 80,
+    "keywords": [
+      "tiên tiến",
+      "IS",
+      "quốc tế"
+    ],
+    "nguon_tham_khao": "https://student.uit.edu.vn/content/chuong-trinh-tien-tien-nganh-he-thong-thong-tin-ap-dung-tu-khoa-18-2023"
+  },
+  {
+    "id": "748011",
+    "ten": "Cử nhân Khoa học Máy tính (CT liên kết với Birmingham City)",
+    "ma_nganh": "748011",
+    "mo_ta": "CT Khoa học Máy tính chuẩn, có chương trình liên kết quốc tế với ĐH Birmingham City.",
+    "co_hoi_nghe_nghiep": [
+      "R&D",
+      "Developer cao cấp",
+      "Tiếp tục học quốc tế"
+    ],
+    "diem_trung_tuyen": null,
+    "keywords": [
+      "CS",
+      "liên kết UK",
+      "thuật toán"
+    ],
+    "nguon_tham_khao": "https://student.uit.edu.vn/content/cu-nhan-nganh-khoa-hoc-may-tinh-chuong-trinh-lien-ket-voi-dh-birmingham-city-ap-dung-tu-0"
+  },
+  {
+    "id": "7480102_BCU",
+    "ten": "Cử nhân Mạng máy tính & An toàn Thông tin (liên kết Birmingham City)",
+    "ma_nganh": "7480102 / 7480202",
+    "mo_ta": "Chương trình kết hợp mạng và an ninh, có phương thức liên kết quốc tế.",
+    "co_hoi_nghe_nghiep": [
+      "Kỹ sư mạng",
+      "Chuyên viên an ninh",
+      "SOC analyst"
+    ],
+    "diem_trung_tuyen": null,
+    "keywords": [
+      "mạng",
+      "an ninh mạng",
+      "liên kết"
+    ],
+    "nguon_tham_khao": "https://student.uit.edu.vn/content/cu-nhan-nganh-mang-may-tinh-va-toan-thong-tin-chuong-trinh-lien-ket-voi-dh-birmingham-city-2"
+  },
+  {
+    "id": "7480101",
+    "ten": "Cử nhân Khoa học Máy tính",
+    "ma_nganh": "7480101",
+    "mo_ta": "CT Khoa học máy tính chuẩn; thuật toán, cấu trúc dữ liệu, AI, hệ phân tán.",
+    "co_hoi_nghe_nghiep": [
+      "Developer",
+      "Nghiên cứu",
+      "Data engineer"
+    ],
+    "diem_trung_tuyen": 27.2,
+    "diem_trung_tuyen_dgnl": 993,
+    "to_hop_mon": [
+      "A00",
+      "A01",
+      "D01",
+      "D07",
+      "X06",
+      "X26"
+    ],
+    "to_hop_mon_chi_tiet": [
+      {
+        "ma": "A00",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Hóa học"
+        ]
+      },
+      {
+        "ma": "A01",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "D01",
+        "mon": [
+          "Toán",
+          "Văn",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "D07",
+        "mon": [
+          "Toán",
+          "Hóa học",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "X06",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Tin học"
+        ]
+      },
+      {
+        "ma": "X26",
+        "mon": [
+          "Toán",
+          "Tiếng Anh",
+          "Tin học"
+        ]
+      }
+    ],
+    "chi_tieu": 280,
+    "keywords": [
+      "CS",
+      "thuật toán",
+      "hệ phân tán"
+    ],
+    "nguon_tham_khao": "https://student.uit.edu.vn/content/cu-nhan-nganh-khoa-hoc-may-tinh-ap-dung-tu-khoa-19-2024"
+  },
+  {
+    "id": "7480103",
+    "ten": "Cử nhân Kỹ thuật Phần mềm",
+    "ma_nganh": "7480103",
+    "mo_ta": "Thiết kế và phát triển phần mềm quy mô lớn, kiểm thử, quản lý dự án phần mềm.",
+    "co_hoi_nghe_nghiep": [
+      "Software engineer",
+      "QA",
+      "Tech lead",
+      "PM"
+    ],
+    "diem_trung_tuyen": 26.0,
+    "diem_trung_tuyen_dgnl": 946,
+    "to_hop_mon": [
+      "A00",
+      "A01",
+      "D01",
+      "D07",
+      "X06",
+      "X26"
+    ],
+    "to_hop_mon_chi_tiet": [
+      {
+        "ma": "A00",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Hóa học"
+        ]
+      },
+      {
+        "ma": "A01",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "D01",
+        "mon": [
+          "Toán",
+          "Văn",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "D07",
+        "mon": [
+          "Toán",
+          "Hóa học",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "X06",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Tin học"
+        ]
+      },
+      {
+        "ma": "X26",
+        "mon": [
+          "Toán",
+          "Tiếng Anh",
+          "Tin học"
+        ]
+      }
+    ],
+    "chi_tieu": 240,
+    "keywords": [
+      "SE",
+      "SDLC",
+      "kiểm thử"
+    ],
+    "nguon_tham_khao": "https://student.uit.edu.vn/content/cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-20-2025"
+  },
+  {
+    "id": "7480107",
+    "ten": "Cử nhân Trí tuệ Nhân tạo",
+    "ma_nganh": "7480107",
+    "mo_ta": "Tập trung học máy, deep learning, xử lý ảnh/NGT, ứng dụng AI.",
+    "co_hoi_nghe_nghiep": [
+      "ML engineer",
+      "Data scientist",
+      "Researcher"
+    ],
+    "diem_trung_tuyen": 29.6,
+    "diem_trung_tuyen_dgnl": 1098,
+    "to_hop_mon": [
+      "A00",
+      "A01",
+      "D01",
+      "D07",
+      "X06",
+      "X26"
+    ],
+    "to_hop_mon_chi_tiet": [
+      {
+        "ma": "A00",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Hóa học"
+        ]
+      },
+      {
+        "ma": "A01",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "D01",
+        "mon": [
+          "Toán",
+          "Văn",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "D07",
+        "mon": [
+          "Toán",
+          "Hóa học",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "X06",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Tin học"
+        ]
+      },
+      {
+        "ma": "X26",
+        "mon": [
+          "Toán",
+          "Tiếng Anh",
+          "Tin học"
+        ]
+      }
+    ],
+    "chi_tieu": 40,
+    "keywords": [
+      "AI",
+      "ML",
+      "deep learning"
+    ],
+    "nguon_tham_khao": "https://student.uit.edu.vn/content/cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-19-2024"
+  },
+  {
+    "id": "7480106",
+    "ten": "Cử nhân Kỹ thuật Máy tính",
+    "ma_nganh": "7480106",
+    "mo_ta": "Thiết kế phần cứng, kiến trúc máy tính, hệ nhúng, vi mạch cơ bản.",
+    "co_hoi_nghe_nghiep": [
+      "Kỹ sư phần cứng",
+      "Hệ nhúng",
+      "Thiết kế board"
+    ],
+    "diem_trung_tuyen": 25.3,
+    "diem_trung_tuyen_dgnl": 923,
+    "to_hop_mon": [
+      "A00",
+      "A01",
+      "X06",
+      "X26"
+    ],
+    "to_hop_mon_chi_tiet": [
+      {
+        "ma": "A00",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Hóa học"
+        ]
+      },
+      {
+        "ma": "A01",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "X06",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Tin học"
+        ]
+      },
+      {
+        "ma": "X26",
+        "mon": [
+          "Toán",
+          "Tiếng Anh",
+          "Tin học"
+        ]
+      }
+    ],
+    "chi_tieu": 220,
+    "keywords": [
+      "kỹ thuật máy tính",
+      "nhúng",
+      "phần cứng"
+    ],
+    "nguon_tham_khao": "https://student.uit.edu.vn/content/cu-nhan-nganh-ky-thuat-may-tinh-ap-dung-tu-khoa-19-2024"
+  },
+  {
+    "id": "7480106_NCL",
+    "ten": "Cử nhân Kỹ thuật Hệ thống Máy tính (liên kết ĐH Newcastle, Úc)",
+    "ma_nganh": "CT liên kết",
+    "mo_ta": "CT hệ thống máy tính theo chuẩn quốc tế, liên kết với ĐH Newcastle.",
+    "co_hoi_nghe_nghiep": [
+      "Kỹ sư hệ thống",
+      "Roles toàn cầu",
+      "Chuyển tiếp du học"
+    ],
+    "diem_trung_tuyen": null,
+    "keywords": [
+      "hệ thống máy tính",
+      "liên kết Úc"
+    ],
+    "nguon_tham_khao": "https://student.uit.edu.vn/content/cu-nhan-nganh-ky-thuat-he-thong-may-tinh-chuong-trinh-lien-ket-voi-truong-dai-hoc-newcastle"
+  },
+  {
+    "id": "75202A1",
+    "ten": "Cử nhân Thiết kế Vi mạch",
+    "ma_nganh": "75202A1",
+    "mo_ta": "Thiết kế vi mạch số/analog, FPGA, VLSI cơ bản.",
+    "co_hoi_nghe_nghiep": [
+      "Kỹ sư thiết kế chip",
+      "FPGA engineer",
+      "R&D phần cứng"
+    ],
+    "diem_trung_tuyen": 27.0,
+    "diem_trung_tuyen_dgnl": 984,
+    "to_hop_mon": [
+      "A00",
+      "A01",
+      "X06",
+      "X26"
+    ],
+    "to_hop_mon_chi_tiet": [
+      {
+        "ma": "A00",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Hóa học"
+        ]
+      },
+      {
+        "ma": "A01",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "X06",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Tin học"
+        ]
+      },
+      {
+        "ma": "X26",
+        "mon": [
+          "Toán",
+          "Tiếng Anh",
+          "Tin học"
+        ]
+      }
+    ],
+    "chi_tieu": 100,
+    "keywords": [
+      "VLSI",
+      "FPGA",
+      "thiết kế vi mạch"
+    ],
+    "nguon_tham_khao": "https://student.uit.edu.vn/content/cu-nhan-nganh-thiet-ke-vi-mach-ap-dung-tu-khoa-19-2024"
+  },
+  {
+    "id": "7320104",
+    "ten": "Cử nhân Truyền thông đa phương tiện",
+    "ma_nganh": "7320104",
+    "mo_ta": "Nội dung số, đồ họa chuyển động, sản xuất media, UX/UI cơ bản.",
+    "co_hoi_nghe_nghiep": [
+      "Designer",
+      "UI/UX",
+      "Multimedia producer",
+      "Front-end dev"
+    ],
+    "diem_trung_tuyen": 25.0,
+    "diem_trung_tuyen_dgnl": 911,
+    "to_hop_mon": [
+      "A01",
+      "D01",
+      "D09",
+      "D10",
+      "X26"
+    ],
+    "to_hop_mon_chi_tiet": [
+      {
+        "ma": "A01",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "D01",
+        "mon": [
+          "Toán",
+          "Văn",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "D09",
+        "mon": [
+          "Toán",
+          "Lịch sử",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "D10",
+        "mon": [
+          "Toán",
+          "Địa lý",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "X26",
+        "mon": [
+          "Toán",
+          "Tiếng Anh",
+          "Tin học"
+        ]
+      }
+    ],
+    "chi_tieu": 60,
+    "keywords": [
+      "multimedia",
+      "UX",
+      "đồ họa"
+    ],
+    "nguon_tham_khao": "https://student.uit.edu.vn/content/cu-nhan-nganh-truyen-thong-da-phuong-tien-ap-dung-tu-khoa-20-2025"
+  },
+  {
+    "id": "7480102",
+    "ten": "Cử nhân Mạng máy tính & Truyền thông Dữ liệu",
+    "ma_nganh": "7480102",
+    "mo_ta": "Mạng, truyền thông, routing, switching, wireless, IoT cơ bản.",
+    "co_hoi_nghe_nghiep": [
+      "Network engineer",
+      "Hệ thống viễn thông",
+      "IoT developer"
+    ],
+    "diem_trung_tuyen": 24.0,
+    "diem_trung_tuyen_dgnl": 854,
+    "to_hop_mon": [
+      "A00",
+      "A01",
+      "D01",
+      "D07",
+      "X06",
+      "X14",
+      "X26"
+    ],
+    "to_hop_mon_chi_tiet": [
+      {
+        "ma": "A00",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Hóa học"
+        ]
+      },
+      {
+        "ma": "A01",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "D01",
+        "mon": [
+          "Toán",
+          "Văn",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "D07",
+        "mon": [
+          "Toán",
+          "Hóa học",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "X06",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Tin học"
+        ]
+      },
+      {
+        "ma": "X14",
+        "mon": [
+          "Toán",
+          "Sinh học",
+          "Tin học"
+        ]
+      },
+      {
+        "ma": "X26",
+        "mon": [
+          "Toán",
+          "Tiếng Anh",
+          "Tin học"
+        ]
+      }
+    ],
+    "chi_tieu": 200,
+    "keywords": [
+      "mạng",
+      "truyền thông",
+      "IoT"
+    ],
+    "nguon_tham_khao": "https://student.uit.edu.vn/content/cu-nhan-nganh-mang-may-tinh-va-truyen-thong-du-lieu-ap-dung-tu-khoa-19-2024"
+  },
+  {
+    "id": "7480202",
+    "ten": "Cử nhân An toàn Thông tin",
+    "ma_nganh": "7480202",
+    "mo_ta": "Chuyên sâu an toàn thông tin: mã hóa, pentest, forensic, chính sách bảo mật.",
+    "co_hoi_nghe_nghiep": [
+      "Chuyên gia an ninh",
+      "Pentester",
+      "Analyst SOC"
+    ],
+    "diem_trung_tuyen": 26.27,
+    "diem_trung_tuyen_dgnl": 956,
+    "to_hop_mon": [
+      "A00",
+      "A01",
+      "D01",
+      "D07",
+      "X06",
+      "X26"
+    ],
+    "to_hop_mon_chi_tiet": [
+      {
+        "ma": "A00",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Hóa học"
+        ]
+      },
+      {
+        "ma": "A01",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "D01",
+        "mon": [
+          "Toán",
+          "Văn",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "D07",
+        "mon": [
+          "Toán",
+          "Hóa học",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "X06",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Tin học"
+        ]
+      },
+      {
+        "ma": "X26",
+        "mon": [
+          "Toán",
+          "Tiếng Anh",
+          "Tin học"
+        ]
+      }
+    ],
+    "chi_tieu": 180,
+    "keywords": [
+      "an toàn thông tin",
+      "pentest"
+    ],
+    "nguon_tham_khao": "https://student.uit.edu.vn/content/cu-nhan-nganh-toan-thong-tin-ap-dung-tu-khoa-19-2024"
+  },
+  {
+    "id": "7340122",
+    "ten": "Cử nhân Thương mại Điện tử",
+    "ma_nganh": "7340122",
+    "mo_ta": "Kết hợp CNTT & kinh doanh: nền tảng e-commerce, thanh toán, logistics.",
+    "co_hoi_nghe_nghiep": [
+      "Product manager TMĐT",
+      "Digital marketer",
+      "Backend/frontend dev TMĐT"
+    ],
+    "diem_trung_tuyen": 24.57,
+    "diem_trung_tuyen_dgnl": 889,
+    "to_hop_mon": [
+      "A00",
+      "A01",
+      "D01",
+      "D07",
+      "X06",
+      "X26"
+    ],
+    "to_hop_mon_chi_tiet": [
+      {
+        "ma": "A00",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Hóa học"
+        ]
+      },
+      {
+        "ma": "A01",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "D01",
+        "mon": [
+          "Toán",
+          "Văn",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "D07",
+        "mon": [
+          "Toán",
+          "Hóa học",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "X06",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Tin học"
+        ]
+      },
+      {
+        "ma": "X26",
+        "mon": [
+          "Toán",
+          "Tiếng Anh",
+          "Tin học"
+        ]
+      }
+    ],
+    "chi_tieu": 140,
+    "keywords": [
+      "e-commerce",
+      "platform",
+      "digital"
+    ],
+    "nguon_tham_khao": "https://student.uit.edu.vn/content/cu-nhan-nganh-thuong-mai-dien-tu-ap-dung-tu-khoa-19-2024"
+  },
+  {
+    "id": "7340122_SONG",
+    "ten": "Chương trình đào tạo song ngành Thương mại Điện tử",
+    "ma_nganh": "song ngành",
+    "mo_ta": "Học song hành kiến thức TMĐT + ngành phụ (theo CT).",
+    "co_hoi_nghe_nghiep": [
+      "Vai trò đa năng trong TMĐT",
+      "Tư vấn",
+      "Quản lý sản phẩm"
+    ],
+    "diem_trung_tuyen": null,
+    "keywords": [
+      "song ngành",
+      "TMĐT"
+    ],
+    "nguon_tham_khao": "https://student.uit.edu.vn/content/cu-nhan-nganh-thuong-mai-dien-tu-ap-dung-tu-khoa-19-2024"
+  },
+  {
+    "id": "7460108",
+    "ten": "Cử nhân Khoa học Dữ liệu (Data Science)",
+    "ma_nganh": "7460108",
+    "mo_ta": "Toán thống kê, ML, khai phá dữ liệu và trực quan hóa.",
+    "co_hoi_nghe_nghiep": [
+      "Data scientist",
+      "BI analyst",
+      "ML engineer"
+    ],
+    "diem_trung_tuyen": 27.7,
+    "diem_trung_tuyen_dgnl": 1010,
+    "to_hop_mon": [
+      "A00",
+      "A01",
+      "A02",
+      "D01",
+      "D07",
+      "X06",
+      "X26"
+    ],
+    "to_hop_mon_chi_tiet": [
+      {
+        "ma": "A00",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Hóa học"
+        ]
+      },
+      {
+        "ma": "A01",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "A02",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Sinh học"
+        ]
+      },
+      {
+        "ma": "D01",
+        "mon": [
+          "Toán",
+          "Văn",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "D07",
+        "mon": [
+          "Toán",
+          "Hóa học",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "X06",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Tin học"
+        ]
+      },
+      {
+        "ma": "X26",
+        "mon": [
+          "Toán",
+          "Tiếng Anh",
+          "Tin học"
+        ]
+      }
+    ],
+    "chi_tieu": 80,
+    "keywords": [
+      "Data Science",
+      "ML",
+      "thống kê"
+    ],
+    "nguon_tham_khao": "https://student.uit.edu.vn/content/cu-nhan-khoa-hoc-nganh-khoa-hoc-du-lieu-ap-dung-tu-khoa-19-2024"
+  },
+  {
+    "id": "7480201_VN",
+    "ten": "Cử nhân Công nghệ Thông tin (Việt-Nhật)",
+    "ma_nganh": "7480201_VN",
+    "mo_ta": "Chương trình CNTT định hướng hợp tác Việt–Nhật: vừa đào tạo kiến thức nền tảng CNTT (lập trình, hệ thống, mạng, DB, AI cơ bản) vừa tăng cường tiếng Nhật và kỹ năng nghề theo chuẩn Nhật",
+    "co_hoi_nghe_nghiep": [
+      "Tuyển dụng trong doanh nghiệp Việt-Nhật",
+      "Cơ hội thực tập/việc làm tại Nhật"
+    ],
+    "diem_trung_tuyen": 24.2,
+    "diem_trung_tuyen_dgnl": 867,
+    "to_hop_mon": [
+      "A00",
+      "A01",
+      "D01",
+      "D06",
+      "D07",
+      "X06",
+      "X26"
+    ],
+    "to_hop_mon_chi_tiet": [
+      {
+        "ma": "A00",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Hóa học"
+        ]
+      },
+      {
+        "ma": "A01",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "D01",
+        "mon": [
+          "Toán",
+          "Văn",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "D06",
+        "mon": [
+          "Toán",
+          "Văn",
+          "Tiếng Nhật"
+        ]
+      },
+      {
+        "ma": "D07",
+        "mon": [
+          "Toán",
+          "Hóa học",
+          "Tiếng Anh"
+        ]
+      },
+      {
+        "ma": "X06",
+        "mon": [
+          "Toán",
+          "Vật lý",
+          "Tin học"
+        ]
+      },
+      {
+        "ma": "X26",
+        "mon": [
+          "Toán",
+          "Tiếng Anh",
+          "Tin học"
+        ]
+      }
+    ],
+    "chi_tieu": 130,
+    "keywords": [
+      "Việt-Nhật",
+      "ITSS",
+      "tiếng Nhật",
+      "7480201_N"
+    ],
+    "nguon_tham_khao": "https://student.uit.edu.vn/content/cu-nhan-nganh-cong-nghe-thong-tin-ap-dung-tu-khoa-19-2024"
+  }
+]

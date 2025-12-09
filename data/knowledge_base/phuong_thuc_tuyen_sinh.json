@@ -1,0 +1,104 @@
+[
+  {
+    "id": "PT01",
+    "ten": "Tuyển thẳng & Ưu tiên xét tuyển",
+    "doi_tuong": [
+      "Học sinh được tuyển thẳng theo Điều 8 Quy chế tuyển sinh Bộ GD&ĐT",
+      "Học sinh giỏi THPT (học lực Giỏi, hạnh kiểm Tốt)",
+      "Học sinh thuộc 149 trường THPT ưu tiên xét tuyển",
+      "Thí sinh đạt giải học thuật, thể thao",
+      "Có chứng chỉ quốc tế (SAT ≥1200, ACT ≥25, A-Level ≥B, IB ≥30)"
+    ],
+    "nguyen_tac_xet_tuyen": [
+      "Xét theo hồ sơ học bạ, thành tích và điều kiện tốt nghiệp",
+      "Điểm xét tuyển = Điểm học tập/tiêu chí + Điểm ưu tiên (nếu có)",
+      "Trường công bố kết quả theo lịch chính thức"
+    ],
+    "huong_dan_thu_tuc": [
+      "Đăng ký online trên cổng tuyển sinh UIT",
+      "Nộp minh chứng (chứng chỉ, giấy khen...)",
+      "Theo dõi kết quả trên trang UIT"
+    ],
+    "keywords": [
+      "tuyển thẳng",
+      "ưu tiên",
+      "chứng chỉ quốc tế",
+      "SAT",
+      "ACT",
+      "A-Level",
+      "IB"
+    ],
+    "nguon_tham_khao": "https://tuyensinh.uit.edu.vn/2025-phuong-thuc-tuyen-sinh-nam-2025"
+  },
+  {
+    "id": "PT02",
+    "ten": "Xét tuyển Kỳ thi Đánh giá năng lực (ĐHQG-HCM)",
+    "doi_tuong": [
+      "Thí sinh có kết quả kỳ thi ĐGNL ĐHQG-HCM 2025 đạt ngưỡng đầu vào (≥600 điểm)"
+    ],
+    "nguyen_tac_xet_tuyen": [
+      "Điểm xét tuyển = Điểm ĐGNL + Điểm cộng (chứng chỉ ngoại ngữ, ưu tiên...)",
+      "Thang điểm 1200, cộng tối đa 120 điểm",
+      "Cộng điểm ngoại ngữ (IELTS, TOEFL iBT, JLPT, TOEIC)"
+    ],
+    "huong_dan_thu_tuc": [
+      "Đăng ký thi ĐGNL theo lịch ĐHQG-HCM",
+      "Đăng ký xét tuyển tại UIT sau khi có điểm",
+      "Đính kèm chứng chỉ ngoại ngữ hợp lệ (nếu có)"
+    ],
+    "keywords": [
+      "ĐGNL",
+      "đánh giá năng lực",
+      "ĐHQG-HCM",
+      "ngoại ngữ",
+      "điểm cộng"
+    ],
+    "nguon_tham_khao": "https://tuyensinh.uit.edu.vn/2025-phuong-thuc-tuyen-sinh-nam-2025"
+  },
+  {
+    "id": "PT03",
+    "ten": "Xét tuyển kết quả Kỳ thi Tốt nghiệp THPT 2025",
+    "doi_tuong": [
+      "Thí sinh có kết quả kỳ thi THPT 2025 đạt ngưỡng đầu vào"
+    ],
+    "nguyen_tac_xet_tuyen": [
+      "Ngưỡng đảm bảo: 24.0 (Thiết kế vi mạch), 22.5 (ngành khác)",
+      "Điểm xét tuyển = Tổng 3 môn tổ hợp + Điểm cộng + Điểm ưu tiên",
+      "Không quy đổi chứng chỉ ngoại ngữ thay thế môn tiếng Anh"
+    ],
+    "huong_dan_thu_tuc": [
+      "Đăng ký nguyện vọng trên hệ thống Bộ GD&ĐT",
+      "Theo dõi kết quả và xác nhận nhập học đúng hạn"
+    ],
+    "keywords": [
+      "THPT",
+      "tốt nghiệp",
+      "điểm chuẩn",
+      "ngoại ngữ",
+      "ưu tiên"
+    ],
+    "nguon_tham_khao": "https://tuyensinh.uit.edu.vn/2025-phuong-thuc-tuyen-sinh-nam-2025"
+  },
+  {
+    "id": "PT04",
+    "ten": "Xét tuyển chương trình liên kết quốc tế",
+    "doi_tuong": [
+      "Thí sinh đăng ký chương trình liên kết quốc tế (Birmingham City, Newcastle...) có chứng chỉ ngoại ngữ hợp lệ"
+    ],
+    "nguyen_tac_xet_tuyen": [
+      "Mỗi chương trình có tiêu chí riêng: học lực, ngoại ngữ, phỏng vấn",
+      "Điểm xét tuyển = học bạ + ngoại ngữ + phỏng vấn (nếu có)"
+    ],
+    "huong_dan_thu_tuc": [
+      "Đăng ký theo hướng dẫn riêng từng chương trình",
+      "Nộp học bạ, chứng chỉ tiếng Anh, bài luận (nếu có)"
+    ],
+    "keywords": [
+      "chương trình liên kết",
+      "quốc tế",
+      "ngoại ngữ",
+      "phỏng vấn"
+    ],
+    "nguon_tham_khao": "https://tuyensinh.uit.edu.vn/2025-phuong-thuc-tuyen-sinh-nam-2025"
+  }
+]

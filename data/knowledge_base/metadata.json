@@ -1,0 +1,12 @@
+{
+  "domain": "Tuyển sinh Đại học Công nghệ Thông tin - ĐHQG-HCM",
+  "version": "2025",
+  "last_updated": "2025-11-25",
+  "description": "Cơ sở tri thức cho hệ thống hỏi đáp tuyển sinh UIT",
+  "tong_chi_tieu": 2200,
+  "lien_he": {
+    "website": "https://tuyensinh.uit.edu.vn",
+    "hotline": "028.3725.2002",
+    "email": "tuyensinh@uit.edu.vn"
+  }
+}

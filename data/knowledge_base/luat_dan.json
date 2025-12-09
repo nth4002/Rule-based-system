@@ -1,0 +1,335 @@
+[
+  {
+    "id": "R001",
+    "veTrai": [
+      "diem_cao"
+    ],
+    "vePhai": [
+      "nganh_AI"
+    ],
+    "mo_ta": "NẾU hỏi về ngành có điểm chuẩn cao THÌ Trí tuệ nhân tạo (29.60 điểm)",
+    "trong_so": 0.95
+  },
+  {
+    "id": "R002",
+    "veTrai": [
+      "diem_thap"
+    ],
+    "vePhai": [
+      "nganh_MMT",
+      "nganh_TMDT",
+      "nganh_HTTT_TT",
+      "nganh_CNTT_VN"
+    ],
+    "mo_ta": "NẾU hỏi về ngành có điểm chuẩn thấp THÌ Mạng máy tính (24.00), Thương mại điện tử (24.57), Hệ thống Thông tin tiên tiến (24.20), CNTT Việt-Nhật (24.20)",
+    "trong_so": 0.9
+  },
+  {
+    "id": "R003",
+    "veTrai": [
+      "thich_lap_trinh",
+      "thich_phat_trien_ung_dung"
+    ],
+    "vePhai": [
+      "nganh_phan_mem"
+    ],
+    "mo_ta": "NẾU thích lập trình và phát triển ứng dụng THÌ chọn Kỹ thuật Phần mềm hoặc CNTT",
+    "trong_so": 0.85
+  },
+  {
+    "id": "R004",
+    "veTrai": [
+      "thich_AI",
+      "thich_ML",
+      "thich_du_lieu"
+    ],
+    "vePhai": [
+      "nganh_AI",
+      "nganh_data_science"
+    ],
+    "mo_ta": "NẾU quan tâm đến AI, Machine Learning, phân tích dữ liệu THÌ chọn Trí tuệ nhân tạo hoặc Khoa học Dữ liệu",
+    "trong_so": 0.9
+  },
+  {
+    "id": "R005",
+    "veTrai": [
+      "thich_bao_mat",
+      "thich_pentest"
+    ],
+    "vePhai": [
+      "nganh_an_toan_TT"
+    ],
+    "mo_ta": "NẾU quan tâm đến bảo mật, an ninh mạng THÌ chọn An toàn Thông tin",
+    "trong_so": 0.88
+  },
+  {
+    "id": "R006",
+    "veTrai": [
+      "thich_mang",
+      "thich_he_thong"
+    ],
+    "vePhai": [
+      "nganh_mang"
+    ],
+    "mo_ta": "NẾU thích về mạng máy tính, hệ thống THÌ chọn Mạng máy tính & Truyền thông Dữ liệu",
+    "trong_so": 0.85
+  },
+  {
+    "id": "R007",
+    "veTrai": [
+      "thich_phan_cung",
+      "thich_thiet_ke_chip"
+    ],
+    "vePhai": [
+      "nganh_phan_cung"
+    ],
+    "mo_ta": "NẾU thích phần cứng, thiết kế vi mạch THÌ chọn Kỹ thuật Máy tính hoặc Thiết kế Vi mạch",
+    "trong_so": 0.87
+  },
+  {
+    "id": "R008",
+    "veTrai": [
+      "thich_kinh_doanh",
+      "thich_CNTT"
+    ],
+    "vePhai": [
+      "nganh_TMDT"
+    ],
+    "mo_ta": "NẾU muốn kết hợp kinh doanh và CNTT THÌ chọn Thương mại Điện tử",
+    "trong_so": 0.83
+  },
+  {
+    "id": "R009",
+    "veTrai": [
+      "thich_do_hoa",
+      "thich_UX_UI"
+    ],
+    "vePhai": [
+      "nganh_multimedia"
+    ],
+    "mo_ta": "NẾU thích thiết kế, đồ họa, UX/UI THÌ chọn Truyền thông đa phương tiện",
+    "trong_so": 0.82
+  },
+  {
+    "id": "R010",
+    "veTrai": [
+      "muon_hoc_quoc_te",
+      "co_ngoai_ngu_tot"
+    ],
+    "vePhai": [
+      "chuong_trinh_lien_ket"
+    ],
+    "mo_ta": "NẾU muốn học theo chuẩn quốc tế và có năng lực ngoại ngữ tốt THÌ chọn chương trình liên kết (Birmingham City, Newcastle)",
+    "trong_so": 0.88
+  },
+  {
+    "id": "R011",
+    "veTrai": [
+      "thich_tieng_nhat",
+      "muon_lam_viec_nhat"
+    ],
+    "vePhai": [
+      "chuong_trinh_viet_nhat"
+    ],
+    "mo_ta": "NẾU biết tiếng Nhật hoặc muốn làm việc tại Nhật THÌ chọn CNTT Việt-Nhật",
+    "trong_so": 0.86
+  },
+  {
+    "id": "R012",
+    "veTrai": [
+      "co_diem_DGNL",
+      "diem_DGNL_cao"
+    ],
+    "vePhai": [
+      "phuong_thuc_DGNL"
+    ],
+    "mo_ta": "NẾU có điểm ĐGNL ≥600 THÌ có thể xét tuyển qua phương thức ĐGNL",
+    "trong_so": 0.9
+  },
+  {
+    "id": "R013",
+    "veTrai": [
+      "hoc_sinh_gioi",
+      "co_giai_hoc_thuat",
+      "co_chung_chi_quoc_te"
+    ],
+    "vePhai": [
+      "phuong_thuc_tuyen_thang"
+    ],
+    "mo_ta": "NẾU là học sinh giỏi hoặc có giải học thuật hoặc có chứng chỉ quốc tế (SAT/ACT/A-Level/IB) THÌ có thể xét tuyển thẳng",
+    "trong_so": 0.95
+  },
+  {
+    "id": "R014",
+    "veTrai": [
+      "co_IELTS",
+      "co_TOEFL",
+      "co_TOEIC",
+      "co_JLPT"
+    ],
+    "vePhai": [
+      "diem_cong_ngoai_ngu"
+    ],
+    "mo_ta": "NẾU có chứng chỉ ngoại ngữ (IELTS, TOEFL iBT, TOEIC, JLPT) THÌ được cộng điểm khi xét tuyển ĐGNL",
+    "trong_so": 0.85
+  },
+  {
+    "id": "R015",
+    "veTrai": [
+      "xet_tuyen_THPT"
+    ],
+    "vePhai": [
+      "nguong_dam_bao"
+    ],
+    "mo_ta": "NẾU xét tuyển bằng điểm THPT THÌ ngưỡng đảm bảo là 22.5 điểm (24.0 với Thiết kế vi mạch)",
+    "trong_so": 0.92
+  },
+  {
+    "id": "R016",
+    "veTrai": [
+      "thich_thuat_toan",
+      "thich_nghien_cuu"
+    ],
+    "vePhai": [
+      "nganh_KHMT"
+    ],
+    "mo_ta": "NẾU thích thuật toán, nghiên cứu khoa học THÌ chọn Khoa học Máy tính",
+    "trong_so": 0.87
+  },
+  {
+    "id": "R017",
+    "veTrai": [
+      "thich_phan_tich_he_thong",
+      "thich_quan_tri_doanh_nghiep"
+    ],
+    "vePhai": [
+      "nganh_HTTT"
+    ],
+    "mo_ta": "NẾU thích phân tích hệ thống và ứng dụng CNTT trong doanh nghiệp THÌ chọn Hệ thống Thông tin",
+    "trong_so": 0.84
+  },
+  {
+    "id": "R018",
+    "veTrai": [
+      "diem_25_26"
+    ],
+    "vePhai": [
+      "nganh_HTTT",
+      "nganh_MMT",
+      "nganh_TMDT"
+    ],
+    "mo_ta": "NẾU điểm THPT trong khoảng 25-26 THÌ phù hợp với Hệ thống Thông tin, Mạng máy tính, Thương mại điện tử",
+    "trong_so": 0.8
+  },
+  {
+    "id": "R019",
+    "veTrai": [
+      "diem_27_28"
+    ],
+    "vePhai": [
+      "nganh_CNTT",
+      "nganh_KTPM",
+      "nganh_KHMT"
+    ],
+    "mo_ta": "NẾU điểm THPT trong khoảng 27-28 THÌ phù hợp với Công nghệ Thông tin, Kỹ thuật Phần mềm, Khoa học Máy tính",
+    "trong_so": 0.82
+  },
+  {
+    "id": "R020",
+    "veTrai": [
+      "diem_29_tro_len"
+    ],
+    "vePhai": [
+      "nganh_AI",
+      "nganh_data_science",
+      "nganh_KHMT"
+    ],
+    "mo_ta": "NẾU điểm THPT từ 29 trở lên THÌ phù hợp với Trí tuệ Nhân tạo, Khoa học Dữ liệu, Khoa học Máy tính",
+    "trong_so": 0.88
+  },
+  {
+    "id": "R021",
+    "veTrai": [
+      "to_hop_A00"
+    ],
+    "vePhai": [
+      "nganh_CNTT",
+      "nganh_KTPM",
+      "nganh_AI",
+      "nganh_KHMT"
+    ],
+    "mo_ta": "NẾU thi khối A00 (Toán, Lý, Hóa) THÌ phù hợp với CNTT, KTPM, AI, KHMT",
+    "trong_so": 0.85
+  },
+  {
+    "id": "R022",
+    "veTrai": [
+      "to_hop_D01"
+    ],
+    "vePhai": [
+      "nganh_TMDT",
+      "nganh_HTTT",
+      "nganh_multimedia"
+    ],
+    "mo_ta": "NẾU thi khối D01 (Toán, Văn, Anh) THÌ phù hợp với Thương mại điện tử, Hệ thống thông tin, Truyền thông đa phương tiện",
+    "trong_so": 0.83
+  },
+  {
+    "id": "R023",
+    "veTrai": [
+      "giai_olympic_tin_nhat"
+    ],
+    "vePhai": [
+      "hoc_bong_250_trieu"
+    ],
+    "mo_ta": "NẾU đạt giải Nhất Olympic Tin học Quốc tế hoặc Quốc gia THÌ nhận học bổng 250 triệu đồng",
+    "trong_so": 0.98
+  },
+  {
+    "id": "R024",
+    "veTrai": [
+      "hsg_quoc_gia"
+    ],
+    "vePhai": [
+      "hoc_bong_40_100_trieu"
+    ],
+    "mo_ta": "NẾU là Học sinh giỏi Quốc gia môn Toán/Lý/Hóa THÌ nhận học bổng 40-100 triệu đồng",
+    "trong_so": 0.92
+  },
+  {
+    "id": "R025",
+    "veTrai": [
+      "muon_lam_data_engineer"
+    ],
+    "vePhai": [
+      "nganh_data_science",
+      "nganh_KHMT"
+    ],
+    "mo_ta": "NẾU muốn làm Data Engineer THÌ chọn Khoa học Dữ liệu hoặc Khoa học Máy tính",
+    "trong_so": 0.86
+  },
+  {
+    "id": "R026",
+    "veTrai": [
+      "muon_lam_security_analyst"
+    ],
+    "vePhai": [
+      "nganh_an_toan_TT",
+      "nganh_MMT"
+    ],
+    "mo_ta": "NẾU muốn làm Security Analyst, Pentester THÌ chọn An toàn Thông tin hoặc Mạng máy tính",
+    "trong_so": 0.87
+  },
+  {
+    "id": "R027",
+    "veTrai": [
+      "muon_lam_game_developer"
+    ],
+    "vePhai": [
+      "nganh_KTPM",
+      "nganh_multimedia"
+    ],
+    "mo_ta": "NẾU muốn làm Game Developer THÌ chọn Kỹ thuật Phần mềm hoặc Truyền thông đa phương tiện",
+    "trong_so": 0.84
+  }
+]

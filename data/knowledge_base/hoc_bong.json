@@ -1,0 +1,143 @@
+[
+  {
+    "id": "HB001",
+    "ten": "Học bổng Olympic Tin học Quốc gia/Quốc tế - Hạng Nhất",
+    "gia_tri": "250.000.000 đồng",
+    "dieu_kien": [
+      "Đạt giải Nhất môn Tin học trong kỳ thi HSG Quốc gia THPT",
+      "Đạt cúp Vàng, Bạc, Đồng ở kỳ thi Siêu Cup - Olympic Tin học Việt Nam",
+      "Đạt giải Nhất/Nhì/Ba Olympic khu vực và quốc tế môn Tin học"
+    ],
+    "so_luong": "Không giới hạn",
+    "ghi_chu": "Đặc cách xét tuyển thẳng vào lớp tài năng",
+    "keywords": [
+      "giải nhất",
+      "olympic",
+      "tin học",
+      "vàng bạc đồng",
+      "học bổng tuyển sinh"
+    ]
+  },
+  {
+    "id": "HB002",
+    "ten": "Học bổng Olympic Tin học Quốc gia/Quốc tế - Hạng Nhì",
+    "gia_tri": "200.000.000 đồng",
+    "dieu_kien": [
+      "Đạt giải Nhì môn Tin học trong kỳ thi HSG Quốc gia THPT",
+      "Đạt giải Đồng/Ba ở kỳ thi Siêu Cup - Olympic Tin học Việt Nam"
+    ],
+    "so_luong": "Không giới hạn",
+    "ghi_chu": "Đặc cách xét tuyển thẳng vào lớp tài năng",
+    "keywords": [
+      "giải nhì",
+      "olympic",
+      "tin học",
+      "học bổng tuyển sinh"
+    ]
+  },
+  {
+    "id": "HB003",
+    "ten": "Học bổng HSG Quốc gia - Giải Nhất các môn",
+    "gia_tri": "160.000.000 đồng",
+    "dieu_kien": [
+      "Đạt giải Nhất môn Toán, Lý, Hóa, Văn, Anh văn trong kỳ thi HSG Quốc gia THPT"
+    ],
+    "so_luong": "Không giới hạn",
+    "ghi_chu": "Ưu tiên xét tuyển vào lớp tài năng",
+    "keywords": [
+      "giải nhất",
+      "toán",
+      "lý",
+      "hóa",
+      "văn",
+      "anh",
+      "học bổng tuyển sinh"
+    ]
+  },
+  {
+    "id": "HB004",
+    "ten": "Học bổng HSG Quốc gia/Olympic - Hạng Ba",
+    "gia_tri": "120.000.000 đồng",
+    "dieu_kien": [
+      "Đạt giải Nhì môn Toán, Lý, Hóa, Văn, Anh văn trong kỳ thi HSG Quốc gia THPT",
+      "Đạt giải Ba môn Tin học trong kỳ thi HSG Quốc gia THPT",
+      "Đạt giải Cúp Đồng kỳ thi Olympic Tin học Việt Nam",
+      "Đạt giải Khuyến khích kỳ thi Olympic khu vực và quốc tế môn Tin học"
+    ],
+    "so_luong": "Không giới hạn",
+    "ghi_chu": "Ưu tiên xét tuyển vào lớp tài năng",
+    "keywords": [
+      "giải nhì",
+      "giải ba",
+      "khuyến khích",
+      "học bổng tuyển sinh"
+    ]
+  },
+  {
+    "id": "HB005",
+    "ten": "Học bổng HSG/Olympic Tin học - Khuyến khích",
+    "gia_tri": "80.000.000 đồng",
+    "dieu_kien": [
+      "Đạt giải Khuyến khích môn Tin học trong kỳ thi HSG Quốc gia THPT",
+      "Đạt giải Ba kỳ thi Olympic Tin học Việt Nam"
+    ],
+    "so_luong": "Không giới hạn",
+    "ghi_chu": "",
+    "keywords": [
+      "khuyến khích",
+      "giải ba",
+      "học bổng tuyển sinh"
+    ]
+  },
+  {
+    "id": "HB006",
+    "ten": "Học bổng HSG Quốc gia - Giải Ba",
+    "gia_tri": "60.000.000 đồng",
+    "dieu_kien": [
+      "Đạt giải Ba môn Toán, Lý, Hóa, Văn, Anh văn trong kỳ thi HSG Quốc gia THPT"
+    ],
+    "so_luong": "Không giới hạn",
+    "ghi_chu": "",
+    "keywords": [
+      "giải ba",
+      "toán",
+      "lý",
+      "hóa",
+      "văn",
+      "anh",
+      "học bổng tuyển sinh"
+    ]
+  },
+  {
+    "id": "HB007",
+    "ten": "Học bổng HSG Quốc gia - Khuyến khích",
+    "gia_tri": "40.000.000 đồng",
+    "dieu_kien": [
+      "Đạt giải Khuyến khích môn Toán, Lý, Hóa, Văn, Anh văn trong kỳ thi HSG Quốc gia THPT"
+    ],
+    "so_luong": "Không giới hạn",
+    "ghi_chu": "",
+    "keywords": [
+      "khuyến khích",
+      "toán",
+      "lý",
+      "hóa",
+      "văn",
+      "anh",
+      "học bổng tuyển sinh"
+    ]
+  },
+  {
+    "id": "HB008",
+    "ten": "Học bổng khuyến khích học tập",
+    "gia_tri": "100% - 120% học phí",
+    "dieu_kien": [
+      "Sinh viên có thành tích tốp đầu của mỗi lớp"
+    ],
+    "so_luong": "Khoảng 8% sinh viên của lớp",
+    "ghi_chu": "",
+    "keywords": [
+      "KKHT"
+    ]
+}
+]   

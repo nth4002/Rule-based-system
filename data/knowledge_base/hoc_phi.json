@@ -1,0 +1,33 @@
+{
+  "hoc_phi_chuan": {
+    "ten_hien_thi": "Chương trình Chuẩn (Đại trà) & Tài năng",
+    "gia_tri": "37.000.000 đồng/năm",
+    "don_gia_tin_chi": "khoảng 1.100.000 - 1.200.000 đồng/tín chỉ",
+    "mo_ta": "Áp dụng cho sinh viên trúng tuyển hệ chính quy chương trình chuẩn và chương trình tài năng.",
+    "ghi_chu": "Học phí có thể điều chỉnh không quá 10% - 15% mỗi năm."
+  },
+  "hoc_phi_lien_ket_bcit": {
+    "ten_hien_thi": "Chương trình Liên kết Quốc tế (BCIT)",
+    "gia_tri": "80.000.000 đồng/năm",
+    "mo_ta": "Chương trình liên kết với Đại học Birmingham City (Anh Quốc).",
+    "ghi_chu": "Học phí cố định, không thay đổi trong suốt khóa học (nếu học tại VN)."
+  },
+  "hoc_phi_hoc_lai": {
+    "ten_hien_thi": "Học phí học lại / Cải thiện điểm",
+    "gia_tri": "1.150.000 đồng/tín chỉ",
+    "mo_ta": "Áp dụng cho sinh viên đăng ký học lại môn rớt hoặc muốn cải thiện điểm số.",
+    "ghi_chu": ""
+  },
+  "hoc_phi_vb2": {
+    "ten_hien_thi": "Học phí Văn bằng 2",
+    "gia_tri": "40.000.000 đồng/năm",
+    "mo_ta": "Học phí cho sinh viên Văn bằng hai ngành Công nghệ Thông tin.",
+    "ghi_chu": "Đào tạo vào buổi tối hoặc cuối tuần."
+  },
+  "hoc_phi_hoc_lai_vb2": {
+    "ten_hien_thi": "Học phí học lại Văn bằng 2",
+    "gia_tri": "1.200.000 đồng/tín chỉ",
+    "mo_ta": "Học phí học lại hoặc cải thiện điểm cho sinh viên Văn bằng hai.",
+    "ghi_chu": ""
+  }
+}

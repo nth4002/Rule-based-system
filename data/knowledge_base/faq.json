@@ -1,0 +1,160 @@
+[
+  {
+    "id": "FAQ001",
+    "cau_hoi": "Ngành nào có điểm chuẩn cao nhất?",
+    "tra_loi": "Ngành Trí tuệ Nhân tạo có điểm chuẩn cao nhất với 29.60 điểm.",
+    "keywords": [
+      "điểm cao nhất",
+      "điểm chuẩn cao"
+    ],
+    "related_rules": [
+      "R001"
+    ],
+    "related_majors": [
+      "7480107"
+    ]
+  },
+  {
+    "id": "FAQ002",
+    "cau_hoi": "Ngành nào có điểm chuẩn thấp nhất?",
+    "tra_loi": "Ngành Mạng máy tính & Truyền thông Dữ liệu có điểm chuẩn thấp nhất với 24.00 điểm.",
+    "keywords": [
+      "điểm thấp nhất",
+      "điểm chuẩn thấp"
+    ],
+    "related_rules": [
+      "R002"
+    ],
+    "related_majors": [
+      "7480102"
+    ]
+  },
+  {
+    "id": "FAQ003",
+    "cau_hoi": "Tôi thích lập trình nên học ngành gì?",
+    "tra_loi": "Nếu bạn thích lập trình, bạn có thể chọn Công nghệ Thông tin (26.60 điểm), Kỹ thuật Phần mềm (26.00 điểm), hoặc Khoa học Máy tính (27.20 điểm).",
+    "keywords": [
+      "thích lập trình",
+      "học lập trình"
+    ],
+    "related_rules": [
+      "R003",
+      "R016"
+    ],
+    "related_majors": [
+      "7480201",
+      "7480103",
+      "7480101"
+    ]
+  },
+  {
+    "id": "FAQ004",
+    "cau_hoi": "Tôi quan tâm đến AI thì nên học ngành gì?",
+    "tra_loi": "Nếu bạn quan tâm đến AI và Machine Learning, bạn nên chọn ngành Trí tuệ Nhân tạo (29.60 điểm) hoặc Khoa học Dữ liệu (27.70 điểm).",
+    "keywords": [
+      "AI",
+      "machine learning",
+      "trí tuệ nhân tạo"
+    ],
+    "related_rules": [
+      "R004"
+    ],
+    "related_majors": [
+      "7480107",
+      "7460108"
+    ]
+  },
+  {
+    "id": "FAQ005",
+    "cau_hoi": "Điểm ĐGNL bao nhiêu thì được xét tuyển?",
+    "tra_loi": "Điểm ĐGNL tối thiểu để xét tuyển là 600 điểm (thang điểm 1200). Bạn có thể được cộng thêm điểm nếu có chứng chỉ ngoại ngữ.",
+    "keywords": [
+      "điểm ĐGNL",
+      "đánh giá năng lực"
+    ],
+    "related_rules": [
+      "R012"
+    ],
+    "related_methods": [
+      "PT02"
+    ]
+  },
+  {
+    "id": "FAQ006",
+    "cau_hoi": "Làm sao để được tuyển thẳng?",
+    "tra_loi": "Bạn có thể được tuyển thẳng nếu: (1) Học lực giỏi + hạnh kiểm tốt, (2) Có giải học thuật/thể thao, (3) Có chứng chỉ quốc tế (SAT ≥1200, ACT ≥25, A-Level ≥B, IB ≥30), hoặc (4) Thuộc 149 trường THPT ưu tiên.",
+    "keywords": [
+      "tuyển thẳng",
+      "học sinh giỏi"
+    ],
+    "related_rules": [
+      "R013"
+    ],
+    "related_methods": [
+      "PT01"
+    ]
+  },
+  {
+    "id": "FAQ007",
+    "cau_hoi": "Có chương trình nào liên kết với nước ngoài không?",
+    "tra_loi": "Có, UIT có các chương trình liên kết quốc tế với ĐH Birmingham City (Anh) và ĐH Newcastle (Úc). Bạn cần có năng lực ngoại ngữ tốt để tham gia các chương trình này.",
+    "keywords": [
+      "liên kết quốc tế",
+      "du học",
+      "chương trình quốc tế"
+    ],
+    "related_rules": [
+      "R010"
+    ],
+    "related_methods": [
+      "PT04"
+    ]
+  },
+  {
+    "id": "FAQ008",
+    "cau_hoi": "Tôi biết tiếng Nhật, có chương trình nào phù hợp không?",
+    "tra_loi": "Có, bạn có thể chọn chương trình Công nghệ Thông tin (Việt-Nhật) với điểm chuẩn 24.20. Chương trình này tăng cường tiếng Nhật và có cơ hội thực tập/làm việc tại Nhật.",
+    "keywords": [
+      "tiếng Nhật",
+      "Việt-Nhật",
+      "làm việc Nhật"
+    ],
+    "related_rules": [
+      "R011"
+    ],
+    "related_majors": [
+      "7480201_VN"
+    ]
+  },
+  {
+    "id": "FAQ009",
+    "cau_hoi": "Ngành An toàn Thông tin học gì?",
+    "tra_loi": "Ngành An toàn Thông tin (26.27 điểm) học về mã hóa, pentest, forensic, chính sách bảo mật. Cơ hội nghề nghiệp: Chuyên gia an ninh, pentester, analyst SOC.",
+    "keywords": [
+      "an toàn thông tin",
+      "bảo mật",
+      "pentest"
+    ],
+    "related_rules": [
+      "R005"
+    ],
+    "related_majors": [
+      "7480202"
+    ]
+  },
+  {
+    "id": "FAQ010",
+    "cau_hoi": "Thương mại điện tử học những gì?",
+    "tra_loi": "Thương mại Điện tử (24.57 điểm) kết hợp CNTT và kinh doanh, học về nền tảng e-commerce, thanh toán, logistics. Cơ hội: Product manager TMĐT, digital marketer, developer TMĐT.",
+    "keywords": [
+      "thương mại điện tử",
+      "e-commerce"
+    ],
+    "related_rules": [
+      "R008"
+    ],
+    "related_majors": [
+      "7340122"
+    ]
+  }
+]

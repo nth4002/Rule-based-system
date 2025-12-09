@@ -1,0 +1,1230 @@
+{
+  "metadata": {
+    "domain": "Tuyển sinh Đại học Công nghệ Thông tin - ĐHQG-HCM",
+    "version": "2025",
+    "last_updated": "2025-11-25",
+    "description": "Cơ sở tri thức cho hệ thống hỏi đáp tuyển sinh UIT",
+    "tong_chi_tieu": 2200,
+    "lien_he": {
+      "website": "https://tuyensinh.uit.edu.vn",
+      "hotline": "028.3725.2002",
+      "email": "tuyensinh@uit.edu.vn"
+    }
+  },
+  
+  "chuyen_nganh": [
+    {
+      "id": "7480201",
+      "ten": "Cử nhân Công nghệ Thông tin",
+      "ma_nganh": "7480201",
+      "mo_ta": "Chương trình tổng quát CNTT: lập trình, cơ sở dữ liệu, mạng, hệ điều hành, luận văn/đồ án.",
+      "co_hoi_nghe_nghiep": [
+        "Lập trình viên",
+        "Kỹ sư phần mềm",
+        "Sysadmin",
+        "DevOps"
+      ],
+      "diem_trung_tuyen": 26.60,
+      "diem_trung_tuyen_dgnl": 969,
+      "to_hop_mon": ["A00", "A01", "D01", "D07", "X06", "X26"],
+      "to_hop_mon_chi_tiet": [
+        {"ma": "A00", "mon": ["Toán", "Vật lý", "Hóa học"]},
+        {"ma": "A01", "mon": ["Toán", "Vật lý", "Tiếng Anh"]},
+        {"ma": "D01", "mon": ["Toán", "Văn", "Tiếng Anh"]},
+        {"ma": "D07", "mon": ["Toán", "Hóa học", "Tiếng Anh"]},
+        {"ma": "X06", "mon": ["Toán", "Vật lý", "Tin học"]},
+        {"ma": "X26", "mon": ["Toán", "Tiếng Anh", "Tin học"]}
+      ],
+      "chi_tieu": 120,
+      "keywords": ["CNTT", "lập trình", "DB", "hệ điều hành"],
+      "nguon_tham_khao": "https://student.uit.edu.vn/content/cu-nhan-nganh-cong-nghe-thong-tin-ap-dung-tu-khoa-19-2024"
+    },
+    {
+      "id": "7480104",
+      "ten": "Cử nhân Hệ thống Thông tin",
+      "ma_nganh": "7480104",
+      "mo_ta": "Ứng dụng CNTT cho quản trị doanh nghiệp, phân tích hệ thống, tích hợp và triển khai phần mềm quản lý.",
+      "co_hoi_nghe_nghiep": [
+        "Business analyst",
+        "IT consultant",
+        "Triển khai ERP"
+      ],
+      "diem_trung_tuyen": 24.70,
+      "diem_trung_tuyen_dgnl": 891,
+      "to_hop_mon": ["A00", "A01", "D01", "D07", "D08", "X06", "X26"],
+      "to_hop_mon_chi_tiet": [
+        {"ma": "A00", "mon": ["Toán", "Vật lý", "Hóa học"]},
+        {"ma": "A01", "mon": ["Toán", "Vật lý", "Tiếng Anh"]},
+        {"ma": "D01", "mon": ["Toán", "Văn", "Tiếng Anh"]},
+        {"ma": "D07", "mon": ["Toán", "Hóa học", "Tiếng Anh"]},
+        {"ma": "D08", "mon": ["Toán", "Sinh học", "Tiếng Anh"]},
+        {"ma": "X06", "mon": ["Toán", "Vật lý", "Tin học"]},
+        {"ma": "X26", "mon": ["Toán", "Tiếng Anh", "Tin học"]}
+      ],
+      "chi_tieu": 180,
+      "keywords": ["IS", "ERP", "phân tích hệ thống"],
+      "nguon_tham_khao": "https://student.uit.edu.vn/content/cu-nhan-nganh-he-thong-thong-tin-ap-dung-tu-khoa-19-2024"
+    },
+    {
+      "id": "7480104_TT",
+      "ten": "Chương trình tiên tiến ngành Hệ thống Thông tin",
+      "ma_nganh": "7480104_TT",
+      "mo_ta": "CT tiên tiến (tăng cường tiếng Anh, học thuật, dự án lớn) cho sinh viên chọn chuyên sâu hệ thống thông tin.",
+      "co_hoi_nghe_nghiep": [
+        "Tư vấn CNTT",
+        "Roles toàn cầu",
+        "Chuyển tiếp học quốc tế"
+      ],
+      "diem_trung_tuyen": 24.20,
+      "diem_trung_tuyen_dgnl": 867,
+      "to_hop_mon": ["A01", "D01", "D07", "D08", "X26"],
+      "to_hop_mon_chi_tiet": [
+        {"ma": "A01", "mon": ["Toán", "Vật lý", "Tiếng Anh"]},
+        {"ma": "D01", "mon": ["Toán", "Văn", "Tiếng Anh"]},
+        {"ma": "D07", "mon": ["Toán", "Hóa học", "Tiếng Anh"]},
+        {"ma": "D08", "mon": ["Toán", "Sinh học", "Tiếng Anh"]},
+        {"ma": "X26", "mon": ["Toán", "Tiếng Anh", "Tin học"]}
+      ],
+      "chi_tieu": 80,
+      "keywords": ["tiên tiến", "IS", "quốc tế"],
+      "nguon_tham_khao": "https://student.uit.edu.vn/content/chuong-trinh-tien-tien-nganh-he-thong-thong-tin-ap-dung-tu-khoa-18-2023"
+    },
+    {
+      "id": "748011",
+      "ten": "Cử nhân Khoa học Máy tính (CT liên kết với Birmingham City)",
+      "ma_nganh": "748011",
+      "mo_ta": "CT Khoa học Máy tính chuẩn, có chương trình liên kết quốc tế với ĐH Birmingham City.",
+      "co_hoi_nghe_nghiep": [
+        "R&D",
+        "Developer cao cấp",
+        "Tiếp tục học quốc tế"
+      ],
+      "diem_trung_tuyen": null,
+      "keywords": ["CS", "liên kết UK", "thuật toán"],
+      "nguon_tham_khao": "https://student.uit.edu.vn/content/cu-nhan-nganh-khoa-hoc-may-tinh-chuong-trinh-lien-ket-voi-dh-birmingham-city-ap-dung-tu-0"
+    },
+    {
+      "id": "7480102_BCU",
+      "ten": "Cử nhân Mạng máy tính & An toàn Thông tin (liên kết Birmingham City)",
+      "ma_nganh": "7480102 / 7480202",
+      "mo_ta": "Chương trình kết hợp mạng và an ninh, có phương thức liên kết quốc tế.",
+      "co_hoi_nghe_nghiep": [
+        "Kỹ sư mạng",
+        "Chuyên viên an ninh",
+        "SOC analyst"
+      ],
+      "diem_trung_tuyen": null,
+      "keywords": ["mạng", "an ninh mạng", "liên kết"],
+      "nguon_tham_khao": "https://student.uit.edu.vn/content/cu-nhan-nganh-mang-may-tinh-va-toan-thong-tin-chuong-trinh-lien-ket-voi-dh-birmingham-city-2"
+    },
+    {
+      "id": "7480101",
+      "ten": "Cử nhân Khoa học Máy tính",
+      "ma_nganh": "7480101",
+      "mo_ta": "CT Khoa học máy tính chuẩn; thuật toán, cấu trúc dữ liệu, AI, hệ phân tán.",
+      "co_hoi_nghe_nghiep": [
+        "Developer",
+        "Nghiên cứu",
+        "Data engineer"
+      ],
+      "diem_trung_tuyen": 27.20,
+      "diem_trung_tuyen_dgnl": 993,
+      "to_hop_mon": ["A00", "A01", "D01", "D07", "X06", "X26"],
+      "to_hop_mon_chi_tiet": [
+        {"ma": "A00", "mon": ["Toán", "Vật lý", "Hóa học"]},
+        {"ma": "A01", "mon": ["Toán", "Vật lý", "Tiếng Anh"]},
+        {"ma": "D01", "mon": ["Toán", "Văn", "Tiếng Anh"]},
+        {"ma": "D07", "mon": ["Toán", "Hóa học", "Tiếng Anh"]},
+        {"ma": "X06", "mon": ["Toán", "Vật lý", "Tin học"]},
+        {"ma": "X26", "mon": ["Toán", "Tiếng Anh", "Tin học"]}
+      ],
+      "chi_tieu": 280,
+      "keywords": ["CS", "thuật toán", "hệ phân tán"],
+      "nguon_tham_khao": "https://student.uit.edu.vn/content/cu-nhan-nganh-khoa-hoc-may-tinh-ap-dung-tu-khoa-19-2024"
+    },
+    {
+      "id": "7480103",
+      "ten": "Cử nhân Kỹ thuật Phần mềm",
+      "ma_nganh": "7480103",
+      "mo_ta": "Thiết kế và phát triển phần mềm quy mô lớn, kiểm thử, quản lý dự án phần mềm.",
+      "co_hoi_nghe_nghiep": [
+        "Software engineer",
+        "QA",
+        "Tech lead",
+        "PM"
+      ],
+      "diem_trung_tuyen": 26.00,
+      "diem_trung_tuyen_dgnl": 946,
+      "to_hop_mon": ["A00", "A01", "D01", "D07", "X06", "X26"],
+      "to_hop_mon_chi_tiet": [
+        {"ma": "A00", "mon": ["Toán", "Vật lý", "Hóa học"]},
+        {"ma": "A01", "mon": ["Toán", "Vật lý", "Tiếng Anh"]},
+        {"ma": "D01", "mon": ["Toán", "Văn", "Tiếng Anh"]},
+        {"ma": "D07", "mon": ["Toán", "Hóa học", "Tiếng Anh"]},
+        {"ma": "X06", "mon": ["Toán", "Vật lý", "Tin học"]},
+        {"ma": "X26", "mon": ["Toán", "Tiếng Anh", "Tin học"]}
+      ],
+      "chi_tieu": 240,
+      "keywords": ["SE", "SDLC", "kiểm thử"],
+      "nguon_tham_khao": "https://student.uit.edu.vn/content/cu-nhan-nganh-ky-thuat-phan-mem-ap-dung-tu-khoa-20-2025"
+    },
+    {
+      "id": "7480107",
+      "ten": "Cử nhân Trí tuệ Nhân tạo",
+      "ma_nganh": "7480107",
+      "mo_ta": "Tập trung học máy, deep learning, xử lý ảnh/NGT, ứng dụng AI.",
+      "co_hoi_nghe_nghiep": [
+        "ML engineer",
+        "Data scientist",
+        "Researcher"
+      ],
+      "diem_trung_tuyen": 29.60,
+      "diem_trung_tuyen_dgnl": 1098,
+      "to_hop_mon": ["A00", "A01", "D01", "D07", "X06", "X26"],
+      "to_hop_mon_chi_tiet": [
+        {"ma": "A00", "mon": ["Toán", "Vật lý", "Hóa học"]},
+        {"ma": "A01", "mon": ["Toán", "Vật lý", "Tiếng Anh"]},
+        {"ma": "D01", "mon": ["Toán", "Văn", "Tiếng Anh"]},
+        {"ma": "D07", "mon": ["Toán", "Hóa học", "Tiếng Anh"]},
+        {"ma": "X06", "mon": ["Toán", "Vật lý", "Tin học"]},
+        {"ma": "X26", "mon": ["Toán", "Tiếng Anh", "Tin học"]}
+      ],
+      "chi_tieu": 40,
+      "keywords": ["AI", "ML", "deep learning"],
+      "nguon_tham_khao": "https://student.uit.edu.vn/content/cu-nhan-nganh-tri-tue-nhan-tao-ap-dung-tu-khoa-19-2024"
+    },
+    {
+      "id": "7480106",
+      "ten": "Cử nhân Kỹ thuật Máy tính",
+      "ma_nganh": "7480106",
+      "mo_ta": "Thiết kế phần cứng, kiến trúc máy tính, hệ nhúng, vi mạch cơ bản.",
+      "co_hoi_nghe_nghiep": [
+        "Kỹ sư phần cứng",
+        "Hệ nhúng",
+        "Thiết kế board"
+      ],
+      "diem_trung_tuyen": 25.30,
+      "diem_trung_tuyen_dgnl": 923,
+      "to_hop_mon": ["A00", "A01", "X06", "X26"],
+      "to_hop_mon_chi_tiet": [
+        {"ma": "A00", "mon": ["Toán", "Vật lý", "Hóa học"]},
+        {"ma": "A01", "mon": ["Toán", "Vật lý", "Tiếng Anh"]},
+        {"ma": "X06", "mon": ["Toán", "Vật lý", "Tin học"]},
+        {"ma": "X26", "mon": ["Toán", "Tiếng Anh", "Tin học"]}
+      ],
+      "chi_tieu": 220,
+      "keywords": ["kỹ thuật máy tính", "nhúng", "phần cứng"],
+      "nguon_tham_khao": "https://student.uit.edu.vn/content/cu-nhan-nganh-ky-thuat-may-tinh-ap-dung-tu-khoa-19-2024"
+    },
+    {
+      "id": "7480106_NCL",
+      "ten": "Cử nhân Kỹ thuật Hệ thống Máy tính (liên kết ĐH Newcastle, Úc)",
+      "ma_nganh": "CT liên kết",
+      "mo_ta": "CT hệ thống máy tính theo chuẩn quốc tế, liên kết với ĐH Newcastle.",
+      "co_hoi_nghe_nghiep": [
+        "Kỹ sư hệ thống",
+        "Roles toàn cầu",
+        "Chuyển tiếp du học"
+      ],
+      "diem_trung_tuyen": null,
+      "keywords": ["hệ thống máy tính", "liên kết Úc"],
+      "nguon_tham_khao": "https://student.uit.edu.vn/content/cu-nhan-nganh-ky-thuat-he-thong-may-tinh-chuong-trinh-lien-ket-voi-truong-dai-hoc-newcastle"
+    },
+    {
+      "id": "75202A1",
+      "ten": "Cử nhân Thiết kế Vi mạch",
+      "ma_nganh": "75202A1",
+      "mo_ta": "Thiết kế vi mạch số/analog, FPGA, VLSI cơ bản.",
+      "co_hoi_nghe_nghiep": [
+        "Kỹ sư thiết kế chip",
+        "FPGA engineer",
+        "R&D phần cứng"
+      ],
+      "diem_trung_tuyen": 27.00,
+      "diem_trung_tuyen_dgnl": 984,
+      "to_hop_mon": ["A00", "A01", "X06", "X26"],
+      "to_hop_mon_chi_tiet": [
+        {"ma": "A00", "mon": ["Toán", "Vật lý", "Hóa học"]},
+        {"ma": "A01", "mon": ["Toán", "Vật lý", "Tiếng Anh"]},
+        {"ma": "X06", "mon": ["Toán", "Vật lý", "Tin học"]},
+        {"ma": "X26", "mon": ["Toán", "Tiếng Anh", "Tin học"]}
+      ],
+      "chi_tieu": 100,
+      "keywords": ["VLSI", "FPGA", "thiết kế vi mạch"],
+      "nguon_tham_khao": "https://student.uit.edu.vn/content/cu-nhan-nganh-thiet-ke-vi-mach-ap-dung-tu-khoa-19-2024"
+    },
+    {
+      "id": "7320104",
+      "ten": "Cử nhân Truyền thông đa phương tiện",
+      "ma_nganh": "7320104",
+      "mo_ta": "Nội dung số, đồ họa chuyển động, sản xuất media, UX/UI cơ bản.",
+      "co_hoi_nghe_nghiep": [
+        "Designer",
+        "UI/UX",
+        "Multimedia producer",
+        "Front-end dev"
+      ],
+      "diem_trung_tuyen": 25.00,
+      "diem_trung_tuyen_dgnl": 911,
+      "to_hop_mon": ["A01", "D01", "D09", "D10", "X26"],
+      "to_hop_mon_chi_tiet": [
+        {"ma": "A01", "mon": ["Toán", "Vật lý", "Tiếng Anh"]},
+        {"ma": "D01", "mon": ["Toán", "Văn", "Tiếng Anh"]},
+        {"ma": "D09", "mon": ["Toán", "Lịch sử", "Tiếng Anh"]},
+        {"ma": "D10", "mon": ["Toán", "Địa lý", "Tiếng Anh"]},
+        {"ma": "X26", "mon": ["Toán", "Tiếng Anh", "Tin học"]}
+      ],
+      "chi_tieu": 60,
+      "keywords": ["multimedia", "UX", "đồ họa"],
+      "nguon_tham_khao": "https://student.uit.edu.vn/content/cu-nhan-nganh-truyen-thong-da-phuong-tien-ap-dung-tu-khoa-20-2025"
+    },
+    {
+      "id": "7480102",
+      "ten": "Cử nhân Mạng máy tính & Truyền thông Dữ liệu",
+      "ma_nganh": "7480102",
+      "mo_ta": "Mạng, truyền thông, routing, switching, wireless, IoT cơ bản.",
+      "co_hoi_nghe_nghiep": [
+        "Network engineer",
+        "Hệ thống viễn thông",
+        "IoT developer"
+      ],
+      "diem_trung_tuyen": 24.00,
+      "diem_trung_tuyen_dgnl": 854,
+      "to_hop_mon": ["A00", "A01", "D01", "D07", "X06", "X14", "X26"],
+      "to_hop_mon_chi_tiet": [
+        {"ma": "A00", "mon": ["Toán", "Vật lý", "Hóa học"]},
+        {"ma": "A01", "mon": ["Toán", "Vật lý", "Tiếng Anh"]},
+        {"ma": "D01", "mon": ["Toán", "Văn", "Tiếng Anh"]},
+        {"ma": "D07", "mon": ["Toán", "Hóa học", "Tiếng Anh"]},
+        {"ma": "X06", "mon": ["Toán", "Vật lý", "Tin học"]},
+        {"ma": "X14", "mon": ["Toán", "Sinh học", "Tin học"]},
+        {"ma": "X26", "mon": ["Toán", "Tiếng Anh", "Tin học"]}
+      ],
+      "chi_tieu": 200,
+      "keywords": ["mạng", "truyền thông", "IoT"],
+      "nguon_tham_khao": "https://student.uit.edu.vn/content/cu-nhan-nganh-mang-may-tinh-va-truyen-thong-du-lieu-ap-dung-tu-khoa-19-2024"
+    },
+    {
+      "id": "7480202",
+      "ten": "Cử nhân An toàn Thông tin",
+      "ma_nganh": "7480202",
+      "mo_ta": "Chuyên sâu an toàn thông tin: mã hóa, pentest, forensic, chính sách bảo mật.",
+      "co_hoi_nghe_nghiep": [
+        "Chuyên gia an ninh",
+        "Pentester",
+        "Analyst SOC"
+      ],
+      "diem_trung_tuyen": 26.27,
+      "diem_trung_tuyen_dgnl": 956,
+      "to_hop_mon": ["A00", "A01", "D01", "D07", "X06", "X26"],
+      "to_hop_mon_chi_tiet": [
+        {"ma": "A00", "mon": ["Toán", "Vật lý", "Hóa học"]},
+        {"ma": "A01", "mon": ["Toán", "Vật lý", "Tiếng Anh"]},
+        {"ma": "D01", "mon": ["Toán", "Văn", "Tiếng Anh"]},
+        {"ma": "D07", "mon": ["Toán", "Hóa học", "Tiếng Anh"]},
+        {"ma": "X06", "mon": ["Toán", "Vật lý", "Tin học"]},
+        {"ma": "X26", "mon": ["Toán", "Tiếng Anh", "Tin học"]}
+      ],
+      "chi_tieu": 180,
+      "keywords": ["an toàn thông tin", "pentest"],
+      "nguon_tham_khao": "https://student.uit.edu.vn/content/cu-nhan-nganh-toan-thong-tin-ap-dung-tu-khoa-19-2024"
+    },
+    {
+      "id": "7340122",
+      "ten": "Cử nhân Thương mại Điện tử",
+      "ma_nganh": "7340122",
+      "mo_ta": "Kết hợp CNTT & kinh doanh: nền tảng e-commerce, thanh toán, logistics.",
+      "co_hoi_nghe_nghiep": [
+        "Product manager TMĐT",
+        "Digital marketer",
+        "Backend/frontend dev TMĐT"
+      ],
+      "diem_trung_tuyen": 24.57,
+      "diem_trung_tuyen_dgnl": 889,
+      "to_hop_mon": ["A00", "A01", "D01", "D07", "X06", "X26"],
+      "to_hop_mon_chi_tiet": [
+        {"ma": "A00", "mon": ["Toán", "Vật lý", "Hóa học"]},
+        {"ma": "A01", "mon": ["Toán", "Vật lý", "Tiếng Anh"]},
+        {"ma": "D01", "mon": ["Toán", "Văn", "Tiếng Anh"]},
+        {"ma": "D07", "mon": ["Toán", "Hóa học", "Tiếng Anh"]},
+        {"ma": "X06", "mon": ["Toán", "Vật lý", "Tin học"]},
+        {"ma": "X26", "mon": ["Toán", "Tiếng Anh", "Tin học"]}
+      ],
+      "chi_tieu": 140,
+      "keywords": ["e-commerce", "platform", "digital"],
+      "nguon_tham_khao": "https://student.uit.edu.vn/content/cu-nhan-nganh-thuong-mai-dien-tu-ap-dung-tu-khoa-19-2024"
+    },
+    {
+      "id": "7340122_SONG",
+      "ten": "Chương trình đào tạo song ngành Thương mại Điện tử",
+      "ma_nganh": "song ngành",
+      "mo_ta": "Học song hành kiến thức TMĐT + ngành phụ (theo CT).",
+      "co_hoi_nghe_nghiep": [
+        "Vai trò đa năng trong TMĐT",
+        "Tư vấn",
+        "Quản lý sản phẩm"
+      ],
+      "diem_trung_tuyen": null,
+      "keywords": ["song ngành", "TMĐT"],
+      "nguon_tham_khao": "https://student.uit.edu.vn/content/cu-nhan-nganh-thuong-mai-dien-tu-ap-dung-tu-khoa-19-2024"
+    },
+    {
+      "id": "7460108",
+      "ten": "Cử nhân Khoa học Dữ liệu (Data Science)",
+      "ma_nganh": "7460108",
+      "mo_ta": "Toán thống kê, ML, khai phá dữ liệu và trực quan hóa.",
+      "co_hoi_nghe_nghiep": [
+        "Data scientist",
+        "BI analyst",
+        "ML engineer"
+      ],
+      "diem_trung_tuyen": 27.70,
+      "diem_trung_tuyen_dgnl": 1010,
+      "to_hop_mon": ["A00", "A01", "A02", "D01", "D07", "X06", "X26"],
+      "to_hop_mon_chi_tiet": [
+        {"ma": "A00", "mon": ["Toán", "Vật lý", "Hóa học"]},
+        {"ma": "A01", "mon": ["Toán", "Vật lý", "Tiếng Anh"]},
+        {"ma": "A02", "mon": ["Toán", "Vật lý", "Sinh học"]},
+        {"ma": "D01", "mon": ["Toán", "Văn", "Tiếng Anh"]},
+        {"ma": "D07", "mon": ["Toán", "Hóa học", "Tiếng Anh"]},
+        {"ma": "X06", "mon": ["Toán", "Vật lý", "Tin học"]},
+        {"ma": "X26", "mon": ["Toán", "Tiếng Anh", "Tin học"]}
+      ],
+      "chi_tieu": 80,
+      "keywords": ["Data Science", "ML", "thống kê"],
+      "nguon_tham_khao": "https://student.uit.edu.vn/content/cu-nhan-khoa-hoc-nganh-khoa-hoc-du-lieu-ap-dung-tu-khoa-19-2024"
+    },
+    {
+      "id": "7480201_VN",
+      "ten": "Cử nhân Công nghệ Thông tin (Việt-Nhật)",
+      "ma_nganh": "7480201_VN",
+      "mo_ta": "Chương trình CNTT định hướng hợp tác Việt–Nhật: vừa đào tạo kiến thức nền tảng CNTT (lập trình, hệ thống, mạng, DB, AI cơ bản) vừa tăng cường tiếng Nhật và kỹ năng nghề theo chuẩn Nhật",
+      "co_hoi_nghe_nghiep": [
+        "Tuyển dụng trong doanh nghiệp Việt-Nhật",
+        "Cơ hội thực tập/việc làm tại Nhật"
+      ],
+      "diem_trung_tuyen": 24.20,
+      "diem_trung_tuyen_dgnl": 867,
+      "to_hop_mon": ["A00", "A01", "D01", "D06", "D07", "X06", "X26"],
+      "to_hop_mon_chi_tiet": [
+        {"ma": "A00", "mon": ["Toán", "Vật lý", "Hóa học"]},
+        {"ma": "A01", "mon": ["Toán", "Vật lý", "Tiếng Anh"]},
+        {"ma": "D01", "mon": ["Toán", "Văn", "Tiếng Anh"]},
+        {"ma": "D06", "mon": ["Toán", "Văn", "Tiếng Nhật"]},
+        {"ma": "D07", "mon": ["Toán", "Hóa học", "Tiếng Anh"]},
+        {"ma": "X06", "mon": ["Toán", "Vật lý", "Tin học"]},
+        {"ma": "X26", "mon": ["Toán", "Tiếng Anh", "Tin học"]}
+      ],
+      "chi_tieu": 130,
+      "keywords": ["Việt-Nhật", "ITSS", "tiếng Nhật", "7480201_N"],
+      "nguon_tham_khao": "https://student.uit.edu.vn/content/cu-nhan-nganh-cong-nghe-thong-tin-ap-dung-tu-khoa-19-2024"
+    }
+  ],
+  
+  "phuong_thuc_tuyen_sinh": [
+    {
+      "id": "PT01",
+      "ten": "Tuyển thẳng & Ưu tiên xét tuyển",
+      "doi_tuong": [
+        "Học sinh được tuyển thẳng theo Điều 8 Quy chế tuyển sinh Bộ GD&ĐT",
+        "Học sinh giỏi THPT (học lực Giỏi, hạnh kiểm Tốt)",
+        "Học sinh thuộc 149 trường THPT ưu tiên xét tuyển",
+        "Thí sinh đạt giải học thuật, thể thao",
+        "Có chứng chỉ quốc tế (SAT ≥1200, ACT ≥25, A-Level ≥B, IB ≥30)"
+      ],
+      "nguyen_tac_xet_tuyen": [
+        "Xét theo hồ sơ học bạ, thành tích và điều kiện tốt nghiệp",
+        "Điểm xét tuyển = Điểm học tập/tiêu chí + Điểm ưu tiên (nếu có)",
+        "Trường công bố kết quả theo lịch chính thức"
+      ],
+      "huong_dan_thu_tuc": [
+        "Đăng ký online trên cổng tuyển sinh UIT",
+        "Nộp minh chứng (chứng chỉ, giấy khen...)",
+        "Theo dõi kết quả trên trang UIT"
+      ],
+      "keywords": ["tuyển thẳng", "ưu tiên", "chứng chỉ quốc tế", "SAT", "ACT", "A-Level", "IB"],
+      "nguon_tham_khao": "https://tuyensinh.uit.edu.vn/2025-phuong-thuc-tuyen-sinh-nam-2025"
+    },
+    {
+      "id": "PT02",
+      "ten": "Xét tuyển Kỳ thi Đánh giá năng lực (ĐHQG-HCM)",
+      "doi_tuong": [
+        "Thí sinh có kết quả kỳ thi ĐGNL ĐHQG-HCM 2025 đạt ngưỡng đầu vào (≥600 điểm)"
+      ],
+      "nguyen_tac_xet_tuyen": [
+        "Điểm xét tuyển = Điểm ĐGNL + Điểm cộng (chứng chỉ ngoại ngữ, ưu tiên...)",
+        "Thang điểm 1200, cộng tối đa 120 điểm",
+        "Cộng điểm ngoại ngữ (IELTS, TOEFL iBT, JLPT, TOEIC)"
+      ],
+      "huong_dan_thu_tuc": [
+        "Đăng ký thi ĐGNL theo lịch ĐHQG-HCM",
+        "Đăng ký xét tuyển tại UIT sau khi có điểm",
+        "Đính kèm chứng chỉ ngoại ngữ hợp lệ (nếu có)"
+      ],
+      "keywords": ["ĐGNL", "đánh giá năng lực", "ĐHQG-HCM", "ngoại ngữ", "điểm cộng"],
+      "nguon_tham_khao": "https://tuyensinh.uit.edu.vn/2025-phuong-thuc-tuyen-sinh-nam-2025"
+    },
+    {
+      "id": "PT03",
+      "ten": "Xét tuyển kết quả Kỳ thi Tốt nghiệp THPT 2025",
+      "doi_tuong": [
+        "Thí sinh có kết quả kỳ thi THPT 2025 đạt ngưỡng đầu vào"
+      ],
+      "nguyen_tac_xet_tuyen": [
+        "Ngưỡng đảm bảo: 24.0 (Thiết kế vi mạch), 22.5 (ngành khác)",
+        "Điểm xét tuyển = Tổng 3 môn tổ hợp + Điểm cộng + Điểm ưu tiên",
+        "Không quy đổi chứng chỉ ngoại ngữ thay thế môn tiếng Anh"
+      ],
+      "huong_dan_thu_tuc": [
+        "Đăng ký nguyện vọng trên hệ thống Bộ GD&ĐT",
+        "Theo dõi kết quả và xác nhận nhập học đúng hạn"
+      ],
+      "keywords": ["THPT", "tốt nghiệp", "điểm chuẩn", "ngoại ngữ", "ưu tiên"],
+      "nguon_tham_khao": "https://tuyensinh.uit.edu.vn/2025-phuong-thuc-tuyen-sinh-nam-2025"
+    },
+    {
+      "id": "PT04",
+      "ten": "Xét tuyển chương trình liên kết quốc tế",
+      "doi_tuong": [
+        "Thí sinh đăng ký chương trình liên kết quốc tế (Birmingham City, Newcastle...) có chứng chỉ ngoại ngữ hợp lệ"
+      ],
+      "nguyen_tac_xet_tuyen": [
+        "Mỗi chương trình có tiêu chí riêng: học lực, ngoại ngữ, phỏng vấn",
+        "Điểm xét tuyển = học bạ + ngoại ngữ + phỏng vấn (nếu có)"
+      ],
+      "huong_dan_thu_tuc": [
+        "Đăng ký theo hướng dẫn riêng từng chương trình",
+        "Nộp học bạ, chứng chỉ tiếng Anh, bài luận (nếu có)"
+      ],
+      "keywords": ["chương trình liên kết", "quốc tế", "ngoại ngữ", "phỏng vấn"],
+      "nguon_tham_khao": "https://tuyensinh.uit.edu.vn/2025-phuong-thuc-tuyen-sinh-nam-2025"
+    }
+  ],
+  
+  "luat_dan": [
+    {
+      "id": "R001",
+      "veTrai": ["diem_cao"],
+      "vePhai": ["nganh_AI"],
+      "mo_ta": "NẾU hỏi về ngành có điểm chuẩn cao THÌ Trí tuệ nhân tạo (29.60 điểm)",
+      "trong_so": 0.95
+    },
+    {
+      "id": "R002",
+      "veTrai": ["diem_thap"],
+      "vePhai": ["nganh_MMT", "nganh_TMDT", "nganh_HTTT_TT", "nganh_CNTT_VN"],
+      "mo_ta": "NẾU hỏi về ngành có điểm chuẩn thấp THÌ Mạng máy tính (24.00), Thương mại điện tử (24.57), Hệ thống Thông tin tiên tiến (24.20), CNTT Việt-Nhật (24.20)",
+      "trong_so": 0.90
+    },
+    {
+      "id": "R003",
+      "veTrai": ["thich_lap_trinh", "thich_phat_trien_ung_dung"],
+      "vePhai": ["nganh_phan_mem", "nganh_CNTT"],
+      "mo_ta": "NẾU thích lập trình và phát triển ứng dụng THÌ chọn Kỹ thuật Phần mềm hoặc CNTT",
+      "trong_so": 0.85
+    },
+    {
+      "id": "R004",
+      "veTrai": ["thich_AI", "thich_ML", "thich_du_lieu"],
+      "vePhai": ["nganh_AI", "nganh_data_science"],
+      "mo_ta": "NẾU quan tâm đến AI, Machine Learning, phân tích dữ liệu THÌ chọn Trí tuệ nhân tạo hoặc Khoa học Dữ liệu",
+      "trong_so": 0.90
+    },
+    {
+      "id": "R005",
+      "veTrai": ["thich_bao_mat", "thich_pentest"],
+      "vePhai": ["nganh_an_toan_TT"],
+      "mo_ta": "NẾU quan tâm đến bảo mật, an ninh mạng THÌ chọn An toàn Thông tin",
+      "trong_so": 0.88
+    },
+    {
+      "id": "R006",
+      "veTrai": ["thich_mang", "thich_he_thong"],
+      "vePhai": ["nganh_mang"],
+      "mo_ta": "NẾU thích về mạng máy tính, hệ thống THÌ chọn Mạng máy tính & Truyền thông Dữ liệu",
+      "trong_so": 0.85
+    },
+    {
+      "id": "R007",
+      "veTrai": ["thich_phan_cung", "thich_thiet_ke_chip"],
+      "vePhai": ["nganh_phan_cung", "nganh_vi_mach"],
+      "mo_ta": "NẾU thích phần cứng, thiết kế vi mạch THÌ chọn Kỹ thuật Máy tính hoặc Thiết kế Vi mạch",
+      "trong_so": 0.87
+    },
+    {
+      "id": "R008",
+      "veTrai": ["thich_kinh_doanh", "thich_CNTT"],
+      "vePhai": ["nganh_TMDT"],
+      "mo_ta": "NẾU muốn kết hợp kinh doanh và CNTT THÌ chọn Thương mại Điện tử",
+      "trong_so": 0.83
+    },
+    {
+      "id": "R009",
+      "veTrai": ["thich_do_hoa", "thich_UX_UI"],
+      "vePhai": ["nganh_multimedia"],
+      "mo_ta": "NẾU thích thiết kế, đồ họa, UX/UI THÌ chọn Truyền thông đa phương tiện",
+      "trong_so": 0.82
+    },
+    {
+      "id": "R010",
+      "veTrai": ["muon_hoc_quoc_te", "co_ngoai_ngu_tot"],
+      "vePhai": ["chuong_trinh_lien_ket"],
+      "mo_ta": "NẾU muốn học theo chuẩn quốc tế và có năng lực ngoại ngữ tốt THÌ chọn chương trình liên kết (Birmingham City, Newcastle)",
+      "trong_so": 0.88
+    },
+    {
+      "id": "R011",
+      "veTrai": ["thich_tieng_nhat", "muon_lam_viec_nhat"],
+      "vePhai": ["chuong_trinh_viet_nhat"],
+      "mo_ta": "NẾU biết tiếng Nhật hoặc muốn làm việc tại Nhật THÌ chọn CNTT Việt-Nhật",
+      "trong_so": 0.86
+    },
+    {
+      "id": "R012",
+      "veTrai": ["co_diem_DGNL", "diem_DGNL_cao"],
+      "vePhai": ["phuong_thuc_DGNL"],
+      "mo_ta": "NẾU có điểm ĐGNL ≥600 THÌ có thể xét tuyển qua phương thức ĐGNL",
+      "trong_so": 0.90
+    },
+    {
+      "id": "R013",
+      "veTrai": ["hoc_sinh_gioi", "co_giai_hoc_thuat", "co_chung_chi_quoc_te"],
+      "vePhai": ["phuong_thuc_tuyen_thang"],
+      "mo_ta": "NẾU là học sinh giỏi hoặc có giải học thuật hoặc có chứng chỉ quốc tế (SAT/ACT/A-Level/IB) THÌ có thể xét tuyển thẳng",
+      "trong_so": 0.95
+    },
+    {
+      "id": "R014",
+      "veTrai": ["co_IELTS", "co_TOEFL", "co_TOEIC", "co_JLPT"],
+      "vePhai": ["diem_cong_ngoai_ngu"],
+      "mo_ta": "NẾU có chứng chỉ ngoại ngữ (IELTS, TOEFL iBT, TOEIC, JLPT) THÌ được cộng điểm khi xét tuyển ĐGNL",
+      "trong_so": 0.85
+    },
+    {
+      "id": "R015",
+      "veTrai": ["xet_tuyen_THPT"],
+      "vePhai": ["nguong_dam_bao"],
+      "mo_ta": "NẾU xét tuyển bằng điểm THPT THÌ ngưỡng đảm bảo là 22.5 điểm (24.0 với Thiết kế vi mạch)",
+      "trong_so": 0.92
+    },
+    {
+      "id": "R016",
+      "veTrai": ["thich_thuat_toan", "thich_nghien_cuu"],
+      "vePhai": ["nganh_KHMT"],
+      "mo_ta": "NẾU thích thuật toán, nghiên cứu khoa học THÌ chọn Khoa học Máy tính",
+      "trong_so": 0.87
+    },
+    {
+      "id": "R017",
+      "veTrai": ["thich_phan_tich_he_thong", "thich_quan_tri_doanh_nghiep"],
+      "vePhai": ["nganh_HTTT"],
+      "mo_ta": "NẾU thích phân tích hệ thống và ứng dụng CNTT trong doanh nghiệp THÌ chọn Hệ thống Thông tin",
+      "trong_so": 0.84
+    },
+    {
+      "id": "R018",
+      "veTrai": ["diem_25_26"],
+      "vePhai": ["nganh_HTTT", "nganh_MMT", "nganh_TMDT"],
+      "mo_ta": "NẾU điểm THPT trong khoảng 25-26 THÌ phù hợp với Hệ thống Thông tin, Mạng máy tính, Thương mại điện tử",
+      "trong_so": 0.8
+    },
+    {
+      "id": "R019",
+      "veTrai": ["diem_27_28"],
+      "vePhai": ["nganh_CNTT", "nganh_KTPM", "nganh_KHMT"],
+      "mo_ta": "NẾU điểm THPT trong khoảng 27-28 THÌ phù hợp với Công nghệ Thông tin, Kỹ thuật Phần mềm, Khoa học Máy tính",
+      "trong_so": 0.82
+    },
+    {
+      "id": "R020",
+      "veTrai": ["diem_29_tro_len"],
+      "vePhai": ["nganh_AI", "nganh_data_science", "nganh_KHMT"],
+      "mo_ta": "NẾU điểm THPT từ 29 trở lên THÌ phù hợp với Trí tuệ Nhân tạo, Khoa học Dữ liệu, Khoa học Máy tính",
+      "trong_so": 0.88
+    },
+    {
+      "id": "R021",
+      "veTrai": ["to_hop_A00"],
+      "vePhai": ["nganh_CNTT", "nganh_KTPM", "nganh_AI", "nganh_KHMT"],
+      "mo_ta": "NẾU thi khối A00 (Toán, Lý, Hóa) THÌ phù hợp với CNTT, KTPM, AI, KHMT",
+      "trong_so": 0.85
+    },
+    {
+      "id": "R022",
+      "veTrai": ["to_hop_D01"],
+      "vePhai": ["nganh_TMDT", "nganh_HTTT", "nganh_multimedia"],
+      "mo_ta": "NẾU thi khối D01 (Toán, Văn, Anh) THÌ phù hợp với Thương mại điện tử, Hệ thống thông tin, Truyền thông đa phương tiện",
+      "trong_so": 0.83
+    },
+    {
+      "id": "R023",
+      "veTrai": ["giai_olympic_tin_nhat"],
+      "vePhai": ["hoc_bong_250_trieu"],
+      "mo_ta": "NẾU đạt giải Nhất Olympic Tin học Quốc tế hoặc Quốc gia THÌ nhận học bổng 250 triệu đồng",
+      "trong_so": 0.98
+    },
+    {
+      "id": "R024",
+      "veTrai": ["hsg_quoc_gia"],
+      "vePhai": ["hoc_bong_40_100_trieu"],
+      "mo_ta": "NẾU là Học sinh giỏi Quốc gia môn Toán/Lý/Hóa THÌ nhận học bổng 40-100 triệu đồng",
+      "trong_so": 0.92
+    },
+    {
+      "id": "R025",
+      "veTrai": ["muon_lam_data_engineer"],
+      "vePhai": ["nganh_data_science", "nganh_KHMT"],
+      "mo_ta": "NẾU muốn làm Data Engineer THÌ chọn Khoa học Dữ liệu hoặc Khoa học Máy tính",
+      "trong_so": 0.86
+    },
+    {
+      "id": "R026",
+      "veTrai": ["muon_lam_security_analyst"],
+      "vePhai": ["nganh_an_toan_TT", "nganh_MMT"],
+      "mo_ta": "NẾU muốn làm Security Analyst, Pentester THÌ chọn An toàn Thông tin hoặc Mạng máy tính",
+      "trong_so": 0.87
+    },
+    {
+      "id": "R027",
+      "veTrai": ["muon_lam_game_developer"],
+      "vePhai": ["nganh_KTPM", "nganh_multimedia"],
+      "mo_ta": "NẾU muốn làm Game Developer THÌ chọn Kỹ thuật Phần mềm hoặc Truyền thông đa phương tiện",
+      "trong_so": 0.84
+    }
+  ],
+  
+  "scripts": [
+    {
+      "id": "SCRIPT_TU_VAN_CHON_NGANH",
+      "ten": "Kịch bản tư vấn chọn ngành",
+      "entry_conditions": [
+        "Người dùng hỏi về chọn ngành",
+        "Người dùng muốn được tư vấn ngành phù hợp"
+      ],
+      "roles": [
+        "Người dùng (Thí sinh)",
+        "Hệ thống tư vấn"
+      ],
+      "props": [
+        "Thông tin sở thích",
+        "Điểm thi",
+        "Năng lực ngoại ngữ",
+        "Mục tiêu nghề nghiệp"
+      ],
+      "scenes": [
+        {
+          "scene_id": 1,
+          "ten": "Thu thập thông tin sở thích",
+          "actions": [
+            "Hệ thống hỏi: Bạn thích lĩnh vực nào? (lập trình, phần cứng, mạng, AI, kinh doanh, thiết kế...)",
+            "Người dùng trả lời về sở thích"
+          ]
+        },
+        {
+          "scene_id": 2,
+          "ten": "Thu thập thông tin điểm số",
+          "actions": [
+            "Hệ thống hỏi: Bạn có điểm THPT/ĐGNL bao nhiêu?",
+            "Người dùng cung cấp điểm số (hoặc dự kiến)"
+          ]
+        },
+        {
+          "scene_id": 3,
+          "ten": "Kiểm tra năng lực ngoại ngữ",
+          "actions": [
+            "Hệ thống hỏi: Bạn có chứng chỉ ngoại ngữ không? (IELTS, TOEFL, tiếng Nhật...)",
+            "Người dùng trả lời có/không và loại chứng chỉ"
+          ]
+        },
+        {
+          "scene_id": 4,
+          "ten": "Phân tích và đề xuất",
+          "actions": [
+            "Hệ thống áp dụng luật dẫn để phân tích",
+            "Hệ thống so sánh điểm với điểm chuẩn",
+            "Hệ thống đưa ra 2-3 ngành phù hợp nhất"
+          ]
+        },
+        {
+          "scene_id": 5,
+          "ten": "Cung cấp thông tin chi tiết",
+          "actions": [
+            "Hệ thống giới thiệu chi tiết các ngành được đề xuất",
+            "Hệ thống cung cấp thông tin về cơ hội nghề nghiệp",
+            "Hệ thống đưa link tham khảo"
+          ]
+        }
+      ],
+      "results": [
+        "Người dùng nhận được danh sách ngành phù hợp",
+        "Người dùng có thông tin chi tiết về từng ngành",
+        "Người dùng có link tham khảo để tìm hiểu thêm"
+      ]
+    },
+    {
+      "id": "SCRIPT_TU_VAN_PHUONG_THUC",
+      "ten": "Kịch bản tư vấn phương thức xét tuyển",
+      "entry_conditions": [
+        "Người dùng hỏi về phương thức xét tuyển",
+        "Người dùng muốn biết mình phù hợp với phương thức nào"
+      ],
+      "roles": [
+        "Người dùng (Thí sinh)",
+        "Hệ thống tư vấn"
+      ],
+      "props": [
+        "Học bạ THPT",
+        "Điểm ĐGNL",
+        "Chứng chỉ quốc tế",
+        "Giải thưởng"
+      ],
+      "scenes": [
+        {
+          "scene_id": 1,
+          "ten": "Kiểm tra điều kiện tuyển thẳng",
+          "actions": [
+            "Hệ thống hỏi: Bạn có học lực giỏi hoặc giải học thuật không?",
+            "Hệ thống hỏi: Bạn có chứng chỉ SAT/ACT/A-Level/IB không?",
+            "Người dùng trả lời"
+          ]
+        },
+        {
+          "scene_id": 2,
+          "ten": "Kiểm tra điểm ĐGNL",
+          "actions": [
+            "Hệ thống hỏi: Bạn có dự định thi hoặc đã có điểm ĐGNL không?",
+            "Người dùng trả lời có/không và điểm số (nếu có)"
+          ]
+        },
+        {
+          "scene_id": 3,
+          "ten": "Kiểm tra điểm THPT",
+          "actions": [
+            "Hệ thống hỏi: Điểm thi THPT dự kiến của bạn?",
+            "Người dùng cung cấp điểm số dự kiến"
+          ]
+        },
+        {
+          "scene_id": 4,
+          "ten": "Kiểm tra chương trình quốc tế",
+          "actions": [
+            "Hệ thống hỏi: Bạn có muốn học chương trình liên kết quốc tế không?",
+            "Người dùng trả lời có/không"
+          ]
+        },
+        {
+          "scene_id": 5,
+          "ten": "Đề xuất phương thức phù hợp",
+          "actions": [
+            "Hệ thống phân tích các điều kiện",
+            "Hệ thống đề xuất 1-2 phương thức phù hợp nhất",
+            "Hệ thống cung cấp hướng dẫn thủ tục chi tiết"
+          ]
+        }
+      ],
+      "results": [
+        "Người dùng biết được phương thức xét tuyển phù hợp",
+        "Người dùng có hướng dẫn thủ tục cụ thể",
+        "Người dùng biết cách chuẩn bị hồ sơ"
+      ]
+    },
+    {
+      "id": "SCRIPT_TU_VAN_HOC_BONG",
+      "ten": "Kịch bản tư vấn học bổng",
+      "entry_conditions": [
+        "Người dùng hỏi về học bổng",
+        "Người dùng muốn biết mình có đủ điều kiện nhận học bổng không"
+      ],
+      "roles": [
+        "Người dùng (Thí sinh)",
+        "Hệ thống tư vấn"
+      ],
+      "props": [
+        "Thành tích học tập",
+        "Giải thưởng Olympic/HSG",
+        "Hoàn cảnh gia đình",
+        "Chứng chỉ ngoại ngữ"
+      ],
+      "scenes": [
+        {
+          "scene_id": 1,
+          "ten": "Kiểm tra giải Olympic/HSG Quốc gia",
+          "actions": [
+            "Hệ thống hỏi: Bạn có giải Olympic Tin học/Toán học Quốc tế hoặc Quốc gia không?",
+            "Hệ thống hỏi: Giải hạng mấy? (Nhất, Nhì, Ba, KK)",
+            "Người dùng trả lời về thành tích"
+          ]
+        },
+        {
+          "scene_id": 2,
+          "ten": "Kiểm tra học sinh giỏi Quốc gia",
+          "actions": [
+            "Hệ thống hỏi: Bạn có học sinh giỏi Quốc gia môn Toán/Lý/Hóa không?",
+            "Hệ thống hỏi: Giải hạng mấy?",
+            "Người dùng trả lời"
+          ]
+        },
+        {
+          "scene_id": 3,
+          "ten": "Kiểm tra học sinh giỏi Tỉnh/Thành phố",
+          "actions": [
+            "Hệ thống hỏi: Bạn có học sinh giỏi Tỉnh/Thành phố không?",
+            "Người dùng trả lời về giải thưởng"
+          ]
+        },
+        {
+          "scene_id": 4,
+          "ten": "Tính toán mức học bổng",
+          "actions": [
+            "Hệ thống áp dụng luật dẫn R023-R024",
+            "Hệ thống tham chiếu knowledge_base/hoc_bong.json",
+            "Hệ thống tính toán mức học bổng phù hợp"
+          ]
+        },
+        {
+          "scene_id": 5,
+          "ten": "Thông báo kết quả và hướng dẫn",
+          "actions": [
+            "Hệ thống thông báo học bổng đủ điều kiện (nếu có)",
+            "Hệ thống cung cấp mức học bổng cụ thể (40-250 triệu)",
+            "Hệ thống hướng dẫn thủ tục đăng ký học bổng",
+            "Hệ thống cung cấp thông tin liên hệ hotline"
+          ]
+        }
+      ],
+      "results": [
+        "Người dùng biết được mình có đủ điều kiện nhận học bổng không",
+        "Người dùng biết mức học bổng cụ thể (nếu đủ điều kiện)",
+        "Người dùng có hướng dẫn thủ tục đăng ký học bổng",
+        "Người dùng có thông tin liên hệ để hỏi thêm"
+      ]
+    },
+    {
+      "id": "SCRIPT_PHAN_TICH_DIEM",
+      "ten": "Kịch bản phân tích điểm số và cơ hội trúng tuyển",
+      "entry_conditions": [
+        "Người dùng có điểm thi và muốn biết cơ hội trúng tuyển",
+        "Người dùng muốn so sánh điểm của mình với điểm chuẩn"
+      ],
+      "roles": [
+        "Người dùng (Thí sinh)",
+        "Hệ thống tư vấn"
+      ],
+      "props": [
+        "Điểm THPT hoặc ĐGNL",
+        "Tổ hợp môn",
+        "Điểm chuẩn năm trước",
+        "Chỉ tiêu tuyển sinh"
+      ],
+      "scenes": [
+        {
+          "scene_id": 1,
+          "ten": "Thu thập thông tin điểm số",
+          "actions": [
+            "Hệ thống hỏi: Bạn có điểm THPT hay ĐGNL?",
+            "Hệ thống hỏi: Điểm số cụ thể là bao nhiêu?",
+            "Hệ thống hỏi: Tổ hợp môn đã thi (A00, A01, D01...)",
+            "Người dùng cung cấp thông tin"
+          ]
+        },
+        {
+          "scene_id": 2,
+          "ten": "Lấy điểm chuẩn và chỉ tiêu",
+          "actions": [
+            "Hệ thống tham chiếu knowledge_base/chuyen_nganh.json",
+            "Hệ thống lấy điểm trúng tuyển của các ngành",
+            "Hệ thống lấy chỉ tiêu tuyển sinh"
+          ]
+        },
+        {
+          "scene_id": 3,
+          "ten": "So sánh và phân loại ngành",
+          "actions": [
+            "Hệ thống so sánh điểm người dùng với điểm chuẩn",
+            "Hệ thống phân loại ngành: An toàn (>1 điểm), Trúng tuyển (±0.5 điểm), Khó khăn (<0.5 điểm)",
+            "Hệ thống áp dụng luật R018-R022 để đề xuất"
+          ]
+        },
+        {
+          "scene_id": 4,
+          "ten": "Kiểm tra tổ hợp môn phù hợp",
+          "actions": [
+            "Hệ thống kiểm tra tổ hợp môn người dùng",
+            "Hệ thống lọc các ngành chấp nhận tổ hợp đó",
+            "Hệ thống ưu tiên các ngành phù hợp"
+          ]
+        },
+        {
+          "scene_id": 5,
+          "ten": "Báo cáo phân tích và đề xuất",
+          "actions": [
+            "Hệ thống thông báo: Ngành nào chắc chắn đỗ (danh sách)",
+            "Hệ thống thông báo: Ngành nào có khả năng đỗ (danh sách)",
+            "Hệ thống thông báo: Ngành nào khó đỗ (danh sách)",
+            "Hệ thống đề xuất chiến lược xếp nguyện vọng",
+            "Hệ thống gợi ý phương thức dự phòng (nếu điểm thấp)"
+          ]
+        }
+      ],
+      "results": [
+        "Người dùng có phân tích chi tiết về cơ hội trúng tuyển",
+        "Người dùng biết ngành nào có khả năng cao/thấp",
+        "Người dùng có chiến lược xếp nguyện vọng hợp lý",
+        "Người dùng có kế hoạch dự phòng"
+      ]
+    },
+    {
+      "id": "SCRIPT_CHON_TO_HOP",
+      "ten": "Kịch bản tư vấn chọn tổ hợp môn thi",
+      "entry_conditions": [
+        "Người dùng đang học lớp 11-12 và chưa quyết định tổ hợp môn",
+        "Người dùng muốn biết nên chọn tổ hợp nào để vào UIT"
+      ],
+      "roles": [
+        "Người dùng (Học sinh)",
+        "Hệ thống tư vấn"
+      ],
+      "props": [
+        "Môn học sở trường",
+        "Ngành dự định",
+        "Điểm trung bình các môn",
+        "Danh sách tổ hợp các ngành chấp nhận"
+      ],
+      "scenes": [
+        {
+          "scene_id": 1,
+          "ten": "Thu thập thông tin môn học sở trường",
+          "actions": [
+            "Hệ thống hỏi: Bạn giỏi môn nào nhất? (Toán, Lý, Hóa, Văn, Anh, Sinh...)",
+            "Hệ thống hỏi: Điểm trung bình các môn năm lớp 11?",
+            "Người dùng cung cấp thông tin"
+          ]
+        },
+        {
+          "scene_id": 2,
+          "ten": "Thu thập ngành dự định",
+          "actions": [
+            "Hệ thống hỏi: Bạn dự định chọn ngành gì? (hoặc lĩnh vực nào)",
+            "Người dùng trả lời về ngành/lĩnh vực quan tâm"
+          ]
+        },
+        {
+          "scene_id": 3,
+          "ten": "Phân tích tổ hợp phù hợp với ngành",
+          "actions": [
+            "Hệ thống tham chiếu knowledge_base/chuyen_nganh.json",
+            "Hệ thống lấy danh sách to_hop_mon của ngành đó",
+            "Hệ thống áp dụng luật R021-R022"
+          ]
+        },
+        {
+          "scene_id": 4,
+          "ten": "So sánh với môn sở trường",
+          "actions": [
+            "Hệ thống so sánh tổ hợp yêu cầu với môn sở trường",
+            "Hệ thống tính điểm trung bình dự kiến cho mỗi tổ hợp",
+            "Hệ thống xếp hạng tổ hợp theo độ phù hợp"
+          ]
+        },
+        {
+          "scene_id": 5,
+          "ten": "Đề xuất tổ hợp và kế hoạch học tập",
+          "actions": [
+            "Hệ thống đề xuất 1-2 tổ hợp phù hợp nhất",
+            "Hệ thống giải thích lý do (phù hợp với sở trường + yêu cầu ngành)",
+            "Hệ thống đưa ra kế hoạch học tập để cải thiện môn yếu",
+            "Hệ thống tính điểm dự kiến nếu chọn tổ hợp đó"
+          ]
+        }
+      ],
+      "results": [
+        "Người dùng biết nên chọn tổ hợp môn nào",
+        "Người dùng hiểu tại sao tổ hợp đó phù hợp",
+        "Người dùng có kế hoạch học tập cụ thể",
+        "Người dùng có ước tính điểm số để đặt mục tiêu"
+      ]
+    }
+  ],
+  
+  "cau_hoi_thuong_gap": [
+    {
+      "id": "FAQ001",
+      "cau_hoi": "Ngành nào có điểm chuẩn cao nhất?",
+      "tra_loi": "Ngành Trí tuệ Nhân tạo có điểm chuẩn cao nhất với 29.60 điểm.",
+      "keywords": ["điểm cao nhất", "điểm chuẩn cao"],
+      "related_rules": ["R001"],
+      "related_majors": ["7480107"]
+    },
+    {
+      "id": "FAQ002",
+      "cau_hoi": "Ngành nào có điểm chuẩn thấp nhất?",
+      "tra_loi": "Ngành Mạng máy tính & Truyền thông Dữ liệu có điểm chuẩn thấp nhất với 24.00 điểm.",
+      "keywords": ["điểm thấp nhất", "điểm chuẩn thấp"],
+      "related_rules": ["R002"],
+      "related_majors": ["7480102"]
+    },
+    {
+      "id": "FAQ003",
+      "cau_hoi": "Tôi thích lập trình nên học ngành gì?",
+      "tra_loi": "Nếu bạn thích lập trình, bạn có thể chọn Công nghệ Thông tin (26.60 điểm), Kỹ thuật Phần mềm (26.00 điểm), hoặc Khoa học Máy tính (27.20 điểm).",
+      "keywords": ["thích lập trình", "học lập trình"],
+      "related_rules": ["R003", "R016"],
+      "related_majors": ["7480201", "7480103", "7480101"]
+    },
+    {
+      "id": "FAQ004",
+      "cau_hoi": "Tôi quan tâm đến AI thì nên học ngành gì?",
+      "tra_loi": "Nếu bạn quan tâm đến AI và Machine Learning, bạn nên chọn ngành Trí tuệ Nhân tạo (29.60 điểm) hoặc Khoa học Dữ liệu (27.70 điểm).",
+      "keywords": ["AI", "machine learning", "trí tuệ nhân tạo"],
+      "related_rules": ["R004"],
+      "related_majors": ["7480107", "7460108"]
+    },
+    {
+      "id": "FAQ005",
+      "cau_hoi": "Điểm ĐGNL bao nhiêu thì được xét tuyển?",
+      "tra_loi": "Điểm ĐGNL tối thiểu để xét tuyển là 600 điểm (thang điểm 1200). Bạn có thể được cộng thêm điểm nếu có chứng chỉ ngoại ngữ.",
+      "keywords": ["điểm ĐGNL", "đánh giá năng lực"],
+      "related_rules": ["R012"],
+      "related_methods": ["PT02"]
+    },
+    {
+      "id": "FAQ006",
+      "cau_hoi": "Làm sao để được tuyển thẳng?",
+      "tra_loi": "Bạn có thể được tuyển thẳng nếu: (1) Học lực giỏi + hạnh kiểm tốt, (2) Có giải học thuật/thể thao, (3) Có chứng chỉ quốc tế (SAT ≥1200, ACT ≥25, A-Level ≥B, IB ≥30), hoặc (4) Thuộc 149 trường THPT ưu tiên.",
+      "keywords": ["tuyển thẳng", "học sinh giỏi"],
+      "related_rules": ["R013"],
+      "related_methods": ["PT01"]
+    },
+    {
+      "id": "FAQ007",
+      "cau_hoi": "Có chương trình nào liên kết với nước ngoài không?",
+      "tra_loi": "Có, UIT có các chương trình liên kết quốc tế với ĐH Birmingham City (Anh) và ĐH Newcastle (Úc). Bạn cần có năng lực ngoại ngữ tốt để tham gia các chương trình này.",
+      "keywords": ["liên kết quốc tế", "du học", "chương trình quốc tế"],
+      "related_rules": ["R010"],
+      "related_methods": ["PT04"]
+    },
+    {
+      "id": "FAQ008",
+      "cau_hoi": "Tôi biết tiếng Nhật, có chương trình nào phù hợp không?",
+      "tra_loi": "Có, bạn có thể chọn chương trình Công nghệ Thông tin (Việt-Nhật) với điểm chuẩn 24.20. Chương trình này tăng cường tiếng Nhật và có cơ hội thực tập/làm việc tại Nhật.",
+      "keywords": ["tiếng Nhật", "Việt-Nhật", "làm việc Nhật"],
+      "related_rules": ["R011"],
+      "related_majors": ["7480201_VN"]
+    },
+    {
+      "id": "FAQ009",
+      "cau_hoi": "Ngành An toàn Thông tin học gì?",
+      "tra_loi": "Ngành An toàn Thông tin (26.27 điểm) học về mã hóa, pentest, forensic, chính sách bảo mật. Cơ hội nghề nghiệp: Chuyên gia an ninh, pentester, analyst SOC.",
+      "keywords": ["an toàn thông tin", "bảo mật", "pentest"],
+      "related_rules": ["R005"],
+      "related_majors": ["7480202"]
+    },
+    {
+      "id": "FAQ010",
+      "cau_hoi": "Thương mại điện tử học những gì?",
+      "tra_loi": "Thương mại Điện tử (24.57 điểm) kết hợp CNTT và kinh doanh, học về nền tảng e-commerce, thanh toán, logistics. Cơ hội: Product manager TMĐT, digital marketer, developer TMĐT.",
+      "keywords": ["thương mại điện tử", "e-commerce"],
+      "related_rules": ["R008"],
+      "related_majors": ["7340122"]
+    }
+  ],
+  
+  "hoc_phi": {
+    "hoc_phi_chuan": {
+      "gia_tri": "37.000.000 đồng/năm",
+      "mo_ta": "Học phí cho sinh viên mới (áp dụng cho hầu hết các ngành)",
+      "ghi_chu": "Có thể thay đổi theo quy định hàng năm"
+    },
+    "hoc_phi_hoc_lai": {
+      "gia_tri": "1.150.000 đồng/tín chỉ",
+      "mo_ta": "Học phí cho học lại hoặc cải thiện điểm"
+    }
+  },
+  
+  "hoc_bong": [
+    {
+      "id": "HB001",
+      "ten": "Học bổng Olympic Tin học Quốc gia/Quốc tế - Hạng Nhất",
+      "gia_tri": "250.000.000 đồng",
+      "dieu_kien": [
+        "Đạt giải Nhất môn Tin học trong kỳ thi HSG Quốc gia THPT",
+        "Đạt cúp Vàng, Bạc, Đồng ở kỳ thi Siêu Cup - Olympic Tin học Việt Nam",
+        "Đạt giải Nhất/Nhì/Ba Olympic khu vực và quốc tế môn Tin học"
+      ],
+      "so_luong": "Không giới hạn",
+      "ghi_chu": "Đặc cách xét tuyển thẳng vào lớp tài năng",
+      "keywords": ["giải nhất", "olympic", "tin học", "vàng bạc đồng"]
+    },
+    {
+      "id": "HB002",
+      "ten": "Học bổng Olympic Tin học Quốc gia/Quốc tế - Hạng Nhì",
+      "gia_tri": "200.000.000 đồng",
+      "dieu_kien": [
+        "Đạt giải Nhì môn Tin học trong kỳ thi HSG Quốc gia THPT",
+        "Đạt giải Đồng/Ba ở kỳ thi Siêu Cup - Olympic Tin học Việt Nam"
+      ],
+      "so_luong": "Không giới hạn",
+      "ghi_chu": "Đặc cách xét tuyển thẳng vào lớp tài năng",
+      "keywords": ["giải nhì", "olympic", "tin học"]
+    },
+    {
+      "id": "HB003",
+      "ten": "Học bổng HSG Quốc gia - Giải Nhất các môn",
+      "gia_tri": "160.000.000 đồng",
+      "dieu_kien": [
+        "Đạt giải Nhất môn Toán, Lý, Hóa, Văn, Anh văn trong kỳ thi HSG Quốc gia THPT"
+      ],
+      "so_luong": "Không giới hạn",
+      "ghi_chu": "Ưu tiên xét tuyển vào lớp tài năng",
+      "keywords": ["giải nhất", "toán", "lý", "hóa", "văn", "anh"]
+    },
+    {
+      "id": "HB004",
+      "ten": "Học bổng HSG Quốc gia/Olympic - Hạng Ba",
+      "gia_tri": "120.000.000 đồng",
+      "dieu_kien": [
+        "Đạt giải Nhì môn Toán, Lý, Hóa, Văn, Anh văn trong kỳ thi HSG Quốc gia THPT",
+        "Đạt giải Ba môn Tin học trong kỳ thi HSG Quốc gia THPT",
+        "Đạt giải Cúp Đồng kỳ thi Olympic Tin học Việt Nam",
+        "Đạt giải Khuyến khích kỳ thi Olympic khu vực và quốc tế môn Tin học"
+      ],
+      "so_luong": "Không giới hạn",
+      "ghi_chu": "Ưu tiên xét tuyển vào lớp tài năng",
+      "keywords": ["giải nhì", "giải ba", "khuyến khích"]
+    },
+    {
+      "id": "HB005",
+      "ten": "Học bổng HSG/Olympic Tin học - Khuyến khích",
+      "gia_tri": "80.000.000 đồng",
+      "dieu_kien": [
+        "Đạt giải Khuyến khích môn Tin học trong kỳ thi HSG Quốc gia THPT",
+        "Đạt giải Ba kỳ thi Olympic Tin học Việt Nam"
+      ],
+      "so_luong": "Không giới hạn",
+      "ghi_chu": "",
+      "keywords": ["khuyến khích", "giải ba"]
+    },
+    {
+      "id": "HB006",
+      "ten": "Học bổng HSG Quốc gia - Giải Ba",
+      "gia_tri": "60.000.000 đồng",
+      "dieu_kien": [
+        "Đạt giải Ba môn Toán, Lý, Hóa, Văn, Anh văn trong kỳ thi HSG Quốc gia THPT"
+      ],
+      "so_luong": "Không giới hạn",
+      "ghi_chu": "",
+      "keywords": ["giải ba", "toán", "lý", "hóa", "văn", "anh"]
+    },
+    {
+      "id": "HB007",
+      "ten": "Học bổng HSG Quốc gia - Khuyến khích",
+      "gia_tri": "40.000.000 đồng",
+      "dieu_kien": [
+        "Đạt giải Khuyến khích môn Toán, Lý, Hóa, Văn, Anh văn trong kỳ thi HSG Quốc gia THPT"
+      ],
+      "so_luong": "Không giới hạn",
+      "ghi_chu": "",
+      "keywords": ["khuyến khích", "toán", "lý", "hóa", "văn", "anh"]
+    }
+  ]
+}
