@@ -125,13 +125,12 @@ def search_by_dgnl(diem_dgnl, loai_cc, diem_cc):
 
 # ============= TAB 3: TƯ VẤN THEO SỞ THÍCH =============
 
-def recommend_by_interests(interests_selected, diem_thi):
-    """Tư vấn ngành theo sở thích"""
+def recommend_by_interests_no_score(interests_selected):
+    """Tư vấn ngành theo sở thích (không cần điểm thi)"""
     if not interests_selected:
         return "⚠️ Vui lòng chọn ít nhất một sở thích!"
     
-    diem = float(diem_thi) if diem_thi else None
-    result = inference_engine.recommend_by_interests(interests_selected, diem)
+    result = inference_engine.recommend_by_interests(interests_selected, None)
     
     output = "## 🎯 Kết quả tư vấn ngành học\n\n"
     
@@ -242,8 +241,8 @@ def search_scholarships(thanh_tich, diem_thi, show_all):
     
     return output
 
-def search_scholarships_enhanced(hb_id, thanh_tich, diem_thi):
-    """Tìm kiếm học bổng với dropdown"""
+def search_scholarships_enhanced_no_score(hb_id, thanh_tich):
+    """Tìm kiếm học bổng với dropdown (không cần điểm thi)"""
     # Ưu tiên dropdown nếu có
     if hb_id:
         if hb_id == "tat_ca":
@@ -293,11 +292,11 @@ def search_scholarships_enhanced(hb_id, thanh_tich, diem_thi):
             
             return "❌ Không tìm thấy học bổng này!"
     
-    # Nếu không có dropdown, dùng các trường khác
-    elif thanh_tich or diem_thi:
-        return search_scholarships(thanh_tich, diem_thi, False)
+    # Nếu không có dropdown, dùng thành tích
+    elif thanh_tich:
+        return search_scholarships(thanh_tich, None, False)
     else:
-        return "⚠️ Vui lòng chọn loại học bổng hoặc nhập thông tin tìm kiếm!"
+        return "⚠️ Vui lòng chọn loại học bổng hoặc nhập thành tích tìm kiếm!"
 
 # ============= TAB 6: TƯ VẤN TOÀN DIỆN =============
 
@@ -446,14 +445,13 @@ with gr.Blocks(title="Hệ thống Tư vấn Tuyển sinh UIT") as app:
                         ],
                         label="Chọn sở thích của bạn"
                     )
-                    diem_thi_st = gr.Number(label="Điểm thi (tùy chọn)", minimum=0, maximum=30, step=0.1)
                     btn_interests = gr.Button("🎯 Nhận tư vấn", variant="primary")
                 with gr.Column(scale=2):
                     output_interests = gr.Markdown()
             
             btn_interests.click(
-                recommend_by_interests,
-                inputs=[interests, diem_thi_st],
+                recommend_by_interests_no_score,
+                inputs=[interests],
                 outputs=[output_interests]
             )
         
@@ -508,14 +506,13 @@ with gr.Blocks(title="Hệ thống Tư vấn Tuyển sinh UIT") as app:
                         label="Hoặc nhập thành tích",
                         placeholder="VD: Giải Nhất Olympic Tin học..."
                     )
-                    diem_thi_hb = gr.Number(label="Hoặc nhập điểm thi", minimum=0, maximum=30)
                     btn_hb = gr.Button("🔍 Tìm kiếm", variant="primary")
                 with gr.Column(scale=2):
                     output_hb = gr.Markdown()
             
             btn_hb.click(
-                search_scholarships_enhanced,
-                inputs=[hb_dropdown, thanh_tich_hb, diem_thi_hb],
+                search_scholarships_enhanced_no_score,
+                inputs=[hb_dropdown, thanh_tich_hb],
                 outputs=[output_hb]
             )
     

@@ -331,5 +331,242 @@
     ],
     "mo_ta": "NẾU muốn làm Game Developer THÌ chọn Kỹ thuật Phần mềm hoặc Truyền thông đa phương tiện",
     "trong_so": 0.84
+  },
+  {
+    "id": "R028",
+    "veTrai": [
+      "diem_DGNL_900_950"
+    ],
+    "vePhai": [
+      "nganh_MMT",
+      "nganh_TMDT",
+      "nganh_HTTT"
+    ],
+    "mo_ta": "NẾU điểm ĐGNL từ 900-950 THÌ đề xuất Mạng máy tính, Thương mại điện tử, Hệ thống Thông tin",
+    "trong_so": 0.82
+  },
+  {
+    "id": "R029",
+    "veTrai": [
+      "diem_DGNL_950_1000"
+    ],
+    "vePhai": [
+      "nganh_CNTT",
+      "nganh_KTPM",
+      "nganh_KHMT"
+    ],
+    "mo_ta": "NẾU điểm ĐGNL từ 950-1000 THÌ đề xuất Công nghệ Thông tin, Kỹ thuật Phần mềm, Khoa học Máy tính",
+    "trong_so": 0.85
+  },
+  {
+    "id": "R030",
+    "veTrai": [
+      "diem_DGNL_1000_tro_len"
+    ],
+    "vePhai": [
+      "nganh_AI",
+      "nganh_data_science",
+      "nganh_KHMT",
+      "nganh_an_toan_TT"
+    ],
+    "mo_ta": "NẾU điểm ĐGNL từ 1000 trở lên THÌ đề xuất Trí tuệ Nhân tạo, Khoa học Dữ liệu, Khoa học Máy tính, An toàn Thông tin",
+    "trong_so": 0.9
+  },
+  {
+    "id": "R031",
+    "veTrai": [
+      "to_hop_A01"
+    ],
+    "vePhai": [
+      "nganh_CNTT",
+      "nganh_KTPM",
+      "nganh_AI",
+      "nganh_KHMT",
+      "nganh_data_science"
+    ],
+    "mo_ta": "NẾU thi tổ hợp A01 (Toán, Vật lý, Tiếng Anh) THÌ phù hợp với CNTT, KTPM, AI, Khoa học Máy tính, Khoa học Dữ liệu",
+    "trong_so": 0.85
+  },
+  {
+    "id": "R032",
+    "veTrai": [
+      "to_hop_D07"
+    ],
+    "vePhai": [
+      "nganh_TMDT",
+      "nganh_HTTT",
+      "nganh_CNTT"
+    ],
+    "mo_ta": "NẾU thi tổ hợp D07 (Toán, Hóa, Tiếng Anh) THÌ phù hợp với Thương mại Điện tử, Hệ thống Thông tin, CNTT",
+    "trong_so": 0.82
+  },
+  {
+    "id": "R033",
+    "veTrai": [
+      "to_hop_X06"
+    ],
+    "vePhai": [
+      "nganh_KHMT",
+      "nganh_KTPM",
+      "nganh_AI",
+      "nganh_data_science"
+    ],
+    "mo_ta": "NẾU thi tổ hợp X06 (Toán, Vật lý, Tin học) THÌ rất phù hợp với Khoa học Máy tính, KTPM, AI, Khoa học Dữ liệu",
+    "trong_so": 0.88
+  },
+  {
+    "id": "R034",
+    "veTrai": [
+      "to_hop_X26"
+    ],
+    "vePhai": [
+      "nganh_CNTT",
+      "nganh_KTPM",
+      "nganh_KHMT"
+    ],
+    "mo_ta": "NẾU thi tổ hợp X26 (Toán, Tiếng Anh, Tin học) THÌ phù hợp với CNTT, KTPM, Khoa học Máy tính",
+    "trong_so": 0.84
+  },
+  {
+    "id": "R035",
+    "veTrai": [
+      "IELTS_7_0_tro_len"
+    ],
+    "vePhai": [
+      "chuong_trinh_lien_ket",
+      "diem_cong_40"
+    ],
+    "mo_ta": "NẾU có IELTS từ 7.0 trở lên THÌ được cộng 40 điểm ĐGNL và phù hợp với chương trình liên kết quốc tế",
+    "trong_so": 0.9
+  },
+  {
+    "id": "R036",
+    "veTrai": [
+      "IELTS_6_5"
+    ],
+    "vePhai": [
+      "diem_cong_30"
+    ],
+    "mo_ta": "NẾU có IELTS 6.5 THÌ được cộng 30 điểm ĐGNL",
+    "trong_so": 0.85
+  },
+  {
+    "id": "R037",
+    "veTrai": [
+      "IELTS_6_0"
+    ],
+    "vePhai": [
+      "diem_cong_20"
+    ],
+    "mo_ta": "NẾU có IELTS 6.0 THÌ được cộng 20 điểm ĐGNL",
+    "trong_so": 0.82
+  },
+  {
+    "id": "R038",
+    "veTrai": [
+      "hoc_bong_olympic_tin"
+    ],
+    "vePhai": [
+      "HB001",
+      "HB002"
+    ],
+    "mo_ta": "NẾU có giải Olympic Tin học THÌ đủ điều kiện xét học bổng 200-250 triệu đồng",
+    "trong_so": 0.98
+  },
+  {
+    "id": "R039",
+    "veTrai": [
+      "hoc_bong_hsg_quoc_gia"
+    ],
+    "vePhai": [
+      "HB003",
+      "HB004",
+      "HB005"
+    ],
+    "mo_ta": "NẾU là Học sinh giỏi Quốc gia THÌ đủ điều kiện xét học bổng 40-160 triệu đồng",
+    "trong_so": 0.92
+  },
+  {
+    "id": "R040",
+    "veTrai": [
+      "hoc_bong_diem_cao_28"
+    ],
+    "vePhai": [
+      "HB007"
+    ],
+    "mo_ta": "NẾU có điểm thi THPT từ 28 trở lên THÌ đủ điều kiện xét học bổng Tân sinh viên Xuất sắc 60 triệu đồng",
+    "trong_so": 0.88
+  },
+  {
+    "id": "R041",
+    "veTrai": [
+      "diem_22_24",
+      "thanh_tich_dac_biet"
+    ],
+    "vePhai": [
+      "nganh_MMT",
+      "nganh_TMDT",
+      "nganh_HTTT_TT",
+      "nganh_CNTT_VN"
+    ],
+    "mo_ta": "NẾU điểm từ 22-24 VÀ có thành tích đặc biệt THÌ vẫn có cơ hội với các ngành có điểm chuẩn thấp",
+    "trong_so": 0.78
+  },
+  {
+    "id": "R042",
+    "veTrai": [
+      "diem_24_25"
+    ],
+    "vePhai": [
+      "nganh_HTTT",
+      "nganh_MMT",
+      "nganh_TMDT",
+      "nganh_CNTT_VN"
+    ],
+    "mo_ta": "NẾU điểm từ 24-25 THÌ đề xuất Hệ thống Thông tin, Mạng máy tính, Thương mại Điện tử, CNTT Việt-Nhật",
+    "trong_so": 0.8
+  },
+  {
+    "id": "R043",
+    "veTrai": [
+      "diem_25_27"
+    ],
+    "vePhai": [
+      "nganh_CNTT",
+      "nganh_KTPM",
+      "nganh_HTTT",
+      "nganh_MMT"
+    ],
+    "mo_ta": "NẾU điểm từ 25-27 THÌ đề xuất CNTT, Kỹ thuật Phần mềm, Hệ thống Thông tin, Mạng máy tính",
+    "trong_so": 0.83
+  },
+  {
+    "id": "R044",
+    "veTrai": [
+      "diem_27_29"
+    ],
+    "vePhai": [
+      "nganh_KHMT",
+      "nganh_CNTT",
+      "nganh_KTPM",
+      "nganh_data_science",
+      "nganh_an_toan_TT"
+    ],
+    "mo_ta": "NẾU điểm từ 27-29 THÌ đề xuất Khoa học Máy tính, CNTT, KTPM, Khoa học Dữ liệu, An toàn Thông tin",
+    "trong_so": 0.85
+  },
+  {
+    "id": "R045",
+    "veTrai": [
+      "diem_29_30"
+    ],
+    "vePhai": [
+      "nganh_AI",
+      "nganh_data_science",
+      "nganh_KHMT",
+      "nganh_an_toan_TT"
+    ],
+    "mo_ta": "NẾU điểm từ 29-30 THÌ ưu tiên Trí tuệ Nhân tạo, Khoa học Dữ liệu, Khoa học Máy tính, An toàn Thông tin",
+    "trong_so": 0.92
   }
 ]
