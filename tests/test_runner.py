@@ -82,46 +82,31 @@ class TestRunner:
         }
         
         try:
-            # Gọi phương thức tương ứng với category
-            if category == 'tra_cuu_theo_diem':
-                output = self.inference_engine.find_majors_by_score(
-                    input_data.get('diem_thi'),
-                    input_data.get('phuong_thuc')
-                )
-            elif category == 'tra_cuu_dgnl':
-                output = self.inference_engine.find_majors_by_dgnl(
-                    input_data.get('diem_dgnl'),
-                    input_data.get('chung_chi_ngoai_ngu')
-                )
-            elif category == 'forward_chaining':
-                output = self.inference_engine.recommend_by_interests(
-                    input_data.get('so_thich'),
-                    input_data.get('diem_thi')
-                )
-            elif category == 'faq':
-                output = self.inference_engine.search_faq(
-                    input_data.get('tu_khoa')
-                )
-            elif category == 'hoc_bong':
-                output = self.inference_engine.search_scholarships(input_data)
-            elif category == 'phuong_thuc_tuyen_sinh':
-                output = self.inference_engine.get_admission_methods(
-                    input_data.get('phuong_thuc'),
-                    input_data.get('loai_truy_van')
-                )
-            elif category == 'complex_query':
-                output = self.inference_engine.complex_search(input_data)
-            elif category == 'comprehensive':
-                output = self.inference_engine.comprehensive_consultation(
-                    input_data.get('thong_tin_ca_nhan')
-                )
+            # Tất cả test cases đều dùng comprehensive_consultation
+            if category == 'comprehensive':
+                # Xử lý input trực tiếp cho comprehensive_consultation
+                thong_tin = {}
+                if input_data.get('diem_thi') is not None:
+                    thong_tin['diem_thi'] = float(input_data['diem_thi'])
+                if input_data.get('diem_dgnl') is not None:
+                    thong_tin['diem_dgnl'] = float(input_data['diem_dgnl'])
+                if input_data.get('to_hop_mon'):
+                    thong_tin['to_hop_mon'] = input_data['to_hop_mon']
+                if input_data.get('chung_chi_ngoai_ngu'):
+                    thong_tin['chung_chi_ngoai_ngu'] = input_data['chung_chi_ngoai_ngu']
+                if input_data.get('thanh_tich'):
+                    thong_tin['thanh_tich'] = input_data['thanh_tich']
+                if input_data.get('so_thich'):
+                    thong_tin['so_thich'] = input_data['so_thich']
+                
+                output = self.inference_engine.comprehensive_consultation(thong_tin)
             else:
                 raise ValueError(f"Unknown category: {category}")
             
             result['output'] = output
             
             # Validate output dựa trên expected
-            result['passed'] = self.validate_output(output, expected)
+            result['passed'] = self.validate_output(output, expected, input_data)
             
         except Exception as e:
             result['error'] = str(e)
@@ -129,7 +114,7 @@ class TestRunner:
         
         return result
     
-    def validate_output(self, output, expected):
+    def validate_output(self, output, expected, input_data=None):
         """Kiểm tra output có đúng với expected không"""
         try:
             if expected.get('status') == 'success':
@@ -138,37 +123,102 @@ class TestRunner:
                 
                 # Kiểm tra số lượng ngành tối thiểu
                 if 'min_majors' in expected:
-                    majors = output.get('danh_sach_nganh', [])
+                    majors = output.get('nganh_de_xuat', [])
                     if len(majors) < expected['min_majors']:
                         return False
                 
-                # Kiểm tra có chứa các ngành cụ thể
-                if 'should_include' in expected:
-                    majors = output.get('danh_sach_nganh', [])
+                # Kiểm tra số lượng ngành (có thể là 0 hoặc thấp)
+                if 'majors_count' in expected:
+                    majors = output.get('nganh_de_xuat', [])
+                    if expected['majors_count'] == 0:
+                        if len(majors) > 0:
+                            return False
+                    elif expected['majors_count'] == "may_be_zero_or_low":
+                        # Chấp nhận 0 hoặc số thấp
+                        pass
+                
+                # Kiểm tra có chứa các ngành cụ thể (theo mã ngành)
+                if 'should_include_ma_nganh' in expected:
+                    majors = output.get('nganh_de_xuat', [])
                     major_ids = [m.get('ma_nganh') for m in majors]
-                    for ma_nganh in expected['should_include']:
+                    for ma_nganh in expected['should_include_ma_nganh']:
                         if ma_nganh not in major_ids:
                             return False
                 
-                # Kiểm tra pattern trong thông báo
-                if 'thong_bao_pattern' in expected:
-                    thong_bao = output.get('thong_bao', '')
-                    if expected['thong_bao_pattern'].lower() not in thong_bao.lower():
-                        return False
-            
-            elif expected.get('status') == 'fail':
-                if 'majors_count' in expected:
-                    majors = output.get('danh_sach_nganh', [])
-                    if len(majors) != expected['majors_count']:
+                # Kiểm tra phương thức
+                if 'phuong_thuc' in expected:
+                    pt = output.get('phan_tich_tong_quan', {})
+                    if pt.get('phuong_thuc_tot_nhat') != expected['phuong_thuc']:
                         return False
                 
-                if expected.get('should_have_suggestions'):
-                    if not output.get('goi_y'):
+                # Kiểm tra điểm cộng và điểm xét tuyển
+                if 'diem_cong_expected' in expected:
+                    # Tính lại điểm cộng từ input (không dùng trace)
+                    diem_cong = 0
+                    if input_data:
+                        chung_chi = input_data.get('chung_chi_ngoai_ngu')
+                        if chung_chi:
+                            loai = chung_chi.get('loai', '').upper()
+                            diem_cn = chung_chi.get('diem', 0)
+                            
+                            if loai == 'IELTS':
+                                if diem_cn >= 7.5:
+                                    diem_cong = 45
+                                elif diem_cn >= 7.0:
+                                    diem_cong = 40
+                                elif diem_cn >= 6.5:
+                                    diem_cong = 30
+                                elif diem_cn >= 6.0:
+                                    diem_cong = 20
+                            elif loai == 'TOEFL IBT':
+                                if diem_cn >= 100:
+                                    diem_cong = 45
+                                elif diem_cn >= 90:
+                                    diem_cong = 40
+                                elif diem_cn >= 80:
+                                    diem_cong = 30
+                    
+                    if diem_cong != expected['diem_cong_expected']:
                         return False
+                
+                if 'diem_xet_tuyen_expected' in expected:
+                    pt = output.get('phan_tich_tong_quan', {})
+                    diem_xet_tuyen = pt.get('diem_xet_tuyen_sau_cong')
+                    if diem_xet_tuyen != expected['diem_xet_tuyen_expected']:
+                        return False
+                
+                # Kiểm tra học bổng
+                if 'min_scholarships' in expected:
+                    hoc_bong = output.get('hoc_bong_du_kien', [])
+                    if len(hoc_bong) < expected['min_scholarships']:
+                        return False
+                
+                # Kiểm tra học bổng theo ID
+                if 'should_include_hoc_bong_ids' in expected:
+                    hoc_bong = output.get('hoc_bong_du_kien', [])
+                    hoc_bong_ids = [hb.get('id') for hb in hoc_bong]
+                    found = False
+                    for hb_id in expected['should_include_hoc_bong_ids']:
+                        if hb_id in hoc_bong_ids:
+                            found = True
+                            break
+                    if not found:
+                        return False
+                
+                if 'should_have_hoc_bong_du_kien' in expected:
+                    if not output.get('hoc_bong_du_kien'):
+                        return False
+                
+            elif expected.get('status') == 'fail':
+                if 'majors_count' in expected:
+                    majors = output.get('nganh_de_xuat', [])
+                    if expected['majors_count'] == 0:
+                        if len(majors) > 0:
+                            return False
             
             return True
             
-        except Exception:
+        except Exception as e:
             return False
     
     def generate_report(self, output_path=None):

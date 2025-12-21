@@ -1,305 +1,425 @@
 {
   "test_metadata": {
-    "description": "Test cases cho Hệ thống Tư vấn Tuyển sinh UIT",
-    "version": "1.0",
+    "description": "Test cases cho Hệ thống Tư vấn Tuyển sinh UIT - Forward Chaining",
+    "version": "2.0",
     "total_tests": 20
   },
-  
+
   "tests": [
     {
       "id": "TC001",
-      "name": "Tìm ngành phù hợp với điểm số cao",
-      "category": "tra_cuu_theo_diem",
+      "name": "Forward Chaining - Điểm THPT cao không có tổ hợp môn",
+      "category": "comprehensive",
       "input": {
         "diem_thi": 29.5,
-        "phuong_thuc": "diem_thi_thpt"
+        "diem_dgnl": null,
+        "to_hop_mon": "",
+        "chung_chi_ngoai_ngu": null,
+        "thanh_tich": null,
+        "so_thich": null
       },
       "expected": {
         "status": "success",
-        "min_majors": 10,
-        "should_include": ["7480107", "7480104", "7340405"],
-        "thong_bao_pattern": "có thể xét tuyển"
+        "phuong_thuc": "diem_thi_thpt",
+        "should_include_ma_nganh": ["7480101", "7480103", "7480201", "75202A1"]
       }
     },
     {
       "id": "TC002",
-      "name": "Tìm ngành phù hợp với điểm số trung bình",
-      "category": "tra_cuu_theo_diem",
+      "name": "Forward Chaining - Điểm THPT + Tổ hợp môn A00",
+      "category": "comprehensive",
       "input": {
-        "diem_thi": 26.0,
-        "phuong_thuc": "diem_thi_thpt"
+        "diem_thi": 28.0,
+        "diem_dgnl": null,
+        "to_hop_mon": "A00",
+        "chung_chi_ngoai_ngu": null,
+        "thanh_tich": null,
+        "so_thich": null
       },
       "expected": {
         "status": "success",
-        "min_majors": 5,
-        "should_include": ["7480201", "7480103"],
-        "thong_bao_pattern": "có thể xét tuyển"
+        "should_include_ma_nganh": ["7480101", "7480103", "7480201"]
       }
     },
     {
       "id": "TC003",
-      "name": "Tìm ngành với điểm số thấp",
-      "category": "tra_cuu_theo_diem",
+      "name": "Forward Chaining - Điểm THPT + Tổ hợp môn A01",
+      "category": "comprehensive",
       "input": {
-        "diem_thi": 23.5,
-        "phuong_thuc": "diem_thi_thpt"
+        "diem_thi": 27.5,
+        "diem_dgnl": null,
+        "to_hop_mon": "A01",
+        "chung_chi_ngoai_ngu": null,
+        "thanh_tich": null,
+        "so_thich": null
       },
       "expected": {
-        "status": "fail",
-        "majors_count": 0,
-        "thong_bao_pattern": "chưa đủ",
-        "should_have_suggestions": true
+        "status": "success",
+        "should_include_ma_nganh": ["7480101", "7480103", "7480201"]
       }
     },
     {
       "id": "TC004",
-      "name": "Xét tuyển theo điểm ĐGNL cao",
-      "category": "tra_cuu_dgnl",
+      "name": "Forward Chaining - Điểm THPT thấp + Tổ hợp môn",
+      "category": "comprehensive",
       "input": {
-        "diem_dgnl": 1000,
-        "chung_chi_ngoai_ngu": {
-          "loai": "IELTS",
-          "diem": 7.5
-        },
-        "phuong_thuc": "dgnl"
+        "diem_thi": 23.0,
+        "diem_dgnl": null,
+        "to_hop_mon": "A00",
+        "chung_chi_ngoai_ngu": null,
+        "thanh_tich": null,
+        "so_thich": null
       },
       "expected": {
         "status": "success",
-        "diem_cong_expected": 45,
-        "should_include": ["7480107", "7480104"],
-        "thong_bao_pattern": "Chúc mừng"
+        "majors_count": "may_be_zero_or_low"
       }
     },
     {
       "id": "TC005",
-      "name": "Xét tuyển ĐGNL không đủ điều kiện",
-      "category": "tra_cuu_dgnl",
+      "name": "Forward Chaining - Điểm ĐGNL cao + Chứng chỉ IELTS",
+      "category": "comprehensive",
       "input": {
-        "diem_dgnl": 550,
-        "phuong_thuc": "dgnl"
+        "diem_thi": null,
+        "diem_dgnl": 1000,
+        "to_hop_mon": "",
+        "chung_chi_ngoai_ngu": {
+          "loai": "IELTS",
+          "diem": 7.5
+        },
+        "thanh_tich": null,
+        "so_thich": null
       },
       "expected": {
-        "status": "fail",
-        "majors_count": 0,
-        "thong_bao_pattern": "chưa đạt ngưỡng",
-        "should_have_suggestions": true
+        "status": "success",
+        "diem_cong_expected": 45,
+        "diem_xet_tuyen_expected": 1045,
+        "phuong_thuc": "dgnl",
+        "should_include_ma_nganh": ["7480101", "7480103", "7480201"]
       }
     },
     {
       "id": "TC006",
-      "name": "Tư vấn ngành học dựa trên sở thích - AI/ML",
-      "category": "forward_chaining",
+      "name": "Forward Chaining - Điểm ĐGNL + Chứng chỉ TOEFL",
+      "category": "comprehensive",
       "input": {
-        "so_thich": ["thich_AI", "thich_ML", "thich_du_lieu"],
-        "diem_thi": 28.0
+        "diem_thi": null,
+        "diem_dgnl": 950,
+        "to_hop_mon": "",
+        "chung_chi_ngoai_ngu": {
+          "loai": "TOEFL iBT",
+          "diem": 95
+        },
+        "thanh_tich": null,
+        "so_thich": null
       },
       "expected": {
         "status": "success",
-        "rules_applied": ["R004"],
-        "should_include": ["7480107", "7340408"],
-        "do_tin_cay_min": 0.85
+        "min_majors": 3,
+        "diem_cong_expected": 40,
+        "diem_xet_tuyen_expected": 990
       }
     },
     {
       "id": "TC007",
-      "name": "Tư vấn ngành học - Lập trình phần mềm",
-      "category": "forward_chaining",
+      "name": "Forward Chaining - Điểm ĐGNL không đủ ngưỡng",
+      "category": "comprehensive",
       "input": {
-        "so_thich": ["thich_lap_trinh", "thich_phat_trien_ung_dung"],
-        "diem_thi": 27.5
+        "diem_thi": null,
+        "diem_dgnl": 550,
+        "to_hop_mon": "",
+        "chung_chi_ngoai_ngu": null,
+        "thanh_tich": null,
+        "so_thich": null
       },
       "expected": {
         "status": "success",
-        "rules_applied": ["R003"],
-        "should_include": ["7480104", "7480201"],
-        "do_tin_cay_min": 0.8
+        "majors_count": 0
       }
     },
     {
       "id": "TC008",
-      "name": "Tư vấn ngành học - An ninh mạng",
-      "category": "forward_chaining",
+      "name": "Forward Chaining - Học bổng: HSG Quốc gia Tin học Nhất",
+      "category": "comprehensive",
       "input": {
-        "so_thich": ["thich_bao_mat", "thich_an_ninh_mang"],
-        "diem_thi": 26.5
+        "diem_thi": 28.0,
+        "diem_dgnl": null,
+        "to_hop_mon": "",
+        "chung_chi_ngoai_ngu": null,
+        "thanh_tich": {
+          "ky_thi": "kỳ thi HSG Quốc gia THPT",
+          "mon_hoc": "Tin học",
+          "giai": "Nhất"
+        },
+        "so_thich": null
       },
       "expected": {
         "status": "success",
-        "rules_applied": ["R005"],
-        "should_include": ["7340405"],
-        "do_tin_cay_min": 0.85
+        "should_include_ma_nganh": ["7480101", "7480103", "7480201"],
+        "should_include_hoc_bong_ids": ["HB001"]
       }
     },
     {
       "id": "TC009",
-      "name": "Kết hợp nhiều luật - Điểm cao + Sở thích AI",
-      "category": "forward_chaining",
+      "name": "Forward Chaining - Học bổng: HSG Quốc gia Toán Nhất",
+      "category": "comprehensive",
       "input": {
-        "so_thich": ["thich_AI", "diem_cao"],
-        "diem_thi": 29.5
+        "diem_thi": 27.5,
+        "diem_dgnl": null,
+        "to_hop_mon": "",
+        "chung_chi_ngoai_ngu": null,
+        "thanh_tich": {
+          "ky_thi": "kỳ thi HSG Quốc gia THPT",
+          "mon_hoc": "Toán",
+          "giai": "Nhất"
+        },
+        "so_thich": null
       },
       "expected": {
         "status": "success",
-        "rules_applied": ["R001", "R004"],
-        "primary_major": "7480107",
-        "do_tin_cay_min": 0.9
+        "should_include_ma_nganh": ["7480101", "7480103", "7480201"],
+        "should_include_hoc_bong_ids": ["HB003"]
       }
     },
     {
       "id": "TC010",
-      "name": "Tìm kiếm FAQ - Ngành điểm cao nhất",
-      "category": "faq",
+      "name": "Forward Chaining - Học bổng: Siêu Cup Olympic Tin học (cúp)",
+      "category": "comprehensive",
       "input": {
-        "tu_khoa": "điểm cao nhất"
+        "diem_thi": 29.0,
+        "diem_dgnl": null,
+        "to_hop_mon": "",
+        "chung_chi_ngoai_ngu": null,
+        "thanh_tich": {
+          "ky_thi": "kỳ thi Siêu Cup - Olympic Tin học Việt Nam",
+          "mon_hoc": "Tin học",
+          "giai": "Vàng"
+        },
+        "so_thich": null
       },
       "expected": {
         "status": "success",
-        "faq_id": "FAQ001",
-        "should_mention_major": "7480107"
+        "should_include_ma_nganh": ["7480101", "7480103", "7480201"],
+        "min_scholarships": 1,
+        "should_include_hoc_bong_ids": ["HB001"]
       }
     },
     {
       "id": "TC011",
-      "name": "Tìm kiếm FAQ - Học phí",
-      "category": "faq",
+      "name": "Forward Chaining - Học bổng: Olympic khu vực/quốc tế Ba",
+      "category": "comprehensive",
       "input": {
-        "tu_khoa": "học phí"
+        "diem_thi": 28.5,
+        "diem_dgnl": null,
+        "to_hop_mon": "",
+        "chung_chi_ngoai_ngu": null,
+        "thanh_tich": {
+          "ky_thi": "kỳ thi Olympic khu vực và quốc tế môn Tin học",
+          "mon_hoc": "Tin học",
+          "giai": "Ba"
+        },
+        "so_thich": null
       },
       "expected": {
         "status": "success",
-        "should_contain": "37.000.000"
+        "should_include_ma_nganh": ["7480101", "7480103", "7480201"],
+        "min_scholarships": 1,
+        "should_include_hoc_bong_ids": ["HB001"]
       }
     },
     {
       "id": "TC012",
-      "name": "Tìm kiếm FAQ không có kết quả",
-      "category": "faq",
+      "name": "Forward Chaining - Học bổng: HSG Quốc gia Lý Nhất",
+      "category": "comprehensive",
       "input": {
-        "tu_khoa": "học phí trường đại học Bách Khoa"
+        "diem_thi": 27.0,
+        "diem_dgnl": null,
+        "to_hop_mon": "",
+        "chung_chi_ngoai_ngu": null,
+        "thanh_tich": {
+          "ky_thi": "kỳ thi HSG Quốc gia THPT",
+          "mon_hoc": "Lý",
+          "giai": "Nhất"
+        },
+        "so_thich": null
       },
       "expected": {
-        "status": "not_found",
-        "should_have_suggestions": true
+        "status": "success",
+        "should_include_ma_nganh": ["7480103", "7480201"],
+        "min_scholarships": 1,
+        "should_include_hoc_bong_ids": ["HB003"]
       }
     },
     {
       "id": "TC013",
-      "name": "Tìm học bổng theo thành tích Olympic Tin học",
-      "category": "hoc_bong",
+      "name": "Forward Chaining - Học bổng: HSG Quốc gia Hoá Nhì",
+      "category": "comprehensive",
       "input": {
-        "thanh_tich": "Giải Nhất Olympic Tin học Quốc gia THPT"
+        "diem_thi": 26.5,
+        "diem_dgnl": null,
+        "to_hop_mon": "",
+        "chung_chi_ngoai_ngu": null,
+        "thanh_tich": {
+          "ky_thi": "kỳ thi HSG Quốc gia THPT",
+          "mon_hoc": "Hoá",
+          "giai": "Nhì"
+        },
+        "so_thich": null
       },
       "expected": {
         "status": "success",
-        "hoc_bong_id": "HB001",
-        "gia_tri_min": 250000000
+        "should_include_ma_nganh": ["7480103"],
+        "min_scholarships": 1,
+        "should_include_hoc_bong_ids": ["HB004"]
       }
     },
     {
       "id": "TC014",
-      "name": "Tìm học bổng theo điểm số cao",
-      "category": "hoc_bong",
+      "name": "Forward Chaining - Học bổng: HSG Quốc gia Anh Văn Nhất",
+      "category": "comprehensive",
       "input": {
-        "diem_thi": 29.0,
-        "loai_hoc_bong": "diem_cao"
+        "diem_thi": 28.0,
+        "diem_dgnl": null,
+        "to_hop_mon": "",
+        "chung_chi_ngoai_ngu": null,
+        "thanh_tich": {
+          "ky_thi": "kỳ thi HSG Quốc gia THPT",
+          "mon_hoc": "Anh Văn",
+          "giai": "Nhất"
+        },
+        "so_thich": null
       },
       "expected": {
         "status": "success",
-        "hoc_bong_id": "HB007",
-        "gia_tri_min": 60000000
+        "should_include_ma_nganh": ["7480101", "7480103", "7480201"],
+        "min_scholarships": 1,
+        "should_include_hoc_bong_ids": ["HB003"]
       }
     },
     {
       "id": "TC015",
-      "name": "Tìm tất cả học bổng có sẵn",
-      "category": "hoc_bong",
+      "name": "Forward Chaining - Điểm cao >= 28 tự động có học bổng Tân sinh viên",
+      "category": "comprehensive",
       "input": {
-        "loai_truy_van": "tat_ca"
+        "diem_thi": 28.5,
+        "diem_dgnl": null,
+        "to_hop_mon": "",
+        "chung_chi_ngoai_ngu": null,
+        "thanh_tich": null,
+        "so_thich": null
       },
       "expected": {
         "status": "success",
-        "min_scholarships": 10
+        "should_include_ma_nganh": ["7480101", "7480103", "7480201"],
+        "should_have_hoc_bong_du_kien": true,
+        "should_include_hoc_bong_ids": ["HB007"]
       }
     },
     {
       "id": "TC016",
-      "name": "Tra cứu thông tin tuyển thẳng",
-      "category": "phuong_thuc_tuyen_sinh",
+      "name": "Forward Chaining - Tổ hợp môn X06 + Điểm cao",
+      "category": "comprehensive",
       "input": {
-        "phuong_thuc": "tuyen_thang"
+        "diem_thi": 29.0,
+        "diem_dgnl": null,
+        "to_hop_mon": "X06",
+        "chung_chi_ngoai_ngu": null,
+        "thanh_tich": null,
+        "so_thich": null
       },
       "expected": {
         "status": "success",
-        "method_id": "PT01",
-        "should_contain": "tuyển thẳng"
+        "should_include_ma_nganh": ["7480101", "7480103", "7480201", "7480106"]
       }
     },
     {
       "id": "TC017",
-      "name": "Tra cứu phương thức ĐGNL",
-      "category": "phuong_thuc_tuyen_sinh",
+      "name": "Forward Chaining - Tổ hợp môn D01 + Điểm trung bình",
+      "category": "comprehensive",
       "input": {
-        "phuong_thuc": "dgnl"
+        "diem_thi": 26.0,
+        "diem_dgnl": null,
+        "to_hop_mon": "D01",
+        "chung_chi_ngoai_ngu": null,
+        "thanh_tich": null,
+        "so_thich": null
       },
       "expected": {
         "status": "success",
-        "method_id": "PT02",
-        "should_contain": "ĐGNL"
+        "should_include_ma_nganh": ["7480103", "7480104"]
       }
     },
     {
       "id": "TC018",
-      "name": "Liệt kê tất cả phương thức tuyển sinh",
-      "category": "phuong_thuc_tuyen_sinh",
+      "name": "Forward Chaining - Điểm ĐGNL + IELTS 7.0 + Tổ hợp môn",
+      "category": "comprehensive",
       "input": {
-        "loai_truy_van": "tat_ca_phuong_thuc"
+        "diem_thi": null,
+        "diem_dgnl": 900,
+        "to_hop_mon": "A00",
+        "chung_chi_ngoai_ngu": {
+          "loai": "IELTS",
+          "diem": 7.0
+        },
+        "thanh_tich": null,
+        "so_thich": null
       },
       "expected": {
         "status": "success",
-        "min_methods": 4
+        "diem_cong_expected": 40,
+        "diem_xet_tuyen_expected": 940,
+        "should_include_ma_nganh": ["7480106", "7480104"]
       }
     },
     {
       "id": "TC019",
-      "name": "Tìm kiếm tổng hợp - Điểm, sở thích, tổ hợp môn",
-      "category": "complex_query",
+      "name": "Forward Chaining - Kịch bản đầy đủ: Điểm + Tổ hợp + Học bổng",
+      "category": "comprehensive",
       "input": {
-        "diem_thi": 27.0,
-        "so_thich": ["thich_lap_trinh"],
+        "diem_thi": 28.5,
+        "diem_dgnl": null,
         "to_hop_mon": "A01",
-        "muc_tieu": "tim_nganh_phu_hop"
+        "chung_chi_ngoai_ngu": null,
+        "thanh_tich": {
+          "ky_thi": "kỳ thi HSG Quốc gia THPT",
+          "mon_hoc": "Tin học",
+          "giai": "Nhất"
+        },
+        "so_thich": null
       },
       "expected": {
         "status": "success",
-        "should_include": ["7480201"],
-        "should_apply_multiple_filters": true
+        "min_majors": 3,
+        "min_scholarships": 1
       }
     },
     {
       "id": "TC020",
-      "name": "Kịch bản hoàn chỉnh - Tư vấn toàn diện",
+      "name": "Forward Chaining - Kịch bản toàn diện: ĐGNL + Chứng chỉ + Học bổng",
       "category": "comprehensive",
       "input": {
-        "thong_tin_ca_nhan": {
-          "diem_thi": 28.5,
-          "diem_dgnl": 1050,
-          "to_hop_mon": "A00",
-          "chung_chi_ngoai_ngu": {
-            "loai": "IELTS",
-            "diem": 7.0
-          },
-          "thanh_tich": "Giải Ba Olympic Tin học tỉnh",
-          "so_thich": ["thich_AI", "thich_du_lieu"]
+        "diem_thi": null,
+        "diem_dgnl": 1050,
+        "to_hop_mon": "",
+        "chung_chi_ngoai_ngu": {
+          "loai": "IELTS",
+          "diem": 7.5
         },
-        "yeu_cau": "tu_van_toan_dien"
+        "thanh_tich": {
+          "ky_thi": "kỳ thi HSG Quốc gia THPT",
+          "mon_hoc": "Toán",
+          "giai": "Nhất"
+        },
+        "so_thich": null
       },
       "expected": {
         "status": "success",
-        "should_have_analysis": true,
-        "should_suggest_majors": true,
-        "should_suggest_scholarships": true,
-        "should_suggest_methods": true,
-        "primary_major": "7480107"
+        "min_majors": 5,
+        "min_scholarships": 1,
+        "diem_cong_expected": 45,
+        "diem_xet_tuyen_expected": 1095,
+        "phuong_thuc": "dgnl",
+        "should_include_hoc_bong_ids": ["HB003"]
       }
     }
   ]

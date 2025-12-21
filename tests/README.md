@@ -2,16 +2,17 @@
 
 ## 📋 Tổng quan
 
-Test suite bao gồm 20 test cases toàn diện để kiểm tra các chức năng của hệ thống tư vấn tuyển sinh, bao gồm:
+Test suite bao gồm **20 test cases** toàn diện để kiểm tra hệ thống Forward Chaining tư vấn tuyển sinh, bao gồm:
 
-- ✅ Tra cứu theo điểm THPT (3 tests)
-- ✅ Tra cứu theo điểm ĐGNL (2 tests)
-- ✅ Forward Chaining - Tư vấn theo sở thích (4 tests)
-- ✅ Tra cứu FAQ (3 tests)
-- ✅ Tra cứu học bổng (3 tests)
-- ✅ Tra cứu phương thức tuyển sinh (3 tests)
-- ✅ Tìm kiếm tổng hợp (1 test)
-- ✅ Tư vấn toàn diện (1 test)
+- ✅ **Forward Chaining với điểm THPT** (4 tests)
+- ✅ **Forward Chaining với điểm ĐGNL + Chứng chỉ** (3 tests)
+- ✅ **Forward Chaining với học bổng** (7 tests)
+- ✅ **Forward Chaining kết hợp đầy đủ** (6 tests)
+
+Tất cả test cases đều sử dụng hàm `comprehensive_consultation()` để kiểm tra quy trình Forward Chaining 3 bước:
+1. **Bước 1**: Lọc theo tổ hợp môn (Rule 1)
+2. **Bước 2**: Lọc theo điểm THPT hoặc ĐGNL + chứng chỉ (Rule 2)
+3. **Bước 3**: Tìm học bổng phù hợp (Rule 3)
 
 ## 🚀 Cách chạy tests
 
@@ -34,85 +35,143 @@ python -m tests.test_runner
 BẮT ĐẦU CHẠY 20 TEST CASES
 ================================================================================
 
-✓ PASS | TC001 - Tìm ngành phù hợp với điểm số cao
-✓ PASS | TC002 - Tìm ngành phù hợp với điểm số trung bình
-✓ PASS | TC003 - Tìm ngành với điểm số thấp
+✓ PASS | TC001 - Forward Chaining - Điểm THPT cao không có tổ hợp môn
+✓ PASS | TC002 - Forward Chaining - Điểm THPT + Tổ hợp môn A00
+✓ PASS | TC003 - Forward Chaining - Điểm THPT + Tổ hợp môn A01
 ...
 
 ================================================================================
 KẾT QUẢ: 18/20 PASS | 2 FAIL
 ================================================================================
 
-Báo cáo chi tiết đã được lưu tại: tests/test_report_20241209_143025.json
+Báo cáo chi tiết đã được lưu tại: tests/test_report_20241221_143025.json
 ```
 
 ## 📊 Chi tiết Test Cases
 
-### PHẦN 1: Tra cứu theo Điểm THPT
+### PHẦN 1: Forward Chaining với Điểm THPT
 
-#### TC001: Điểm cao (29.5)
+#### TC001: Điểm THPT cao không có tổ hợp môn
+- **Input:** `diem_thi: 29.5`, không tổ hợp môn
+- **Expected:** 
+  - Phương thức: `diem_thi_thpt`
+  - Mã ngành: `["7480101", "7480103", "7480201", "75202A1"]`
 
-- **Input:** `diem_thi: 29.5`
-- **Expected:** Tìm thấy ít nhất 10 ngành, bao gồm Trí tuệ Nhân tạo, Kỹ thuật Phần mềm
+#### TC002: Điểm THPT + Tổ hợp môn A00
+- **Input:** `diem_thi: 28.0`, `to_hop_mon: "A00"`
+- **Expected:** 
+  - Mã ngành: `["7480101", "7480103", "7480201"]` (các ngành chấp nhận A00)
 
-#### TC002: Điểm trung bình (26.0)
+#### TC003: Điểm THPT + Tổ hợp môn A01
+- **Input:** `diem_thi: 27.5`, `to_hop_mon: "A01"`
+- **Expected:** 
+  - Mã ngành: `["7480101", "7480103", "7480201"]` (các ngành chấp nhận A01)
 
-- **Input:** `diem_thi: 26.0`
-- **Expected:** Tìm thấy ít nhất 5 ngành phù hợp
+#### TC004: Điểm THPT thấp + Tổ hợp môn
+- **Input:** `diem_thi: 23.0`, `to_hop_mon: "A00"`
+- **Expected:** 
+  - Số lượng ngành: `may_be_zero_or_low` (có thể không có ngành nào đạt)
 
-#### TC003: Điểm thấp (23.5)
+### PHẦN 2: Forward Chaining với Điểm ĐGNL
 
-- **Input:** `diem_thi: 23.5`
-- **Expected:** Không tìm thấy ngành, có gợi ý phương thức khác
+#### TC005: ĐGNL cao + Chứng chỉ IELTS
+- **Input:** `diem_dgnl: 1000`, `IELTS: 7.5`
+- **Expected:** 
+  - Điểm cộng: `45`
+  - Điểm xét tuyển: `1045`
+  - Phương thức: `dgnl`
+  - Mã ngành: `["7480101", "7480103", "7480201"]`
 
-### PHẦN 2: Tra cứu theo ĐGNL
+#### TC006: ĐGNL + Chứng chỉ TOEFL
+- **Input:** `diem_dgnl: 950`, `TOEFL iBT: 95`
+- **Expected:** 
+  - Điểm cộng: `40`
+  - Điểm xét tuyển: `990`
+  - Số lượng ngành tối thiểu: `3`
 
-#### TC004: ĐGNL cao với chứng chỉ ngoại ngữ
-
-- **Input:** `diem_dgnl: 1000, IELTS: 7.5`
-- **Expected:** Cộng điểm ngoại ngữ, đủ điều kiện tất cả ngành
-
-#### TC005: ĐGNL thấp
-
+#### TC007: ĐGNL không đủ ngưỡng
 - **Input:** `diem_dgnl: 550`
-- **Expected:** Không đạt ngưỡng, có gợi ý
+- **Expected:** 
+  - Số lượng ngành: `0` (chưa đạt ngưỡng ≥600)
 
-### PHẦN 3: Forward Chaining
+### PHẦN 3: Forward Chaining với Học bổng
 
-#### TC006: Sở thích AI/ML
+#### TC008: HSG Quốc gia Tin học Nhất
+- **Input:** `diem_thi: 28.0`, `thanh_tich: {ky_thi: "HSG Quốc gia THPT", mon_hoc: "Tin học", giai: "Nhất"}`
+- **Expected:** 
+  - Mã ngành: `["7480101", "7480103", "7480201"]`
+  - Học bổng: `["HB001"]`
 
-- **Input:** `so_thich: [AI, ML, du_lieu], diem: 28.0`
-- **Expected:** Áp dụng luật R004, đề xuất Trí tuệ Nhân tạo, Khoa học Dữ liệu
+#### TC009: HSG Quốc gia Toán Nhất
+- **Input:** `diem_thi: 27.5`, `thanh_tich: {ky_thi: "HSG Quốc gia THPT", mon_hoc: "Toán", giai: "Nhất"}`
+- **Expected:** 
+  - Mã ngành: `["7480101", "7480103", "7480201"]`
+  - Học bổng: `["HB003"]`
 
-#### TC007: Sở thích Lập trình
+#### TC010: Siêu Cup Olympic Tin học (Cúp Vàng)
+- **Input:** `diem_thi: 29.0`, `thanh_tich: {ky_thi: "Siêu Cup - Olympic Tin học Việt Nam", mon_hoc: "Tin học", giai: "Vàng"}`
+- **Expected:** 
+  - Mã ngành: `["7480101", "7480103", "7480201"]`
+  - Học bổng: `["HB001"]` (Vàng map với Nhất)
 
-- **Input:** `so_thich: [lap_trinh], diem: 27.5`
-- **Expected:** Áp dụng luật R003, đề xuất Kỹ thuật Phần mềm, CNTT
+#### TC011: Olympic khu vực/quốc tế Ba
+- **Input:** `diem_thi: 28.5`, `thanh_tich: {ky_thi: "Olympic khu vực và quốc tế môn Tin học", mon_hoc: "Tin học", giai: "Ba"}`
+- **Expected:** 
+  - Mã ngành: `["7480101", "7480103", "7480201"]`
+  - Học bổng: `["HB001"]` (Ba match với "Nhất/Nhì/Ba")
 
-#### TC008: Sở thích An ninh mạng
+#### TC012-TC014: Các học bổng khác
+- **TC012**: HSG Quốc gia Lý Nhất → `["HB003"]`
+- **TC013**: HSG Quốc gia Hoá Nhì → `["HB004"]`
+- **TC014**: HSG Quốc gia Anh Văn Nhất → `["HB003"]`
 
-- **Input:** `so_thich: [bao_mat], diem: 26.5`
-- **Expected:** Áp dụng luật R005, đề xuất An toàn Thông tin
+### PHẦN 4: Forward Chaining Kết hợp
 
-#### TC009: Kết hợp nhiều luật
+#### TC015: Điểm cao tự động có học bổng Tân sinh viên
+- **Input:** `diem_thi: 28.5` (không có thành tích)
+- **Expected:** 
+  - Mã ngành: `["7480101", "7480103", "7480201"]`
+  - Học bổng: `["HB007"]` (tự động với điểm ≥28)
 
-- **Input:** `so_thich: [AI, diem_cao], diem: 29.5`
-- **Expected:** Áp dụng R001 + R004, độ tin cậy cao
+#### TC016: Tổ hợp môn X06 + Điểm cao
+- **Input:** `diem_thi: 29.0`, `to_hop_mon: "X06"`
+- **Expected:** 
+  - Mã ngành: `["7480101", "7480103", "7480201", "7480106"]`
 
-### PHẦN 4-8: Các test cases khác
+#### TC017: Tổ hợp môn D01 + Điểm trung bình
+- **Input:** `diem_thi: 26.0`, `to_hop_mon: "D01"`
+- **Expected:** 
+  - Mã ngành: `["7480103", "7480104"]`
 
-- FAQ: Tìm kiếm câu hỏi thường gặp
-- Học bổng: Tìm theo thành tích, điểm số
-- Phương thức tuyển sinh: Tra cứu thông tin
-- Tìm kiếm tổng hợp: Kết hợp nhiều điều kiện
-- Tư vấn toàn diện: Phân tích và đề xuất chi tiết
+#### TC018: ĐGNL + IELTS + Tổ hợp môn
+- **Input:** `diem_dgnl: 900`, `IELTS: 7.0`, `to_hop_mon: "A00"`
+- **Expected:** 
+  - Điểm cộng: `40`
+  - Điểm xét tuyển: `940`
+  - Mã ngành: `["7480106", "7480104"]`
+
+#### TC019: Kịch bản đầy đủ
+- **Input:** `diem_thi: 28.5`, `to_hop_mon: "A01"`, `thanh_tich: {...}`
+- **Expected:** 
+  - Số lượng ngành tối thiểu: `3`
+  - Số lượng học bổng tối thiểu: `1`
+
+#### TC020: Kịch bản toàn diện
+- **Input:** `diem_dgnl: 1050`, `IELTS: 7.5`, `thanh_tich: {...}`
+- **Expected:** 
+  - Điểm cộng: `45`
+  - Điểm xét tuyển: `1095`
+  - Phương thức: `dgnl`
+  - Số lượng ngành tối thiểu: `5`
+  - Học bổng: `["HB003"]`
 
 ## 🛠️ Cấu trúc Test Suite
 
 ```
 tests/
 ├── test_cases.json       # Định nghĩa 20 test cases
-├── test_runner.py        # Script chạy tests
+├── test_runner.py        # Script chạy tests và validation
+├── README.md             # Tài liệu này
 └── test_report_*.json    # Báo cáo kết quả (auto-generated)
 ```
 
@@ -121,56 +180,96 @@ tests/
 ```json
 {
   "id": "TC001",
-  "name": "Tên test case",
-  "category": "tra_cuu_theo_diem",
+  "name": "Forward Chaining - Điểm THPT cao không có tổ hợp môn",
+  "category": "comprehensive",
   "input": {
     "diem_thi": 29.5,
-    "phuong_thuc": "diem_thi_thpt"
+    "diem_dgnl": null,
+    "to_hop_mon": "",
+    "chung_chi_ngoai_ngu": null,
+    "thanh_tich": null,
+    "so_thich": null
   },
   "expected": {
     "status": "success",
-    "min_majors": 10,
-    "should_include": ["7480107", "7480104"]
+    "phuong_thuc": "diem_thi_thpt",
+    "should_include_ma_nganh": ["7480101", "7480103", "7480201"],
+    "should_include_hoc_bong_ids": ["HB001"],
+    "diem_cong_expected": 40,
+    "diem_xet_tuyen_expected": 940
   }
 }
 ```
+
+### Các trường Expected phổ biến:
+
+- `status`: `"success"` hoặc `"fail"`
+- `phuong_thuc`: `"diem_thi_thpt"` hoặc `"dgnl"`
+- `should_include_ma_nganh`: Mảng các mã ngành phải có trong kết quả
+- `should_include_hoc_bong_ids`: Mảng các mã học bổng phải có
+- `min_majors`: Số lượng ngành tối thiểu
+- `min_scholarships`: Số lượng học bổng tối thiểu
+- `diem_cong_expected`: Điểm cộng mong đợi (từ chứng chỉ)
+- `diem_xet_tuyen_expected`: Điểm xét tuyển sau cộng mong đợi
+- `majors_count`: Số lượng ngành cụ thể hoặc `"may_be_zero_or_low"`
+- `should_have_hoc_bong_du_kien`: `true` nếu phải có học bổng
 
 ## 🔧 Thêm Test Case mới
 
 1. Mở `tests/test_cases.json`
 2. Thêm test case mới vào mảng `tests`
-3. Định nghĩa `input` và `expected` output
-4. Chạy lại test suite
+3. Định nghĩa `input` và `expected` output theo cấu trúc trên
+4. Cập nhật `test_metadata.total_tests`
+5. Chạy lại test suite: `python tests/test_runner.py`
 
 ## 📈 Báo cáo Test
 
 Báo cáo chi tiết được lưu dưới dạng JSON với thông tin:
 
-- Timestamp
-- Tổng số tests
-- Số lượng pass/fail
-- Chi tiết từng test case
-- Error messages (nếu có)
+- **Timestamp**: Thời gian chạy test
+- **Tổng số tests**: Tổng số test cases đã chạy
+- **Số lượng pass/fail**: Thống kê kết quả
+- **Chi tiết từng test case**: 
+  - Input và expected
+  - Output thực tế
+  - Trạng thái pass/fail
+  - Error messages (nếu có)
 
 ## 🐛 Debug Test Failures
 
 Nếu test fail, kiểm tra:
 
-1. **Data mismatch**: Dữ liệu trong `knowledge_base.json` có đúng không?
-2. **Logic error**: Logic trong `rule_based.py` có chính xác không?
-3. **Expected values**: Giá trị expected trong test case có hợp lý không?
+1. **Data mismatch**: 
+   - Dữ liệu trong `knowledge_base/chuyen_nganh.json` có đúng không?
+   - Điểm chuẩn các ngành có thay đổi không?
 
-## 💡 Tips
+2. **Logic error**: 
+   - Logic trong `rule_based.py` có chính xác không?
+   - Forward Chaining 3 bước có hoạt động đúng không?
 
-- Chạy tests sau mỗi lần thay đổi code
-- Giữ coverage ít nhất 80%
-- Thêm test cases cho edge cases
-- Update expected values khi business rules thay đổi
+3. **Expected values**: 
+   - Giá trị expected trong test case có hợp lý không?
+   - Mã ngành/học bổng có tồn tại trong knowledge base không?
 
-## 📞 Hỗ trợ
+4. **Matching logic**:
+   - Logic matching học bổng có đúng không?
+   - Normalize môn học/kỳ thi có hoạt động không?
 
-Nếu gặp vấn đề với test suite, vui lòng:
 
-1. Kiểm tra log output
-2. Xem file test*report*\*.json
-3. Debug từng test case riêng lẻ
+## 🔍 Forward Chaining Process
+
+Hệ thống áp dụng Forward Chaining với 3 bước:
+
+### Bước 1: Lọc theo Tổ hợp môn (Rule 1)
+- Nếu có tổ hợp môn, chỉ giữ các ngành chấp nhận tổ hợp đó
+- Nếu không có, giữ nguyên tất cả ngành
+
+### Bước 2: Lọc theo Điểm (Rule 2)
+- **THPT**: Lọc theo `diem_trung_tuyen` <= điểm thi
+- **ĐGNL**: Tính điểm cộng từ chứng chỉ, lọc theo `diem_trung_tuyen_dgnl` <= điểm xét tuyển
+
+### Bước 3: Tìm Học bổng (Rule 3)
+- Parse thành tích từ input (kỳ thi, môn học, giải)
+- Match với điều kiện học bổng trong knowledge base
+- Xử lý đặc biệt cho Siêu Cup (Vàng/Bạc/Đồng)
+- Tự động thêm HB007 nếu điểm ≥28

@@ -302,6 +302,31 @@ with gr.Blocks(title="Hệ thống Tư vấn Tuyển sinh UIT") as app:
                 value=""
             )
             
+            # Hàm cập nhật dropdown giải dựa trên kỳ thi
+            def update_giai_choices(ky_thi):
+                if ky_thi == "kỳ thi Siêu Cup - Olympic Tin học Việt Nam":
+                    return gr.update(choices=[
+                        ("Chọn giải...", ""),
+                        ("Vàng", "Vàng"),
+                        ("Bạc", "Bạc"),
+                        ("Đồng", "Đồng"),
+                    ], value="")
+                else:
+                    return gr.update(choices=[
+                        ("Chọn giải...", ""),
+                        ("Nhất", "Nhất"),
+                        ("Nhì", "Nhì"),
+                        ("Ba", "Ba"),
+                        ("Khuyến khích", "Khuyến khích"),
+                    ], value="")
+            
+            # Khi kỳ thi thay đổi, cập nhật dropdown giải
+            ky_thi_hb.change(
+                fn=update_giai_choices,
+                inputs=[ky_thi_hb],
+                outputs=[giai_hb]
+            )
+            
             gr.Markdown("#### ⚙️ Tùy chọn")
             top_k = gr.Number(
                 label="Số lượng ngành hiển thị (Top K)",

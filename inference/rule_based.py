@@ -455,11 +455,75 @@ class RuleBasedInference:
             #                 matched = True
             
             matching_conditions = scholarship['dieu_kien']
-            patterns = [ky_thi, mon_hoc, giai]
             for condition in matching_conditions:
-                if all( p.lower() in condition.lower() for p in patterns):
-                    matched=True
-                    print(scholarship.get('ten'))
+                condition_lower = condition.lower()
+                
+                # Kiểm tra kỳ thi và môn học
+                # Normalize kỳ thi: loại bỏ "kỳ thi" ở đầu để match với điều kiện
+                ky_thi_normalized = (ky_thi or '').lower()
+                if ky_thi_normalized.startswith('kỳ thi '):
+                    ky_thi_normalized = ky_thi_normalized.replace('kỳ thi ', '', 1).strip()
+                
+                ky_thi_match = (not ky_thi) or (ky_thi_normalized in condition_lower) or (ky_thi.lower() in condition_lower)
+                
+                # Normalize môn học (xử lý dấu và chữ hoa/thường)
+                mon_hoc_normalized = (mon_hoc or '').lower()
+                mon_hoc_variants = [mon_hoc_normalized]
+                
+                # Xử lý "Hoá" ↔ "Hóa"
+                if 'hoá' in mon_hoc_normalized:
+                    mon_hoc_variants.append(mon_hoc_normalized.replace('hoá', 'hóa'))
+                elif 'hóa' in mon_hoc_normalized:
+                    mon_hoc_variants.append(mon_hoc_normalized.replace('hóa', 'hoá'))
+                
+                # Xử lý "Anh Văn" → cũng match với "Anh"
+                if 'anh văn' in mon_hoc_normalized or 'anh văn' == mon_hoc_normalized:
+                    mon_hoc_variants.append('anh')
+                
+                mon_hoc_match = (not mon_hoc) or any(variant in condition_lower for variant in mon_hoc_variants)
+                
+                # Kiểm tra giải
+                giai_match = False
+                if not giai:
+                    giai_match = True
+                else:
+                    giai_lower = giai.lower()
+                    
+                    # Xử lý đặc biệt cho kỳ thi Siêu Cup: map Vàng/Bạc/Đồng
+                    if ky_thi and 'siêu cup' in ky_thi.lower():
+                        if giai_lower == 'vàng':
+                            giai_to_check = ['nhất', 'vàng']
+                        elif giai_lower == 'bạc':
+                            giai_to_check = ['nhì', 'bạc']
+                        elif giai_lower == 'đồng':
+                            giai_to_check = ['nhì', 'ba', 'đồng']
+                        else:
+                            giai_to_check = [giai_lower]
+                    else:
+                        giai_to_check = [giai_lower]
+                    
+                    # Kiểm tra trực tiếp
+                    for giai_check in giai_to_check:
+                        if giai_check in condition_lower:
+                            giai_match = True
+                            break
+                    
+                    # Xử lý trường hợp "Nhất/Nhì/Ba" hoặc "Đồng/Ba" trong điều kiện
+                    if not giai_match and '/' in condition_lower:
+                        # Tách các phần và kiểm tra từng phần (strip để loại bỏ khoảng trắng)
+                        parts = [p.strip() for p in condition_lower.split('/')]
+                        for part in parts:
+                            for giai_check in giai_to_check:
+                                # Kiểm tra giai_check có trong part hoặc part có trong giai_to_check
+                                if giai_check in part or part in giai_to_check:
+                                    giai_match = True
+                                    break
+                            if giai_match:
+                                break
+                
+                # Nếu tất cả đều match
+                if ky_thi_match and mon_hoc_match and giai_match:
+                    matched = True
                     break
             
             if matched:
