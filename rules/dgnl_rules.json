@@ -1,0 +1,55 @@
+[
+  {
+    "id": "DG001",
+    "veTrai": ["diem_DGNL_1000_tro_len"],
+    "vePhai": [
+      "phuong_thuc_DGNL",
+      "nganh_AI",
+      "nganh_data_science",
+      "nganh_KHMT"
+    ],
+    "mo_ta": "NẾU điểm ĐGNL từ 1000 trở lên THÌ khuyến nghị xét tuyển theo phương thức ĐGNL và ưu tiên các ngành điểm chuẩn ĐGNL rất cao như AI, Khoa học Dữ liệu, Khoa học Máy tính"
+  },
+  {
+    "id": "DG002",
+    "veTrai": ["diem_DGNL_900_999"],
+    "vePhai": ["phuong_thuc_DGNL", "nganh_CNTT", "nganh_KTPM", "nganh_ATTT"],
+    "mo_ta": "NẾU điểm ĐGNL trong khoảng 900–999 THÌ tư vấn xét tuyển ĐGNL vào CNTT, Kỹ thuật Phần mềm, An toàn Thông tin"
+  },
+  {
+    "id": "DG003",
+    "veTrai": ["diem_DGNL_600_899"],
+    "vePhai": ["phuong_thuc_DGNL_kha", "nganh_HTTT", "nganh_MMT", "nganh_TMDT"],
+    "mo_ta": "NẾU điểm ĐGNL trong khoảng 600–899 THÌ vẫn đạt ngưỡng đầu vào ĐGNL và phù hợp với Hệ thống Thông tin, Mạng máy tính, Thương mại Điện tử"
+  },
+  {
+    "id": "DG004",
+    "veTrai": ["diem_DGNL_duoi_600"],
+    "vePhai": ["khong_dat_nguong_DGNL", "goi_y_phuong_thuc_THPT"],
+    "mo_ta": "NẾU điểm ĐGNL dưới 600 THÌ chưa đạt ngưỡng đầu vào, nên tập trung phương thức THPT hoặc tuyển thẳng/ưu tiên"
+  },
+  {
+    "id": "DG005",
+    "veTrai": ["co_IELTS_7.5_tro_len"],
+    "vePhai": ["diem_cong_ngoai_ngu_cao", "uu_tien_phuong_thuc_DGNL"],
+    "mo_ta": "NẾU có IELTS ≥ 7.5 THÌ được cộng tối đa điểm ngoại ngữ và nên ưu tiên xét tuyển theo ĐGNL"
+  },
+  {
+    "id": "DG006",
+    "veTrai": ["co_IELTS_6.0_7.0"],
+    "vePhai": ["diem_cong_ngoai_ngu_trung_binh", "uu_tien_phuong_thuc_DGNL"],
+    "mo_ta": "NẾU có IELTS trong khoảng 6.0–7.0 THÌ được cộng điểm ngoại ngữ mức trung bình và vẫn nên cân nhắc xét tuyển ĐGNL"
+  },
+  {
+    "id": "DG007",
+    "veTrai": ["co_TOEFL_90_tro_len"],
+    "vePhai": ["diem_cong_ngoai_ngu_cao", "uu_tien_phuong_thuc_DGNL"],
+    "mo_ta": "NẾU có TOEFL iBT ≥ 90 THÌ được cộng nhiều điểm ngoại ngữ và phù hợp phương thức ĐGNL"
+  },
+  {
+    "id": "DG008",
+    "veTrai": ["diem_DGNL_cao", "thich_AI_ML"],
+    "vePhai": ["nganh_AI", "nganh_data_science"],
+    "mo_ta": "NẾU điểm ĐGNL cao và thí sinh quan tâm AI/ML THÌ khuyến nghị mạnh các ngành AI và Khoa học Dữ liệu"
+  }
+]

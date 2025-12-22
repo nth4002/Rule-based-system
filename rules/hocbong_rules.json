@@ -1,0 +1,83 @@
+[
+  {
+    "id": "HB_RULE_001",
+    "veTrai": [
+      "giai_olympic_tin_quoc_gia_nhat",
+      "hoac_olympic_tin_quoc_te_nhat"
+    ],
+    "vePhai": ["HB001"],
+    "mo_ta": "NẾU thí sinh đạt giải Nhất Olympic Tin học Quốc gia hoặc Quốc tế THÌ đủ điều kiện nhận học bổng HB001 (Học bổng Olympic Tin học Quốc gia/Quốc tế - Hạng Nhất, 250 triệu)"
+  },
+  {
+    "id": "HB_RULE_002",
+    "veTrai": ["giai_HSG_quoc_gia_tin_nhat"],
+    "vePhai": ["HB001"],
+    "mo_ta": "NẾU thí sinh đạt giải Nhất môn Tin học trong kỳ thi HSG Quốc gia THPT THÌ đủ điều kiện nhận HB001 theo điều kiện \"Đạt giải Nhất môn Tin học trong kỳ thi HSG Quốc gia THPT\""
+  },
+  {
+    "id": "HB_RULE_003",
+    "veTrai": ["giai_sieu_cup_tin_vang"],
+    "vePhai": ["HB001"],
+    "mo_ta": "NẾU thí sinh đạt Cúp Vàng kỳ thi Siêu Cup - Olympic Tin học Việt Nam THÌ được xét HB001 theo điều kiện \"Đạt cúp Vàng, Bạc, Đồng ở kỳ thi Siêu Cup - Olympic Tin học Việt Nam\""
+  },
+  {
+    "id": "HB_RULE_004",
+    "veTrai": ["giai_sieu_cup_tin_bac"],
+    "vePhai": ["HB001", "HB002"],
+    "mo_ta": "NẾU đạt Cúp Bạc Siêu Cup Tin học THÌ có thể được xét cả HB001 (do nhóm Vàng/Bạc/Đồng) và HB002 tùy chính sách cụ thể"
+  },
+  {
+    "id": "HB_RULE_005",
+    "veTrai": ["giai_sieu_cup_tin_dong"],
+    "vePhai": ["HB001", "HB002", "HB004"],
+    "mo_ta": "NẾU đạt Cúp Đồng Siêu Cup Tin học THÌ nằm trong nhóm Vàng/Bạc/Đồng (HB001) và cũng phù hợp điều kiện giải Đồng/Ba (HB002, HB004)"
+  },
+  {
+    "id": "HB_RULE_006",
+    "veTrai": ["giai_olympic_tin_khu_vuc_quoc_te_nhat_nhi_ba"],
+    "vePhai": ["HB001", "HB004"],
+    "mo_ta": "NẾU đạt giải Nhất/Nhì/Ba Olympic khu vực hoặc quốc tế môn Tin học THÌ được xét HB001 (điều kiện Nhất/Nhì/Ba) và HB004 (hạng Ba hoặc Khuyến khích tùy trường hợp)"
+  },
+  {
+    "id": "HB_RULE_007",
+    "veTrai": ["giai_HSG_quoc_gia_toan_ly_hoa_van_anh_nhat"],
+    "vePhai": ["HB003"],
+    "mo_ta": "NẾU thí sinh đạt giải Nhất môn Toán, Lý, Hóa, Văn, Anh văn trong kỳ thi HSG Quốc gia THPT THÌ đủ điều kiện nhận HB003 (Học bổng HSG Quốc gia - Giải Nhất các môn, 160 triệu)"
+  },
+  {
+    "id": "HB_RULE_008",
+    "veTrai": ["giai_HSG_quoc_gia_toan_ly_hoa_van_anh_nhi"],
+    "vePhai": ["HB004"],
+    "mo_ta": "NẾU thí sinh đạt giải Nhì các môn Toán, Lý, Hóa, Văn, Anh văn trong kỳ thi HSG Quốc gia THPT THÌ phù hợp với HB004 (Học bổng HSG Quốc gia/Olympic - Hạng Ba, 120 triệu)"
+  },
+  {
+    "id": "HB_RULE_009",
+    "veTrai": ["giai_HSG_quoc_gia_toan_ly_hoa_van_anh_ba"],
+    "vePhai": ["HB006"],
+    "mo_ta": "NẾU thí sinh đạt giải Ba các môn Toán, Lý, Hóa, Văn, Anh văn trong HSG Quốc gia THPT THÌ đủ điều kiện nhận HB006 (Học bổng HSG Quốc gia - Giải Ba, 60 triệu)"
+  },
+  {
+    "id": "HB_RULE_010",
+    "veTrai": ["giai_HSG_quoc_gia_toan_ly_hoa_van_anh_khuyen_khich"],
+    "vePhai": ["HB007"],
+    "mo_ta": "NẾU thí sinh đạt giải Khuyến khích môn Toán, Lý, Hóa, Văn, Anh văn trong HSG Quốc gia THPT THÌ đủ điều kiện nhận HB007 (Học bổng HSG Quốc gia - Khuyến khích, 40 triệu)"
+  },
+  {
+    "id": "HB_RULE_011",
+    "veTrai": ["giai_HSG_quoc_gia_tin_khuyen_khich"],
+    "vePhai": ["HB005", "HB007"],
+    "mo_ta": "NẾU thí sinh đạt giải Khuyến khích môn Tin học trong HSG Quốc gia THPT THÌ phù hợp với HB005 (HSG/Olympic Tin học - Khuyến khích, 80 triệu) và có thể xét thêm HB007 tùy chính sách"
+  },
+  {
+    "id": "HB_RULE_012",
+    "veTrai": ["giai_olympic_tin_vn_ba"],
+    "vePhai": ["HB005", "HB004"],
+    "mo_ta": "NẾU thí sinh đạt giải Ba kỳ thi Olympic Tin học Việt Nam THÌ phù hợp với HB005 (80 triệu) và đồng thời thỏa điều kiện \"giải Ba\" trong HB004"
+  },
+  {
+    "id": "HB_RULE_013",
+    "veTrai": ["diem_THPT_28_tro_len"],
+    "vePhai": ["HB008"],
+    "mo_ta": "NẾU thí sinh có điểm THPT rất cao (≥ 28) và vào UIT THÌ có khả năng nhận Học bổng khuyến khích học tập HB008 (100–120% học phí) trong quá trình học"
+  }
+]

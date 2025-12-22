@@ -1,0 +1,56 @@
+[
+  {
+    "id": "DT001",
+    "veTrai": ["diem_THPT_29_tro_len"],
+    "vePhai": ["nganh_AI", "nganh_data_science", "nganh_KHMT"],
+    "mo_ta": "NẾU tổng điểm THPT từ 29 trở lên THÌ ưu tiên tư vấn các ngành điểm chuẩn rất cao: Trí tuệ Nhân tạo, Khoa học Dữ liệu, Khoa học Máy tính"
+  },
+  {
+    "id": "DT002",
+    "veTrai": ["diem_THPT_27_28"],
+    "vePhai": ["nganh_CNTT", "nganh_KTPM", "nganh_KHMT"],
+    "mo_ta": "NẾU tổng điểm THPT trong khoảng 27–28 THÌ tư vấn các ngành điểm chuẩn cao: CNTT, Kỹ thuật Phần mềm, Khoa học Máy tính"
+  },
+  {
+    "id": "DT003",
+    "veTrai": ["diem_THPT_25_26"],
+    "vePhai": ["nganh_HTTT", "nganh_MMT", "nganh_TMDT"],
+    "mo_ta": "NẾU tổng điểm THPT trong khoảng 25–26 THÌ gợi ý Hệ thống Thông tin, Mạng máy tính, Thương mại Điện tử"
+  },
+  {
+    "id": "DT004",
+    "veTrai": ["diem_THPT_duoi_24"],
+    "vePhai": ["goi_y_phuong_thuc_DGNL", "goi_y_phuong_thuc_tuyen_thang"],
+    "mo_ta": "NẾU điểm THPT dưới 24 THÌ khuyến nghị xem xét phương thức ĐGNL hoặc tuyển thẳng/ưu tiên xét tuyển thay vì chỉ dựa vào điểm THPT"
+  },
+  {
+    "id": "DT005",
+    "veTrai": ["to_hop_A00"],
+    "vePhai": ["nganh_CNTT", "nganh_KTPM", "nganh_AI", "nganh_KHMT"],
+    "mo_ta": "NẾU thí sinh xét tuyển tổ hợp A00 (Toán, Lý, Hóa) THÌ phù hợp với các ngành thiên về kỹ thuật lõi như CNTT, Kỹ thuật Phần mềm, AI, KHMT"
+  },
+  {
+    "id": "DT006",
+    "veTrai": ["to_hop_D01"],
+    "vePhai": ["nganh_TMDT", "nganh_HTTT", "nganh_multimedia"],
+    "mo_ta": "NẾU thí sinh xét tuyển tổ hợp D01 (Toán, Văn, Anh) THÌ phù hợp với Thương mại Điện tử, Hệ thống Thông tin, Truyền thông đa phương tiện"
+  },
+  {
+    "id": "DT007",
+    "veTrai": ["to_hop_X06"],
+    "vePhai": [
+      "nganh_KTPM",
+      "nganh_KHMT",
+      "nganh_AI",
+      "nganh_KTMT",
+      "nganh_vi_mach"
+    ],
+    "mo_ta": "NẾU thí sinh thi tổ hợp X06 (Toán, Lý, Tin) THÌ phù hợp với các ngành thiên về lập trình và phần cứng: KTPM, KHMT, AI, Kỹ thuật Máy tính, Thiết kế Vi mạch"
+  },
+  {
+    "id": "DT008",
+    "veTrai": ["diem_THPT_cao", "thich_nghien_cuu"],
+    "vePhai": ["nganh_KHMT", "nganh_AI"],
+    "mo_ta": "NẾU điểm THPT cao và thí sinh thích nghiên cứu/thuật toán THÌ ưu tiên gợi ý Khoa học Máy tính hoặc Trí tuệ Nhân tạo"
+  }
+]
