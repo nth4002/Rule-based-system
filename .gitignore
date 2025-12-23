@@ -34,3 +34,4 @@ build/
 .cache/
 .pytest_cache/
 
+tests
