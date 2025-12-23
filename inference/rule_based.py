@@ -762,94 +762,96 @@ class RuleBasedInference:
         phuong_thuc_su_dung = None
         diem_xet_tuyen_cuoi = None
         
-        # Trường hợp 1: Có điểm THPT (ưu tiên nếu có tổ hợp môn)
-        if diem_thi and (to_hop_mon or not diem_dgnl):
-            phuong_thuc_su_dung = 'diem_thi_thpt'
-            diem_xet_tuyen_cuoi = diem_thi
-            
+        # Tính cả 2 phương thức nếu có
+        thpt_candidates = []
+        dgnl_candidates = []
+        diem_cong_dgnl = 0
+        
+        # Tính THPT nếu có
+        if diem_thi:
             for major in candidates:
                 diem_chuan = major.get('diem_trung_tuyen')
                 if diem_chuan is None:
-                    # Nếu không có điểm chuẩn, vẫn giữ lại
-                    final_candidates.append(major)
+                    thpt_candidates.append(major)
                 elif diem_thi >= diem_chuan:
-                    final_candidates.append(major)
-            
-            step2_trace['rule'] = f'Rule 2a: Lọc theo điểm THPT ({diem_thi} điểm)'
-            step2_trace['output'] = {
-                'so_nganh_sau_loc': len(final_candidates),
-                'diem_su_dung': diem_thi,
-                'phuong_thuc': 'Điểm thi THPT'
-            }
-            step2_trace['ket_qua'] = f'Đã lọc từ {len(candidates)} ngành xuống {len(final_candidates)} ngành đạt điểm chuẩn THPT'
+                    thpt_candidates.append(major)
         
-        # Trường hợp 2: Có điểm ĐGNL (nếu không có điểm THPT hoặc điểm ĐGNL tốt hơn)
-        elif diem_dgnl:
-            phuong_thuc_su_dung = 'dgnl'
-            
-            # Tính điểm cộng từ chứng chỉ
-            diem_cong = 0
+        # Tính ĐGNL nếu có
+        diem_xet_tuyen_dgnl = None
+        if diem_dgnl and diem_dgnl >= 600:
             if chung_chi:
                 loai = chung_chi.get('loai', '').upper()
                 diem_cn = chung_chi.get('diem', 0)
-                
                 if loai == 'IELTS':
                     if diem_cn >= 7.5:
-                        diem_cong = 45
+                        diem_cong_dgnl = 45
                     elif diem_cn >= 7.0:
-                        diem_cong = 40
+                        diem_cong_dgnl = 40
                     elif diem_cn >= 6.5:
-                        diem_cong = 30
+                        diem_cong_dgnl = 30
                     elif diem_cn >= 6.0:
-                        diem_cong = 20
+                        diem_cong_dgnl = 20
                 elif loai == 'TOEFL IBT':
                     if diem_cn >= 100:
-                        diem_cong = 45
+                        diem_cong_dgnl = 45
                     elif diem_cn >= 90:
-                        diem_cong = 40
+                        diem_cong_dgnl = 40
                     elif diem_cn >= 80:
-                        diem_cong = 30
+                        diem_cong_dgnl = 30
             
-            diem_xet_tuyen_cuoi = diem_dgnl + diem_cong
-            
-            # Kiểm tra ngưỡng đầu vào
-            if diem_dgnl >= 600:
-                for major in candidates:
-                    diem_chuan_dgnl = major.get('diem_trung_tuyen_dgnl')
-                    if diem_chuan_dgnl is None:
-                        continue
-                    
-                    if diem_xet_tuyen_cuoi >= diem_chuan_dgnl:
-                        final_candidates.append(major)
-                
-                step2_trace['rule'] = f'Rule 2b: Lọc theo điểm ĐGNL ({diem_dgnl} điểm) + chứng chỉ (cộng {diem_cong} điểm) = {diem_xet_tuyen_cuoi} điểm'
-                step2_trace['output'] = {
-                    'so_nganh_sau_loc': len(final_candidates),
-                    'diem_dgnl': diem_dgnl,
-                    'diem_cong': diem_cong,
-                    'diem_xet_tuyen': diem_xet_tuyen_cuoi,
-                    'phuong_thuc': 'ĐGNL + Chứng chỉ'
-                }
-                step2_trace['ket_qua'] = f'Đã lọc từ {len(candidates)} ngành xuống {len(final_candidates)} ngành đạt điểm chuẩn ĐGNL'
-            else:
-                step2_trace['rule'] = f'Rule 2b: Điểm ĐGNL ({diem_dgnl}) chưa đạt ngưỡng đầu vào (≥600 điểm)'
-                step2_trace['output'] = {
-                    'so_nganh_sau_loc': 0,
-                    'diem_dgnl': diem_dgnl,
-                    'phuong_thuc': 'ĐGNL (chưa đạt ngưỡng)'
-                }
-                step2_trace['ket_qua'] = 'Điểm ĐGNL chưa đạt ngưỡng đầu vào, không có ngành nào phù hợp'
+            diem_xet_tuyen_dgnl = diem_dgnl + diem_cong_dgnl
+            for major in candidates:
+                diem_chuan_dgnl = major.get('diem_trung_tuyen_dgnl')
+                if diem_chuan_dgnl is None:
+                    continue
+                if diem_xet_tuyen_dgnl >= diem_chuan_dgnl:
+                    dgnl_candidates.append(major)
         
+        # Chọn phương thức có nhiều ngành hơn
+        if len(thpt_candidates) > len(dgnl_candidates):
+            final_candidates = thpt_candidates
+            phuong_thuc_su_dung = 'diem_thi_thpt'
+            diem_xet_tuyen_cuoi = diem_thi
+            step2_trace['rule'] = f'Rule 2: So sánh THPT ({len(thpt_candidates)} ngành) vs ĐGNL ({len(dgnl_candidates)} ngành) → Chọn THPT'
+            step2_trace['output'] = {
+                'thpt': {'so_nganh': len(thpt_candidates), 'diem': diem_thi},
+                'dgnl': {'so_nganh': len(dgnl_candidates), 'diem_dgnl': diem_dgnl, 'diem_cong': diem_cong_dgnl, 'diem_xet_tuyen': diem_xet_tuyen_dgnl} if diem_dgnl else None,
+                'phuong_thuc_duoc_chon': 'THPT',
+                'so_nganh_sau_loc': len(final_candidates)
+            }
+        elif len(dgnl_candidates) > 0:
+            final_candidates = dgnl_candidates
+            phuong_thuc_su_dung = 'dgnl'
+            diem_xet_tuyen_cuoi = diem_xet_tuyen_dgnl
+            step2_trace['rule'] = f'Rule 2: So sánh THPT ({len(thpt_candidates)} ngành) vs ĐGNL ({len(dgnl_candidates)} ngành) → Chọn ĐGNL'
+            step2_trace['output'] = {
+                'thpt': {'so_nganh': len(thpt_candidates), 'diem': diem_thi} if diem_thi else None,
+                'dgnl': {'so_nganh': len(dgnl_candidates), 'diem_dgnl': diem_dgnl, 'diem_cong': diem_cong_dgnl, 'diem_xet_tuyen': diem_xet_tuyen_dgnl},
+                'phuong_thuc_duoc_chon': 'ĐGNL',
+                'so_nganh_sau_loc': len(final_candidates)
+            }
+        elif len(thpt_candidates) > 0:
+            final_candidates = thpt_candidates
+            phuong_thuc_su_dung = 'diem_thi_thpt'
+            diem_xet_tuyen_cuoi = diem_thi
+            step2_trace['rule'] = f'Rule 2: Chỉ có THPT ({len(thpt_candidates)} ngành)'
+            step2_trace['output'] = {
+                'thpt': {'so_nganh': len(thpt_candidates), 'diem': diem_thi},
+                'dgnl': None,
+                'phuong_thuc_duoc_chon': 'THPT',
+                'so_nganh_sau_loc': len(final_candidates)
+            }
         else:
-            # Không có điểm nào
             final_candidates = candidates
             step2_trace['rule'] = 'Rule 2: Không có điểm để lọc'
             step2_trace['output'] = {
-                'so_nganh_sau_loc': len(final_candidates),
-                'phuong_thuc': 'Không có'
+                'thpt': None,
+                'dgnl': None,
+                'phuong_thuc_duoc_chon': None,
+                'so_nganh_sau_loc': len(final_candidates)
             }
-            step2_trace['ket_qua'] = 'Không có điểm để lọc, giữ nguyên tất cả ngành'
         
+        step2_trace['ket_qua'] = f'Đã lọc từ {len(candidates)} ngành xuống {len(final_candidates)} ngành'
         result['trace'].append(step2_trace)
         
         # Lưu phương thức tốt nhất
@@ -876,10 +878,42 @@ class RuleBasedInference:
                 giai = thanh_tich.get('giai', '')
             else:
                 # Parse từ chuỗi "Giải {giai} {mon_hoc} {ky_thi}"
+                # Format: "Giải Vàng Tin học kỳ thi Siêu Cup - Olympic Tin học Việt Nam"
+                # Cần parse thông minh vì môn học có thể có nhiều từ (Tin học, Anh Văn)
                 parts = thanh_tich.split()
-                giai = parts[1] if len(parts) > 1 else ''
-                mon_hoc = parts[2] if len(parts) > 2 else ''
-                ky_thi = ' '.join(parts[3:]) if len(parts) > 3 else ''
+                if len(parts) >= 2:
+                    giai = parts[1]  # Phần tử thứ 2 sau "Giải"
+                    
+                    # Tìm vị trí bắt đầu của "kỳ thi" để tách môn học và kỳ thi
+                    ky_thi_start_idx = None
+                    for i in range(2, len(parts)):
+                        if parts[i] == 'kỳ' and i + 1 < len(parts) and parts[i + 1] == 'thi':
+                            ky_thi_start_idx = i
+                            break
+                    
+                    if ky_thi_start_idx:
+                        # Môn học là phần giữa giai và kỳ thi
+                        mon_hoc = ' '.join(parts[2:ky_thi_start_idx])
+                        # Kỳ thi là phần từ "kỳ thi" đến cuối
+                        ky_thi = ' '.join(parts[ky_thi_start_idx:])
+                    else:
+                        # Fallback: nếu không tìm thấy "kỳ thi", giả định môn học là 1-2 từ
+                        # và phần còn lại là kỳ thi
+                        if len(parts) >= 4:
+                            # Thử với môn học 1 từ
+                            mon_hoc = parts[2]
+                            ky_thi = ' '.join(parts[3:])
+                        elif len(parts) >= 5:
+                            # Thử với môn học 2 từ (Tin học, Anh Văn)
+                            mon_hoc = ' '.join(parts[2:4])
+                            ky_thi = ' '.join(parts[4:])
+                        else:
+                            mon_hoc = parts[2] if len(parts) > 2 else ''
+                            ky_thi = ' '.join(parts[3:]) if len(parts) > 3 else ''
+                else:
+                    giai = ''
+                    mon_hoc = ''
+                    ky_thi = ''
             
             # Tìm học bổng phù hợp
             input_data = {
@@ -898,14 +932,27 @@ class RuleBasedInference:
                         'xac_suat_nhan': 'Cao' if hb.get('id') in ['HB001', 'HB002', 'HB003', 'HB004'] else 'Trung bình'
                     })
                 
-                step3_trace['rule'] = f'Rule 3: Tìm học bổng theo thành tích ({thanh_tich})'
+                step3_trace['rule'] = 'Rule 3: Tìm học bổng theo thành tích'
+                step3_trace['input'] = {
+                    'thanh_tich_raw': thanh_tich,
+                    'ky_thi_parsed': ky_thi,
+                    'mon_hoc_parsed': mon_hoc,
+                    'giai_parsed': giai
+                }
                 step3_trace['output'] = {
                     'so_hoc_bong_tim_duoc': len(result['hoc_bong_du_kien']),
-                    'danh_sach_hoc_bong': [hb['ten'] for hb in result['hoc_bong_du_kien']]
+                    'danh_sach_hoc_bong': [hb['ten'] for hb in result['hoc_bong_du_kien']],
+                    'ma_hoc_bong': [hb['id'] for hb in result['hoc_bong_du_kien']]
                 }
                 step3_trace['ket_qua'] = f'Tìm thấy {len(result["hoc_bong_du_kien"])} học bổng phù hợp với thành tích'
             else:
-                step3_trace['rule'] = f'Rule 3: Không tìm thấy học bổng phù hợp với thành tích ({thanh_tich})'
+                step3_trace['rule'] = 'Rule 3: Không tìm thấy học bổng phù hợp với thành tích'
+                step3_trace['input'] = {
+                    'thanh_tich_raw': thanh_tich,
+                    'ky_thi_parsed': ky_thi,
+                    'mon_hoc_parsed': mon_hoc,
+                    'giai_parsed': giai
+                }
                 step3_trace['output'] = {
                     'so_hoc_bong_tim_duoc': 0
                 }

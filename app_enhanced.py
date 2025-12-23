@@ -159,7 +159,7 @@ def reset_form():
         gr.update(value=""),        # ky_thi_hb
         gr.update(value="Tin học"), # mon_hoc_hb
         gr.update(value=""),        # giai_hb
-        gr.update(value=10),        # top_k
+        gr.update(value=3),        # top_k
         gr.update(value="")         # output_all
     )
 
@@ -332,7 +332,7 @@ with gr.Blocks(title="Hệ thống Tư vấn Tuyển sinh UIT") as app:
                 label="Số lượng ngành hiển thị (Top K)",
                 minimum=1,
                 maximum=100,
-                value=10,
+                value=3,
                 step=1,
                 info="Nhập số lượng ngành muốn xem (để trống hoặc 0 để xem tất cả)"
             )
